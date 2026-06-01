@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="nowa - now available. Die Plattform für Hotels, Pensionen und Apartments in Südtirol, um kurzfristig freie Zimmer sichtbar zu machen.">
+  <title>nowa - now available</title>
+
+  <style>
+    :root {
+      --bg: #f7f3ec;
+      --bg-soft: #efe6d8;
+      --surface: rgba(255, 255, 255, 0.88);
+      --surface-strong: #ffffff;
+      --text: #1d1711;
+      --muted: #665d54;
+      --line: rgba(29, 23, 17, 0.1);
+      --accent: #dd8441;
+      --accent-dark: #b96324;
+      --forest: #2c4a43;
+      --shadow: 0 18px 48px rgba(29, 23, 17, 0.08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(182, 108, 60, 0.08), transparent 28%),
+        linear-gradient(180deg, #fbf8f3 0%, var(--bg) 52%, #f2ece3 100%);
+      line-height: 1.55;
+    }
+
+    h1, h2, h3, .brand-mark {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: -0.03em;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2.1rem, 4vw, 3.35rem);
+      line-height: 0.98;
+      margin-bottom: 12px;
+    }
+
+    .section-head p {
+      margin: 0;
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+      background: rgba(247, 243, 236, 0.86);
+      border-bottom: 1px solid rgba(29, 23, 17, 0.08);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand-mark {
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .brand-mark .accent {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .brand-inline {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .brand-inline .accent {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .brand-tagline {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .nav-links a,
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover,
+    .mobile-menu a:hover {
+      color: var(--accent-dark);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 10px 28px rgba(182, 108, 60, 0.24);
+    }
+
+    .btn-secondary {
+      background: rgba(20, 20, 20, 0.18);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.46);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--text);
+      border-color: rgba(29, 23, 17, 0.1);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-ghost:hover {
+      transform: translateY(-1px);
+    }
+
+    .hamburger {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(29, 23, 17, 0.12);
+      background: rgba(255, 255, 255, 0.6);
+      color: var(--text);
+    }
+
+    .mobile-menu {
+      display: none;
+      padding: 0 0 18px;
+    }
+
+    .mobile-menu.open {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mobile-menu a {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(29, 23, 17, 0.08);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 94vh;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.52) saturate(0.95);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(16, 16, 16, 0.8) 0%, rgba(16, 16, 16, 0.35) 48%, rgba(44, 74, 67, 0.16) 100%),
+        linear-gradient(180deg, rgba(16, 16, 16, 0.15) 0%, rgba(16, 16, 16, 0.72) 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(360px, 0.8fr);
+      gap: 76px;
+      align-items: center;
+      padding: 98px 0 52px;
+    }
+
+    .hero-copy {
+      max-width: 500px;
+    }
+
+    .hero-copy h1 {
+      display: grid;
+      gap: 0.02em;
+      max-width: 8.2ch;
+      font-size: clamp(2.45rem, 4.4vw, 3.8rem);
+      line-height: 0.94;
+      margin-bottom: 22px;
+    }
+
+    .hero-copy h1 span {
+      display: block;
+    }
+
+    .hero-copy p {
+      margin: 0 0 24px;
+      max-width: 560px;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .hero-point {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.62);
+    }
+
+    .card,
+    .faq-wrap,
+    .form-card,
+    .mock-card,
+    .step {
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .trust-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 0;
+    }
+
+    .trust-dot {
+      width: 10px;
+      height: 10px;
+      margin-top: 7px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 16px;
+      align-self: center;
+      padding-top: 52px;
+      justify-items: end;
+    }
+
+    .mock-card {
+      width: min(100%, 640px);
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.94);
+      border-color: rgba(221, 132, 65, 0.16);
+      color: var(--text);
+    }
+
+    .mock-image {
+      height: 190px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mock-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mock-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--forest);
+    }
+
+    .mock-body {
+      padding: 22px;
+    }
+
+    .mock-meta {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 8px;
+    }
+
+    .mock-title {
+      font-size: 28px;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .mock-subtitle {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .mock-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .mock-row span {
+      color: var(--muted);
+    }
+
+    .mock-row strong {
+      color: var(--text);
+    }
+
+    .mock-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .mock-actions .btn-primary {
+      width: 100%;
+    }
+
+    .hero-aside {
+      display: grid;
+      gap: 12px;
+      padding: 2px 4px 0;
+    }
+
+    .hero-aside h3 {
+      margin: 0;
+      font-size: 23px;
+      color: #fff;
+    }
+
+    .hero-aside p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 15px;
+      max-width: 420px;
+    }
+
+    .trust-list-inline {
+      display: grid;
+      gap: 10px;
+    }
+
+    .grid-3,
+    .grid-4,
+    .steps-grid,
+    .benefits-grid,
+    .comparison-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-4,
+    .benefits-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .grid-3,
+    .comparison-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card,
+    .step {
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .card h3,
+    .step h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .problem-layout,
+    .solution-layout,
+    .faq-layout,
+    .form-layout,
+    .closing-layout,
+    .comparison-layout {
+      display: grid;
+      gap: 24px;
+    }
+
+    .problem-layout,
+    .solution-layout,
+    .faq-layout,
+    .form-layout,
+    .comparison-layout {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      align-items: start;
+    }
+
+    .problem-statement,
+    .closing-panel {
+      border-radius: 28px;
+      padding: 30px;
+      background: linear-gradient(180deg, var(--forest) 0%, #243a34 100%);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .problem-statement h3,
+    .closing-panel h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin-bottom: 12px;
+    }
+
+    .problem-statement p,
+    .closing-panel p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 16px;
+    }
+
+    .mini-points {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .mini-point {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 14px;
+    }
+
+    .mini-point .trust-dot {
+      background: #fff;
+    }
+
+    .image-stack {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 14px;
+    }
+
+    .image-card {
+      min-height: 220px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-card.tall {
+      min-height: 430px;
+    }
+
+    .stack-col {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      background: var(--forest);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .steps-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .benefits-grid .card {
+      min-height: 190px;
+    }
+
+    .comparison-panel {
+      padding: 4px 0 0;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .comparison-row:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .comparison-side {
+      display: grid;
+      gap: 6px;
+    }
+
+    .comparison-side strong {
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+    }
+
+    .comparison-side p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 18px;
+      padding-top: 6px;
+    }
+
+    .feature-item {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .feature-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .feature-dot {
+      width: 10px;
+      height: 10px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .feature-item h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .feature-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .faq-wrap,
+    .form-card {
+      border-radius: 28px;
+      padding: 28px;
+    }
+
+    .faq-item + .faq-item {
+      border-top: 1px solid rgba(29, 23, 17, 0.1);
+    }
+
+    .faq-btn {
+      width: 100%;
+      padding: 18px 0;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font: inherit;
+      font-weight: 700;
+      text-align: left;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .faq-icon {
+      color: var(--accent);
+      font-size: 24px;
+      transition: transform 0.18s ease;
+    }
+
+    .faq-btn.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-body {
+      display: none;
+      padding: 0 0 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .faq-body.open {
+      display: block;
+    }
+
+    .trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .trust-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(221, 132, 65, 0.1);
+      border: 1px solid rgba(221, 132, 65, 0.12);
+      font-size: 13px;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(29, 23, 17, 0.12);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--text);
+      font: inherit;
+    }
+
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: 2px solid rgba(182, 108, 60, 0.18);
+      border-color: var(--accent);
+    }
+
+    .success {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(44, 74, 67, 0.12);
+      border: 1px solid rgba(44, 74, 67, 0.16);
+      color: var(--forest);
+      font-weight: 600;
+    }
+
+    footer {
+      padding: 40px 0 54px;
+      background: #1d1711;
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer-grid a {
+      color: rgba(255, 255, 255, 0.62);
+      text-decoration: none;
+    }
+
+    .footer-grid a:hover {
+      color: #fff;
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.42);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-inner,
+      .problem-layout,
+      .solution-layout,
+      .faq-layout,
+      .form-layout,
+      .comparison-layout,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-4,
+      .benefits-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .section {
+        padding: 68px 0;
+      }
+
+      .nav-links,
+      .nav-actions .btn-primary {
+        display: none;
+      }
+
+      .hamburger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        padding: 78px 0 36px;
+      }
+
+      .hero-side {
+        padding-top: 0;
+        justify-items: stretch;
+      }
+
+      .hero-actions,
+      .hero-points,
+      .trust-strip {
+        gap: 10px;
+      }
+
+      .grid-4,
+      .grid-3,
+      .steps-grid,
+      .benefits-grid,
+      .form-grid,
+      .image-stack {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-row {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        width: min(1160px, calc(100% - 28px));
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Hauptnavigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="brand" aria-label="nowa Startseite">
+          <span class="brand-mark">n<span class="accent">owa</span></span>
+          <span class="brand-tagline">now available</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#problem">Problem</a>
+          <a href="#solution">Lösung</a>
+          <a href="#process">So funktioniert's</a>
+          <a href="#faq">FAQ</a>
+        </div>
+
+        <div class="nav-actions">
+          <a href="#apply" class="btn-primary">Betrieb vormerken</a>
+          <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">Menü</button>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobile-nav" aria-hidden="true">
+        <a href="#problem">Problem</a>
+        <a href="#solution">Lösung</a>
+        <a href="#process">So funktioniert's</a>
+        <a href="#faq">FAQ</a>
+        <a href="#apply" class="btn-primary">Betrieb vormerken</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero" aria-label="Hero">
+    <img class="hero-media" src="sixteen-miles-out-bdVmIkx_gIs-unsplash.jpg" alt="Hochwertiges Hotelzimmer">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow" style="color: rgba(255,255,255,0.72);">Start in Südtirol, gedacht für mehr</span>
+        <h1>
+          <span>Verwandeln</span>
+          <span>Sie kurzfristig</span>
+          <span>freie</span>
+          <span>Hotelangebote</span>
+          <span>in neue</span>
+          <span>Buchungschancen.</span>
+        </h1>
+        <p>
+          Mit <span class="brand-inline">n<span class="accent">owa</span></span> machen Hotels, Pensionen und Apartments kurzfristig freie Angebote sichtbar -
+          von Zimmern über Spa-Zeiten bis zu Packages. Einfach, schnell und zum Start mit klarem Fokus auf Südtirol.
+        </p>
+        <div class="hero-points">
+          <span class="hero-point">Zimmer, Spa, Packages</span>
+          <span class="hero-point">Startregion Südtirol</span>
+          <span class="hero-point">volle Kontrolle</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#apply" class="btn-primary">Kostenlos als Partner starten</a>
+          
+        </div>
+        <div class="hero-note">Für Hotels, Pensionen, Apartments und touristische Betriebe mit freien Kapazitäten.</div>
+      </div>
+
+      <div class="hero-side">
+        <div class="mock-card" id="mockup" aria-label="Beispielangebot">
+          <div class="mock-image">
+            <img src="roman-mLPNw6L5t5o-unsplash.jpg" alt="Zimmeransicht eines Hotels">
+            <div class="mock-badge">heute verfügbar</div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-meta">Beispiel-Angebot</div>
+            <div class="mock-title">Spa &amp; Stay heute verfügbar</div>
+            <p class="mock-subtitle">Hotel Beispielhof · Brixen</p>
+            <div class="mock-row">
+              <span>gültig bis 18:00 Uhr</span>
+              <strong>ab 129 EUR</strong>
+            </div>
+            <div class="mock-row">
+              <span>Zimmer oder Spa-Package</span>
+              <strong>begrenzt verfügbar</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-aside">
+          <span class="eyebrow" style="color: rgba(255,255,255,0.74);">Warum <span class="brand-inline" style="color:#fff;">n<span class="accent">owa</span></span></span>
+          <h3>Kein Rabattportal. Sondern ein klarer Kanal für kurzfristig frei.</h3>
+          <p><span class="brand-inline" style="color:#fff;">n<span class="accent">owa</span></span> startet regional, bleibt fokussiert und ist von Anfang an größer gedacht.</p>
+          <div class="trust-list-inline">
+            <div class="trust-item"><span class="trust-dot"></span><span>Preis, Zeitraum und Anzahl bleiben beim Betrieb.</span></div>
+            <div class="trust-item"><span class="trust-dot"></span><span>Keine komplizierten Kampagnen für spontane Aktionen.</span></div>
+            <div class="trust-item"><span class="trust-dot"></span><span>Entwickelt mit Blick auf reale Alltagsprobleme in der Südtiroler Hotellerie.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="problem">
+    <div class="container problem-layout">
+      <div class="section-head" style="margin-bottom: 0;">
+        <span class="eyebrow">Das Problem</span>
+        <h2>Ein freies Zimmer von heute ist morgen verlorener Umsatz.</h2>
+        <p>
+          Kurzfristige Stornierungen, freie Zimmer unter der Woche, Lücken in der Nebensaison
+          oder spontane Restkapazitäten sind in vielen Betrieben Alltag. Oft sind diese Verfügbarkeiten
+          auf der eigenen Website kaum sichtbar und spontane Aktionen kosten zu viel Zeit.
+        </p>
+      </div>
+
+      <div class="problem-statement">
+        <h3>Kurzfristig frei. Zu spät sichtbar.</h3>
+        <p>Genau dort setzt <span class="brand-inline" style="color:#fff;">n<span class="accent">owa</span></span> an: freie Kapazitäten können schnell, klar und zeitlich begrenzt sichtbar gemacht werden.</p>
+        <div class="mini-points">
+          <div class="mini-point"><span class="trust-dot"></span><span>Stornierungen lassen kurzfristig Lücken im Belegungsplan.</span></div>
+          <div class="mini-point"><span class="trust-dot"></span><span>Schwächere Tage bleiben oft unter Potenzial.</span></div>
+          <div class="mini-point"><span class="trust-dot"></span><span>Klassische Plattformen sind nicht auf spontane Verfügbarkeit spezialisiert.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="solution" style="background: var(--bg-soft);">
+    <div class="container solution-layout">
+      <div>
+        <div class="section-head" style="margin-bottom: 0;">
+          <span class="eyebrow">Die Lösung</span>
+          <h2><span class="brand-inline">n<span class="accent">owa</span></span> bringt kurzfristige Verfügbarkeiten dorthin, wo spontane Gäste danach suchen.</h2>
+          <p>
+            Betriebe stellen kurzfristige Angebote schnell online, begrenzen sie zeitlich
+            und behalten die volle Kontrolle über Preis, Zeitraum und Verfügbarkeit.
+          </p>
+        </div>
+
+        <div class="trust-strip">
+          <span class="trust-pill">Angebote schnell erstellen</span>
+          <span class="trust-pill">zeitlich begrenzen</span>
+          <span class="trust-pill">Anfragen oder Buchungen erhalten</span>
+        </div>
+      </div>
+
+      <div class="image-stack">
+        <div class="image-card tall">
+          <img src="antonio-araujo-xX0MKVVhHR4-unsplash.jpg" alt="Poolbereich eines Wellnesshotels">
+        </div>
+        <div class="stack-col">
+          <div class="image-card">
+            <img src="alessio-zaccaria-PMg8bbSjaig-unsplash.jpg" alt="Hochwertiger Hotelbereich">
+          </div>
+          <div class="image-card">
+            <img src="gokul-gurung-N3Ll8c2uLgE-unsplash.jpg" alt="Ruhiger Spa-Raum">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">So funktioniert's</span>
+        <h2>In wenigen Minuten von freier Kapazität zu sichtbarem Angebot.</h2>
+        <p>Die Idee soll einfach sein: schnell einstellen, sichtbar werden, direkt reagieren können.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Angebot erstellen</h3>
+          <p>Bild, Preis, Zeitraum und Verfügbarkeit angeben. Ziel: in unter 2 Minuten startklar.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Auf nowa sichtbar werden</h3>
+          <p>Das Angebot erscheint für Nutzer, die kurzfristig nach verfügbaren Aufenthalten suchen.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Anfrage oder Buchung erhalten</h3>
+          <p>Interessierte Gäste können direkt anfragen oder buchen, je nach gewähltem Modell.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="benefits" style="background: var(--bg-soft);">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Vorteile für Partner</span>
+        <h2>Alles auf einen Blick. Ohne unnötige Komplexität.</h2>
+        <p>nowa soll Partnerbetrieben helfen, freie Kapazitäten besser sichtbar zu machen - klar, hochwertig und kontrolliert.</p>
+      </div>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="feature-dot"></span>
+          <div>
+            <h3>Freie Zimmer schnell sichtbar machen</h3>
+            <p>Kurzfristige Verfügbarkeiten werden dort sichtbar, wo spontane Nachfrage entstehen kann.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-dot"></span>
+          <div>
+            <h3>Preis, Zeitraum und Verfügbarkeit selbst steuern</h3>
+            <p>Der Betrieb behält die volle Kontrolle und kann Angebote flexibel anpassen oder deaktivieren.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-dot"></span>
+          <div>
+            <h3>Ohne kompliziertes Kampagnenmanagement arbeiten</h3>
+            <p>Kein schweres Setup, keine unnötigen Zwischenschritte, kein Überladen mit Funktionen.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-dot"></span>
+          <div>
+            <h3>Regional, hochwertig und erweiterbar bleiben</h3>
+            <p><span class="brand-inline">n<span class="accent">owa</span></span> startet fokussiert auf Hotellerie und ist später für weitere kurzfristig verfügbare Angebote vorbereitet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="comparison">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Einordnung</span>
+        <h2>Klassische Buchungsplattformen zeigen alles. <span class="brand-inline">n<span class="accent">owa</span></span> zeigt, was kurzfristig verfügbar ist.</h2>
+        <p><span class="brand-inline">n<span class="accent">owa</span></span> ist als zusätzlicher Kanal gedacht - nicht als Ersatz für Website, Booking oder Channel Manager.</p>
+      </div>
+
+      <div class="comparison-layout">
+        <div class="problem-statement">
+          <h3>Kein Entweder-oder.</h3>
+          <p><span class="brand-inline" style="color:#fff;">n<span class="accent">owa</span></span> ergänzt bestehende Kanäle um einen klaren Fokus auf kurzfristige Verfügbarkeit.</p>
+        </div>
+        <div class="comparison-panel">
+          <div class="comparison-row">
+            <div class="comparison-side">
+              <strong>Klassische Plattformen</strong>
+              <p>zeigen das gesamte Angebot eines Betriebs.</p>
+            </div>
+            <div class="comparison-side">
+              <strong><span class="brand-inline">n<span class="accent">owa</span></span></strong>
+              <p>zeigt gezielt, was kurzfristig frei und relevant ist.</p>
+            </div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-side">
+              <strong>Klassische Plattformen</strong>
+              <p>sind für allgemeine Buchungssuche gedacht.</p>
+            </div>
+            <div class="comparison-side">
+              <strong><span class="brand-inline">n<span class="accent">owa</span></span></strong>
+              <p>setzt auf spontane Buchungschancen, Restkapazitäten und Last-Minute-Sichtbarkeit.</p>
+            </div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-side">
+              <strong>Wichtig</strong>
+              <p>Website, Booking und Channel Manager bleiben bestehen.</p>
+            </div>
+            <div class="comparison-side">
+              <strong>Rolle von <span class="brand-inline">n<span class="accent">owa</span></span></strong>
+              <p>ein zusätzlicher, fokussierter Kanal für kurzfristig freie Kapazitäten.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="trust" style="background: var(--bg-soft);">
+    <div class="container closing-layout">
+      <div class="section-head" style="margin-bottom: 0;">
+        <span class="eyebrow">Vertrauen und Seriosität</span>
+        <h2>Für Südtiroler Betriebe entwickelt. Klar, regional und partnerorientiert.</h2>
+        <p>Gerade weil <span class="brand-inline">n<span class="accent">owa</span></span> neu ist, muss die Plattform Vertrauen schaffen: transparente Nutzung, klare Kontrolle und ein hochwertiger Auftritt - mit Start in Südtirol, aber nicht nur dafür gedacht.</p>
+      </div>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="feature-dot"></span>
+          <div>
+            <h3>Direkt für Betriebe gedacht</h3>
+            <p>Die Seite richtet sich klar an Hotels, Pensionen, Apartments und kleinere touristische Betriebe.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-dot"></span>
+          <div>
+            <h3>Angebote flexibel steuerbar</h3>
+            <p>Angebote können angepasst, begrenzt oder deaktiviert werden. Der Betrieb behält die Kontrolle.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-dot"></span>
+          <div>
+            <h3>Weiter gedacht, aber nicht überladen</h3>
+            <p>später erweiterbar auf Wellness, Gastronomie und Dienstleistungen - aktuell aber klar auf Hotellerie fokussiert.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container faq-layout">
+      <div class="section-head" style="margin-bottom: 0;">
+        <span class="eyebrow">FAQ</span>
+        <h2>Die wichtigsten Fragen auf einen Blick.</h2>
+        <p>Kurz und klar, damit ein Partnerbetrieb den Sinn sofort versteht.</p>
+      </div>
+
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">Was ist nowa?<span class="faq-icon">+</span></button>
+          <div class="faq-body"><span class="brand-inline">n<span class="accent">owa</span></span> ist eine Plattform für kurzfristig verfügbare Angebote. Aktuell liegt der Fokus auf Hotelbetrieben mit freien Zimmern, Stornierungen oder Restkapazitäten.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">Für welche Betriebe ist nowa geeignet?<span class="faq-icon">+</span></button>
+          <div class="faq-body">Für Hotels, Pensionen, Apartments, Garni-Betriebe und touristische Anbieter mit kurzfristig verfügbaren Kapazitäten.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">Muss ich Rabatte geben?<span class="faq-icon">+</span></button>
+          <div class="faq-body">Nein. Der Betrieb behält die Kontrolle über Preis und Angebot. Ein attraktiver Preis kann helfen, ist aber nicht als Billigangebot gedacht.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">Kann ich Angebote jederzeit deaktivieren?<span class="faq-icon">+</span></button>
+          <div class="faq-body">Ja. Angebote sollen zeitlich begrenzt und flexibel deaktivierbar sein.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">Ist Direktbuchung Pflicht?<span class="faq-icon">+</span></button>
+          <div class="faq-body">Nein. Je nach Entwicklungsstand kann <span class="brand-inline">n<span class="accent">owa</span></span> mit Anfrage, Reservierung oder später Direktbuchung funktionieren.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">Was kostet nowa?<span class="faq-icon">+</span></button>
+          <div class="faq-body">In der Startphase können ausgewählte Partnerbetriebe <span class="brand-inline">n<span class="accent">owa</span></span> testen. Die finalen Konditionen werden transparent kommuniziert.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">Wie schnell kann ein Angebot online sein?<span class="faq-icon">+</span></button>
+          <div class="faq-body">Die Angebotserstellung soll einfach und schnell funktionieren. Ziel ist, kurzfristige Verfügbarkeiten in wenigen Minuten sichtbar zu machen.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">Ersetzt nowa meine Website oder Booking.com?<span class="faq-icon">+</span></button>
+          <div class="faq-body">Nein. <span class="brand-inline">n<span class="accent">owa</span></span> ist als zusätzlicher Kanal für kurzfristige Verfügbarkeiten gedacht.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="apply" style="background: var(--bg-soft);">
+    <div class="container form-layout">
+      <div class="closing-panel">
+        <h2>Machen Sie kurzfristige Verfügbarkeiten sichtbar, bevor sie ungenutzt bleiben.</h2>
+        <p>Starten Sie mit <span class="brand-inline" style="color:#fff;">n<span class="accent">owa</span></span> und testen Sie einen neuen, einfachen Kanal für spontane Buchungschancen.</p>
+        <div class="mini-points">
+          <div class="mini-point"><span class="trust-dot"></span><span>regionaler Fokus auf Südtirol</span></div>
+          <div class="mini-point"><span class="trust-dot"></span><span>hochwertiger Partnerauftritt statt Billigplattform</span></div>
+          <div class="mini-point"><span class="trust-dot"></span><span>geeignet für Stornierungen, Restkapazitäten und schwächere Tage</span></div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <form id="partner-form" action="#" method="post" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="hotel-name">Betrieb</label>
+              <input id="hotel-name" name="hotel_name" type="text" placeholder="z. B. Hotel Alpenruhe" required>
+            </div>
+            <div class="field">
+              <label for="contact-name">Ansprechpartner</label>
+              <input id="contact-name" name="contact_name" type="text" placeholder="Vor- und Nachname" required>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="email">E-Mail</label>
+              <input id="email" name="email" type="email" placeholder="kontakt@betrieb.it" required>
+            </div>
+            <div class="field">
+              <label for="phone">Telefon</label>
+              <input id="phone" name="phone" type="tel" placeholder="+39 ..." autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="business-type">Betriebsart</label>
+              <select id="business-type" name="business_type" required>
+                <option value="" selected disabled>Bitte wählen</option>
+                <option value="hotel">Hotel</option>
+                <option value="pension">Pension</option>
+                <option value="apartment">Apartment</option>
+                <option value="garni">Garni</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="region">Ort / Region</label>
+              <input id="region" name="region" type="text" placeholder="z. B. Brixen, Meran, Bozen" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="availability">Welche freien Kapazitäten möchten Sie testen?</label>
+            <textarea id="availability" name="availability" placeholder="z. B. kurzfristig freie Zimmer, Midweek-Lücken, Stornierungen ..."></textarea>
+          </div>
+
+          <button id="form-submit" type="submit" class="btn-primary" style="width: 100%;">Betrieb vormerken</button>
+          <div class="success" id="form-success">Danke. Ihre Anfrage ist vorgemerkt und wir melden uns persönlich zurück.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-mark" style="color:#fff;">n<span class="accent">owa</span></div>
+          <div class="brand-tagline" style="color: rgba(255,255,255,0.48); margin-top: 8px;">now available</div>
+          <p style="max-width: 340px; color: rgba(255,255,255,0.54);">Kurzfristige Verfügbarkeiten sichtbar machen - einfach, regional und partnerorientiert.</p>
+        </div>
+        <div style="display:grid;gap:10px;">
+          <a href="#problem">Problem</a>
+          <a href="#solution">Lösung</a>
+          <a href="#process">So funktioniert's</a>
+          <a href="#apply">Partner werden</a>
+        </div>
+        <div>
+          <div style="font-size: 13px; font-weight: 700; margin-bottom: 10px; color: #fff;">Startregion</div>
+          <p style="margin: 0; color: rgba(255,255,255,0.54);">Entwickelt mit Blick auf die Südtiroler Hotellerie und deren kurzfristige Verfügbarkeiten.</p>
+        </div>
+      </div>
+      <div class="footer-note">
+        <span>&copy; 2026 nowa</span>
+        <span>Landingpage für Partnerbetriebe</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobile-nav");
+
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener("click", () => {
+        const isOpen = mobileNav.classList.toggle("open");
+        hamburger.setAttribute("aria-expanded", String(isOpen));
+        mobileNav.setAttribute("aria-hidden", String(!isOpen));
+      });
+
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileNav.classList.remove("open");
+          hamburger.setAttribute("aria-expanded", "false");
+          mobileNav.setAttribute("aria-hidden", "true");
+        });
+      });
+    }
+
+    document.querySelectorAll(".faq-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        const body = button.nextElementSibling;
+        const isOpen = button.classList.contains("open");
+
+        document.querySelectorAll(".faq-btn.open").forEach((openButton) => {
+          openButton.classList.remove("open");
+          openButton.setAttribute("aria-expanded", "false");
+          openButton.nextElementSibling.classList.remove("open");
+        });
+
+        if (!isOpen) {
+          button.classList.add("open");
+          button.setAttribute("aria-expanded", "true");
+          body.classList.add("open");
+        }
+      });
+    });
+
+    const partnerForm = document.getElementById("partner-form");
+    if (partnerForm) {
+      partnerForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        document.getElementById("form-submit").style.display = "none";
+        document.getElementById("form-success").style.display = "block";
+      });
+    }
+  </script>
+</body>
+</html>
