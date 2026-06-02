@@ -1,0 +1,153 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import {
+  ArrowLeft,
+  Calendar,
+  Check,
+  Clock,
+  Location,
+} from "@/app/ui/icons";
+import { OfferVisual } from "@/app/ui/offer-card";
+import { PublicShell } from "@/app/ui/public-shell";
+import { categoryLabels, offers } from "@/app/lib/mock-data";
+
+type OfferPageProps = {
+  params: Promise<{ id: string }>;
+};
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return offers.map((offer) => ({ id: offer.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: OfferPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const offer = offers.find((item) => item.id === id);
+
+  return {
+    title: offer?.title ?? "Angebot",
+    description: offer?.description,
+  };
+}
+
+export default async function OfferDetailPage({ params }: OfferPageProps) {
+  const { id } = await params;
+  const offer = offers.find((item) => item.id === id);
+
+  if (!offer) {
+    notFound();
+  }
+
+  return (
+    <PublicShell>
+      <section className="border-b border-stone-200 bg-[#f2ede5]">
+        <div className="page-container py-5">
+          <Link
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-500 hover:text-[#a46245]"
+            href="/offers"
+          >
+            <ArrowLeft className="size-4" /> Zurück zu allen Angeboten
+          </Link>
+        </div>
+      </section>
+      <section className="page-container grid gap-10 py-10 lg:grid-cols-[1.18fr_0.82fr] lg:py-14">
+        <div>
+          <OfferVisual offer={offer} />
+          <div className="mt-10">
+            <p className="eyebrow">{categoryLabels[offer.category]}</p>
+            <h1 className="mt-4 max-w-3xl font-serif text-5xl tracking-[-0.06em] text-stone-900 sm:text-6xl">
+              {offer.title}
+            </h1>
+            <p className="mt-3 text-sm font-bold uppercase tracking-[0.12em] text-stone-500">
+              {offer.partner}
+            </p>
+            <div className="mt-7 flex flex-wrap gap-5 border-y border-stone-200 py-4 text-sm text-stone-600">
+              <span className="flex items-center gap-2">
+                <Location className="size-4 text-[#a46245]" />
+                {offer.location}
+              </span>
+              <span className="flex items-center gap-2">
+                <Clock className="size-4 text-[#a46245]" />
+                {offer.duration}
+              </span>
+              <span className="flex items-center gap-2">
+                <Calendar className="size-4 text-[#a46245]" />
+                {offer.availability}
+              </span>
+            </div>
+            <div className="grid gap-10 py-9 md:grid-cols-[1.15fr_0.85fr]">
+              <div>
+                <h2 className="font-serif text-3xl tracking-[-0.035em] text-stone-900">
+                  Eine Pause, die bleibt.
+                </h2>
+                <p className="mt-4 leading-7 text-stone-600">
+                  {offer.description}
+                </p>
+              </div>
+              <div>
+                <h2 className="text-xs font-bold uppercase tracking-[0.12em] text-stone-500">
+                  Inklusive
+                </h2>
+                <ul className="mt-4 space-y-3">
+                  {offer.includes.map((item) => (
+                    <li
+                      className="flex gap-3 text-sm leading-6 text-stone-600"
+                      key={item}
+                    >
+                      <Check className="mt-1 size-4 shrink-0 text-[#a46245]" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside className="lg:sticky lg:top-6 lg:self-start">
+          <div className="border border-stone-200 bg-white p-6 shadow-sm sm:p-8">
+            <p className="eyebrow">Deine Auszeit</p>
+            <div className="mt-5 flex items-end justify-between border-b border-stone-100 pb-5">
+              <p className="text-sm text-stone-500">Preis pro Person</p>
+              <div className="text-right">
+                {offer.originalPrice ? (
+                  <p className="text-sm text-stone-400 line-through">
+                    {offer.originalPrice} EUR
+                  </p>
+                ) : null}
+                <p className="text-3xl font-bold tracking-tight text-stone-900">
+                  {offer.price} EUR
+                </p>
+              </div>
+            </div>
+            <form className="mt-6 space-y-5">
+              <label>
+                <span className="field-label">Wunschtermin</span>
+                <input className="field" type="date" />
+              </label>
+              <label>
+                <span className="field-label">Personen</span>
+                <select className="field" defaultValue="2">
+                  <option value="1">1 Person</option>
+                  <option value="2">2 Personen</option>
+                  <option value="3">3 Personen</option>
+                  <option value="4">4 Personen</option>
+                </select>
+              </label>
+              <button className="button-primary w-full" type="button">
+                Verfügbarkeit prüfen
+              </button>
+            </form>
+            <p className="mt-5 text-center text-xs leading-5 text-stone-500">
+              Noch keine Zahlung. Du siehst zuerst alle verfügbaren Termine.
+            </p>
+          </div>
+        </aside>
+      </section>
+    </PublicShell>
+  );
+}

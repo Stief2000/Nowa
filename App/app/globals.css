@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf8f4;
+  --foreground: #292524;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+a {
+  transition-duration: 180ms;
+  transition-property: background-color, border-color, color, opacity, transform;
+  transition-timing-function: ease;
+}
+
+button {
+  cursor: pointer;
+}
+
+.font-serif {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.page-container {
+  margin-inline: auto;
+  max-width: 1440px;
+  padding-inline: 1.5rem;
+}
+
+.eyebrow {
+  color: #a46245;
+  font-family: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.section-title {
+  color: #292524;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.button-primary,
+.button-secondary,
+.button-dark {
+  align-items: center;
+  display: inline-flex;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 0.55rem;
+  justify-content: center;
+  letter-spacing: 0.08em;
+  min-height: 3rem;
+  padding-inline: 1.2rem;
+  text-transform: uppercase;
+}
+
+.button-primary {
+  background: #a46245;
+  color: #fffaf5;
+}
+
+.button-primary:hover {
+  background: #884b35;
+}
+
+.button-secondary {
+  border: 1px solid #cfc7bc;
+  color: #44403c;
+}
+
+.button-secondary:hover {
+  background: #fff;
+  border-color: #a8a29e;
+}
+
+.button-dark {
+  background: #292524;
+  color: white;
+}
+
+.button-dark:hover {
+  background: #44403c;
+}
+
+.text-link {
+  align-items: center;
+  color: #8c513b;
+  display: inline-flex;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 0.45rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.text-link:hover {
+  color: #623825;
+}
+
+.field {
+  background: white;
+  border: 1px solid #ded8cf;
+  color: #292524;
+  font-size: 0.875rem;
+  min-height: 3rem;
+  outline: none;
+  padding: 0.8rem 0.9rem;
+  width: 100%;
+}
+
+.field:focus {
+  border-color: #a46245;
+  box-shadow: 0 0 0 3px rgba(164, 98, 69, 0.12);
+}
+
+.field-label {
+  color: #57534e;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+  .page-container {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    padding-inline: 4rem;
+  }
+}
