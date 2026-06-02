@@ -171,11 +171,14 @@ Already done:
 * clarified that the public launch starts in South Tyrol but is not meant as a permanently purely regional concept
 * removed redundant example CTA buttons in the hero mockup flow
 * cleaned up the landing-page text encoding and saved the file cleanly as UTF-8
+* set up a local network test flow so the landing page can be reviewed on a real phone in the same WLAN
+* started a dedicated mobile pass for hero spacing, card sizing and CTA behavior on small screens
 
 Still open on landing page:
 
-* final hero polish and spacing review
+* final mobile hero polish based on real-device testing
 * final copy consistency pass after visual finish
+* final encoding sanity check on all visible mobile sections
 
 ## Lean Go-Live Plan
 
@@ -210,6 +213,24 @@ The goal is:
 * requests can be analyzed later
 * contacts can be followed up manually
 * the team can track statuses such as `new`, `contacted`, `closed`
+
+## Mobile Testing
+
+The landing page should be treated as mobile-first for public launch checks.
+
+Current testing approach:
+
+* Chrome device emulation on desktop
+* real-phone testing over local WLAN using a small local HTTP server
+
+Current mobile focus areas:
+
+* hero readability and line breaks
+* spacing between headline, CTA and example card
+* menu usability
+* FAQ interaction
+* form usability
+* any remaining visible encoding glitches on real devices
 
 ## Development Strategy
 

@@ -56,3 +56,18 @@ This changelog tracks the shared progress of the nowa workspace.
 * Mock reservation-request flow
 * Shared type and interaction cleanup
 * Encoding fixes in app UI copy
+
+## 2026-06-02
+
+### Landing Page
+
+* Started a dedicated real-device mobile review of the landing page
+* Set up local WLAN testing for the landing page through a small local HTTP server
+* Tightened the mobile hero layout with smaller typography, reduced spacing and a more compact mock card
+* Reworked the hero line grouping so the mobile headline breaks more intentionally instead of looking randomly wrapped
+* Removed the broken client-side text-normalization approach after it introduced visible mojibake in the browser
+
+### Open Follow-Up
+
+* Continue final mobile hero polish based on real-phone screenshots
+* Finish the remaining visible encoding cleanup in all mobile-facing sections

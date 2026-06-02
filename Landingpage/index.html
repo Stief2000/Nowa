@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="nowa - now available. Die Plattform für Hotels, Pensionen und Apartments in Südtirol, um kurzfristig freie Zimmer sichtbar zu machen.">
+  <meta name="description" content="nowa - now available. Die Plattform für Hotels, Pensionen und Apartments, um kurzfristig verfügbare Hotelangebote sichtbar zu machen.">
   <title>nowa - now available</title>
 
   <style>
@@ -878,12 +878,108 @@
       }
 
       .hero-inner {
-        padding: 78px 0 36px;
+        padding: 64px 0 28px;
+        gap: 24px;
       }
 
       .hero-side {
         padding-top: 0;
         justify-items: stretch;
+      }
+
+      .hero-copy,
+      .hero-copy p,
+      .hero-aside p {
+        max-width: none;
+      }
+
+      .hero-copy h1 {
+        max-width: 100%;
+        font-size: clamp(1.6rem, 7.2vw, 2.05rem);
+        line-height: 1.01;
+        margin-bottom: 14px;
+      }
+
+      .hero-copy h1 span {
+        display: block;
+      }
+
+      .mock-card,
+      .problem-statement,
+      .closing-panel,
+      .faq-wrap,
+      .form-card,
+      .card,
+      .step {
+        border-radius: 22px;
+      }
+
+      .mock-body,
+      .card,
+      .step,
+      .faq-wrap,
+      .form-card {
+        padding: 20px;
+      }
+
+      .mock-title {
+        font-size: 24px;
+      }
+
+      .mock-image {
+        height: 156px;
+      }
+
+      .mock-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 13px;
+      }
+
+      .hero-aside h3 {
+        font-size: 18px;
+        line-height: 1.12;
+      }
+
+      .hero-point {
+        font-size: 11px;
+        padding: 7px 11px;
+      }
+
+      .hero-note {
+        font-size: 12px;
+      }
+
+      .hero-aside {
+        gap: 8px;
+        padding: 0;
+      }
+
+      .hero-copy p,
+      .hero-aside p,
+      .trust-item span {
+        font-size: 13px;
+      }
+
+      .hero-copy p {
+        margin-bottom: 18px;
+      }
+
+      .hero-note {
+        margin-top: 2px;
+      }
+
+      .section-head h2,
+      .problem-statement h3,
+      .closing-panel h2 {
+        line-height: 1.02;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .btn-ghost {
+        width: 100%;
       }
 
       .hero-actions,
@@ -907,6 +1003,25 @@
 
       .container {
         width: min(1160px, calc(100% - 28px));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-copy h1 {
+        max-width: 100%;
+        font-size: clamp(1.45rem, 6.6vw, 1.8rem);
+      }
+
+      .hero-aside {
+        display: none;
+      }
+
+      .mock-image {
+        height: 148px;
+      }
+
+      .mock-body {
+        padding: 18px;
       }
     }
   </style>
@@ -950,9 +1065,8 @@
       <div class="hero-copy">
         <span class="eyebrow" style="color: rgba(255,255,255,0.72);">Start in Südtirol, gedacht für mehr</span>
         <h1>
-          <span>Verwandeln</span>
-          <span>Sie kurzfristig</span>
-          <span>freie</span>
+          <span>Verwandeln Sie</span>
+          <span>kurzfristig freie</span>
           <span>Hotelangebote</span>
           <span>in neue</span>
           <span>Buchungschancen.</span>
@@ -982,7 +1096,7 @@
           <div class="mock-body">
             <div class="mock-meta">Beispiel-Angebot</div>
             <div class="mock-title">Spa &amp; Stay heute verfügbar</div>
-            <p class="mock-subtitle">Hotel Beispielhof · Brixen</p>
+            <p class="mock-subtitle">Hotel Beispielhof Ã‚· Brixen</p>
             <div class="mock-row">
               <span>gültig bis 18:00 Uhr</span>
               <strong>ab 129 EUR</strong>
@@ -997,7 +1111,7 @@
         <div class="hero-aside">
           <span class="eyebrow" style="color: rgba(255,255,255,0.74);">Warum <span class="brand-inline" style="color:#fff;">n<span class="accent">owa</span></span></span>
           <h3>Kein Rabattportal. Sondern ein klarer Kanal für kurzfristig frei.</h3>
-          <p><span class="brand-inline" style="color:#fff;">n<span class="accent">owa</span></span> startet regional, bleibt fokussiert und ist von Anfang an größer gedacht.</p>
+          <p><span class="brand-inline" style="color:#fff;">n<span class="accent">owa</span></span> startet regional, bleibt fokussiert und ist von Anfang an gröÃƒÅ¸er gedacht.</p>
           <div class="trust-list-inline">
             <div class="trust-item"><span class="trust-dot"></span><span>Preis, Zeitraum und Anzahl bleiben beim Betrieb.</span></div>
             <div class="trust-item"><span class="trust-dot"></span><span>Keine komplizierten Kampagnen für spontane Aktionen.</span></div>
@@ -1147,7 +1261,7 @@
       <div class="comparison-layout">
         <div class="problem-statement">
           <h3>Kein Entweder-oder.</h3>
-          <p><span class="brand-inline" style="color:#fff;">n<span class="accent">owa</span></span> ergänzt bestehende Kanäle um einen klaren Fokus auf kurzfristige Verfügbarkeit.</p>
+          <p><span class="brand-inline" style="color:#fff;">n<span class="accent">owa</span></span> ergänzt bestehende Kanäle um einen klaren Fokus auf kurzfristige VerfÃƒÆ’Ã‚¼gbarkeit.</p>
         </div>
         <div class="comparison-panel">
           <div class="comparison-row">
@@ -1229,36 +1343,36 @@
 
       <div class="faq-wrap">
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">Was ist nowa?<span class="faq-icon">+</span></button>
+          <button class="faq-btn" aria-expanded="false">Was ist nowa<span class="faq-icon">+</span></button>
           <div class="faq-body"><span class="brand-inline">n<span class="accent">owa</span></span> ist eine Plattform für kurzfristig verfügbare Angebote. Aktuell liegt der Fokus auf Hotelbetrieben mit freien Zimmern, Stornierungen oder Restkapazitäten.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">Für welche Betriebe ist nowa geeignet?<span class="faq-icon">+</span></button>
+          <button class="faq-btn" aria-expanded="false">Für welche Betriebe ist nowa geeignet<span class="faq-icon">+</span></button>
           <div class="faq-body">Für Hotels, Pensionen, Apartments, Garni-Betriebe und touristische Anbieter mit kurzfristig verfügbaren Kapazitäten.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">Muss ich Rabatte geben?<span class="faq-icon">+</span></button>
+          <button class="faq-btn" aria-expanded="false">Muss ich Rabatte geben<span class="faq-icon">+</span></button>
           <div class="faq-body">Nein. Der Betrieb behält die Kontrolle über Preis und Angebot. Ein attraktiver Preis kann helfen, ist aber nicht als Billigangebot gedacht.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">Kann ich Angebote jederzeit deaktivieren?<span class="faq-icon">+</span></button>
+          <button class="faq-btn" aria-expanded="false">Kann ich Angebote jederzeit deaktivieren<span class="faq-icon">+</span></button>
           <div class="faq-body">Ja. Angebote sollen zeitlich begrenzt und flexibel deaktivierbar sein.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">Ist Direktbuchung Pflicht?<span class="faq-icon">+</span></button>
+          <button class="faq-btn" aria-expanded="false">Ist Direktbuchung Pflicht<span class="faq-icon">+</span></button>
           <div class="faq-body">Nein. Je nach Entwicklungsstand kann <span class="brand-inline">n<span class="accent">owa</span></span> mit Anfrage, Reservierung oder später Direktbuchung funktionieren.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">Was kostet nowa?<span class="faq-icon">+</span></button>
+          <button class="faq-btn" aria-expanded="false">Was kostet nowa<span class="faq-icon">+</span></button>
           <div class="faq-body">In der Startphase können ausgewählte Partnerbetriebe <span class="brand-inline">n<span class="accent">owa</span></span> testen. Die finalen Konditionen werden transparent kommuniziert.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">Wie schnell kann ein Angebot online sein?<span class="faq-icon">+</span></button>
+          <button class="faq-btn" aria-expanded="false">Wie schnell kann ein Angebot online sein<span class="faq-icon">+</span></button>
           <div class="faq-body">Die Angebotserstellung soll einfach und schnell funktionieren. Ziel ist, kurzfristige Verfügbarkeiten in wenigen Minuten sichtbar zu machen.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">Ersetzt nowa meine Website oder Booking.com?<span class="faq-icon">+</span></button>
-          <div class="faq-body">Nein. <span class="brand-inline">n<span class="accent">owa</span></span> ist als zusätzlicher Kanal für kurzfristige Verfügbarkeiten gedacht.</div>
+          <button class="faq-btn" aria-expanded="false">Ersetzt nowa meine Website oder Booking.com<span class="faq-icon">+</span></button>
+          <div class="faq-body">Nein. <span class="brand-inline">n<span class="accent">owa</span></span> ist als zusÃƒÆ’Ã‚¤tzlicher Kanal fÃƒÆ’Ã‚¼r kurzfristige Verfügbarkeiten gedacht.</div>
         </div>
       </div>
     </div>
@@ -1272,7 +1386,7 @@
         <div class="mini-points">
           <div class="mini-point"><span class="trust-dot"></span><span>regionaler Fokus auf Südtirol</span></div>
           <div class="mini-point"><span class="trust-dot"></span><span>hochwertiger Partnerauftritt statt Billigplattform</span></div>
-          <div class="mini-point"><span class="trust-dot"></span><span>geeignet für Stornierungen, Restkapazitäten und schwächere Tage</span></div>
+          <div class="mini-point"><span class="trust-dot"></span><span>geeignet fÃƒÆ’Ã‚¼r Stornierungen, Restkapazitäten und schwÃƒÆ’Ã‚¤chere Tage</span></div>
         </div>
       </div>
 
@@ -1318,7 +1432,7 @@
           </div>
 
           <div class="field">
-            <label for="availability">Welche freien Kapazitäten möchten Sie testen?</label>
+            <label for="availability">Welche freien Kapazitäten möchten Sie testen</label>
             <textarea id="availability" name="availability" placeholder="z. B. kurzfristig freie Zimmer, Midweek-Lücken, Stornierungen ..."></textarea>
           </div>
 
@@ -1345,7 +1459,7 @@
         </div>
         <div>
           <div style="font-size: 13px; font-weight: 700; margin-bottom: 10px; color: #fff;">Startregion</div>
-          <p style="margin: 0; color: rgba(255,255,255,0.54);">Entwickelt mit Blick auf die Südtiroler Hotellerie und deren kurzfristige Verfügbarkeiten.</p>
+          <p style="margin: 0; color: rgba(255,255,255,0.54);">Entwickelt mit Blick auf die SÃƒÆ’Ã‚¼dtiroler Hotellerie und deren kurzfristige Verfügbarkeiten.</p>
         </div>
       </div>
       <div class="footer-note">
