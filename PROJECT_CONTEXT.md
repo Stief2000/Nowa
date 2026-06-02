@@ -167,18 +167,21 @@ Already done:
 * broadened messaging from only `Zimmer` to wider hotel offers such as rooms, spa and packages
 * reduced repeated card patterns and moved parts of the page to calmer list and row structures
 * added clearer differentiation from classic booking platforms
-* adjusted color direction toward a brighter, stronger orange accent
+* replaced the earlier orange direction with a stronger green brand accent
 * clarified that the public launch starts in South Tyrol but is not meant as a permanently purely regional concept
 * removed redundant example CTA buttons in the hero mockup flow
-* cleaned up the landing-page text encoding and saved the file cleanly as UTF-8
+* cleaned up the landing-page text encoding and removed the remaining visible mojibake in the most important sections
 * set up a local network test flow so the landing page can be reviewed on a real phone in the same WLAN
 * started a dedicated mobile pass for hero spacing, card sizing and CTA behavior on small screens
+* aligned the `nowa` wordmark more consistently across sections, including dark surfaces and FAQ sentences
+* fixed comparison-section brand rendering so `nowa` no longer appears as forced uppercase
+* adjusted hero inline branding so `now` stays green while the trailing `a` remains clearly readable on the dark background
 
 Still open on landing page:
 
 * final mobile hero polish based on real-device testing
 * final copy consistency pass after visual finish
-* final encoding sanity check on all visible mobile sections
+* final full-page sanity check before the public domain goes live
 
 ## Lean Go-Live Plan
 
@@ -186,16 +189,45 @@ The preferred first public launch setup is intentionally lean:
 
 * domain
 * Cloudflare DNS
-* Vercel Hobby
-* Cloudflare Email Routing instead of a full paid mailbox at first
+* GitHub Pages for the static landing page
+* temporary separate mailbox setup before a branded paid mailbox is introduced
 
 This setup should be treated as a valid starting point, not the final long-term infrastructure.
 
 Planned upgrade path:
 
-* Cloudflare Email Routing -> Google Workspace or Microsoft 365
-* Vercel Hobby -> Vercel Pro if traffic or app needs grow
+* temporary free mailbox -> branded domain mailbox later
+* GitHub Pages -> broader hosting structure later if app and landing page split operationally
 * simple root + app subdomain setup -> broader multi-subdomain structure later if needed
+
+## Domain And Mail Status
+
+Current public-domain direction:
+
+* desired public domain: `nowa-app.com`
+* registrar / DNS target: Cloudflare
+* current status: waiting on Cloudflare response / registration flow
+
+Mail direction at this stage:
+
+* no private personal mailbox should be used for project operations
+* short-term preference is a separate free mailbox
+* branded paid mailbox can be added later once the domain is active
+
+## Repository Direction
+
+Repository structure is being consolidated.
+
+Desired GitHub setup:
+
+* one shared repository for the full `LastMinute_App` workspace
+* repository name on GitHub: `Nowa`
+* contents should include both `Landingpage/` and `App/`
+
+Important:
+
+* the older standalone landing-page repository still exists as history
+* the new shared repository is intended to become the main home for ongoing project work
 
 ## Inquiry and Booking Intake
 
@@ -260,12 +292,12 @@ Landing page:
 
 * static HTML/CSS/JS
 
-Go-live support stack for the lean launch:
+Go-live support stack for the current lean launch:
 
 * Cloudflare DNS
-* Vercel
-* Cloudflare Email Routing
-* later Google Workspace or Microsoft 365 if needed
+* GitHub Pages for the landing page
+* separate free mailbox now
+* later branded mailbox and broader hosting structure if needed
 
 ## MVP User Roles
 

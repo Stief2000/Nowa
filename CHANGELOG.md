@@ -66,8 +66,25 @@ This changelog tracks the shared progress of the nowa workspace.
 * Tightened the mobile hero layout with smaller typography, reduced spacing and a more compact mock card
 * Reworked the hero line grouping so the mobile headline breaks more intentionally instead of looking randomly wrapped
 * Removed the broken client-side text-normalization approach after it introduced visible mojibake in the browser
+* Continued a full landing-page cleanup pass across hero, comparison, FAQ, closing CTA, form and footer
+* Removed remaining visible mojibake from the most important live sections
+* Shifted the landing-page accent direction from orange into a stronger green brand direction
+* Improved dark-surface brand treatment so `now` stays green while the trailing `a` remains readable
+* Fixed comparison-section brand styling so `nowa` no longer renders like forced uppercase `NOWA`
+* Kept `nowa` more natural inside FAQ and body-copy sentences instead of letting it float as a separate block
+
+### Go-Live Preparation
+
+* Evaluated a lean public domain path around Cloudflare plus GitHub Pages
+* Ruled out `nowa.com` as a straightforward available registration target
+* Chose `nowa-app.com` as the current preferred domain candidate
+* Decided against using a private personal mailbox for project operations
+* Prepared the workspace for a future shared GitHub repository named `Nowa`
+* Removed the temporary `/App/` ignore so the full workspace can move into one common repository
+* Added the local `ProtonLogin.png` setup screenshot to `.gitignore` so it does not pollute repo history
 
 ### Open Follow-Up
 
-* Continue final mobile hero polish based on real-phone screenshots
-* Finish the remaining visible encoding cleanup in all mobile-facing sections
+* Final full-page landing-page sanity check before the public domain goes live
+* Create and connect the new shared GitHub repository `Nowa`
+* Complete Cloudflare domain registration and point the landing page live once the domain is ready
