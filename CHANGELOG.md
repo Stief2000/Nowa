@@ -102,8 +102,10 @@ This changelog tracks the shared progress of the nowa workspace.
 * Confirmed the partner inquiry form is connected to Formspree and accepts submissions successfully
 * Added canonical URL, social preview metadata and a favicon for the public landing page
 * Added a German / Italian / English language toggle to the static landing page
+* Added multilingual legal notice and privacy pages with footer links
+* Added a privacy notice below the partner inquiry form
 
 ### Follow-Up
 
 * Run a final live-domain sanity pass on desktop and mobile
-* Add legally complete Impressum and Datenschutz pages once the operator details are available
+* Update legal pages once Partita IVA, PEC, Registro Imprese or a final legal form exist

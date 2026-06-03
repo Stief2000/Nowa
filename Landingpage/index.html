@@ -889,6 +889,17 @@
       font-weight: 600;
     }
 
+    .form-privacy-note {
+      margin: -2px 0 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .form-privacy-note a {
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
     footer {
       padding: 40px 0 54px;
       background: #1d1711;
@@ -1542,6 +1553,7 @@
             <textarea id="availability" name="availability" placeholder="z. B. kurzfristig freie Zimmer, Midweek-Lücken, Stornierungen ..."></textarea>
           </div>
 
+          <p class="form-privacy-note">Mit dem Absenden akzeptieren Sie die Verarbeitung Ihrer Angaben gemäß unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
           <button id="form-submit" type="submit" class="btn-primary" style="width: 100%;">Betrieb vormerken</button>
           <div class="success" id="form-success">Danke. Ihre Anfrage ist vorgemerkt und wir melden uns persönlich zurück.</div>
           <div class="form-error" id="form-error">Das Formular konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut.</div>
@@ -1563,6 +1575,8 @@
           <a href="#solution">Lösung</a>
           <a href="#process">So funktioniert's</a>
           <a href="#apply">Partner werden</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
         </div>
         <div>
           <div style="font-size: 13px; font-weight: 700; margin-bottom: 10px; color: #fff;">Startregion</div>
@@ -1729,6 +1743,7 @@
           ["#region", "placeholder", "z. B. Brixen, Meran, Bozen"],
           ["label[for='availability']", "text", "Welche freien Kapazitäten möchten Sie testen"],
           ["#availability", "placeholder", "z. B. kurzfristig freie Zimmer, Midweek-Lücken, Stornierungen ..."],
+          [".form-privacy-note", "html", 'Mit dem Absenden akzeptieren Sie die Verarbeitung Ihrer Angaben gemäß unserer <a href="datenschutz.html">Datenschutzerklärung</a>.'],
           ["#form-submit", "text", "Betrieb vormerken"],
           ["#form-success", "text", "Danke. Ihre Anfrage ist vorgemerkt und wir melden uns persönlich zurück."],
           ["#form-error", "text", "Das Formular konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut."],
@@ -1737,6 +1752,8 @@
           ["footer .footer-grid > div:nth-child(2) a[href='#solution']", "text", "Lösung"],
           ["footer .footer-grid > div:nth-child(2) a[href='#process']", "text", "So funktioniert's"],
           ["footer .footer-grid > div:nth-child(2) a[href='#apply']", "text", "Partner werden"],
+          ["footer .footer-grid > div:nth-child(2) a[href='impressum.html']", "text", "Impressum"],
+          ["footer .footer-grid > div:nth-child(2) a[href='datenschutz.html']", "text", "Datenschutz"],
           ["footer .footer-grid > div:last-child > div", "text", "Startregion"],
           ["footer .footer-grid > div:last-child p", "text", "Entwickelt mit Blick auf die Südtiroler Hotellerie und deren kurzfristige Verfügbarkeiten."],
           [".footer-note span:nth-child(2)", "text", "Landingpage für Partnerbetriebe"]
@@ -1890,6 +1907,7 @@
           ["#region", "placeholder", "es. Bressanone, Merano, Bolzano"],
           ["label[for='availability']", "text", "Quali capacita libere vuoi testare"],
           ["#availability", "placeholder", "es. camere libere a breve termine, buchi midweek, cancellazioni ..."],
+          [".form-privacy-note", "html", 'Inviando il modulo accetti il trattamento dei dati secondo la nostra <a href="datenschutz.html?lang=it">informativa privacy</a>.'],
           ["#form-submit", "text", "Registra la struttura"],
           ["#form-success", "text", "Grazie. La tua richiesta e registrata e ti contatteremo personalmente."],
           ["#form-error", "text", "Al momento non e stato possibile inviare il modulo. Riprova."],
@@ -1898,6 +1916,8 @@
           ["footer .footer-grid > div:nth-child(2) a[href='#solution']", "text", "Soluzione"],
           ["footer .footer-grid > div:nth-child(2) a[href='#process']", "text", "Come funziona"],
           ["footer .footer-grid > div:nth-child(2) a[href='#apply']", "text", "Diventa partner"],
+          ["footer .footer-grid > div:nth-child(2) a[href='impressum.html']", "text", "Note legali"],
+          ["footer .footer-grid > div:nth-child(2) a[href='datenschutz.html']", "text", "Privacy"],
           ["footer .footer-grid > div:last-child > div", "text", "Regione di lancio"],
           ["footer .footer-grid > div:last-child p", "text", "Sviluppata guardando all'hotellerie altoatesina e alle sue disponibilita a breve termine."],
           [".footer-note span:nth-child(2)", "text", "Landing page per strutture partner"]
@@ -2051,6 +2071,7 @@
           ["#region", "placeholder", "e.g. Brixen, Meran, Bolzano"],
           ["label[for='availability']", "text", "Which free capacity would you like to test"],
           ["#availability", "placeholder", "e.g. short-notice free rooms, midweek gaps, cancellations ..."],
+          [".form-privacy-note", "html", 'By submitting the form, you accept the processing of your data according to our <a href="datenschutz.html?lang=en">privacy policy</a>.'],
           ["#form-submit", "text", "Register your business"],
           ["#form-success", "text", "Thank you. Your request has been registered and we will get back to you personally."],
           ["#form-error", "text", "The form could not be sent right now. Please try again."],
@@ -2059,6 +2080,8 @@
           ["footer .footer-grid > div:nth-child(2) a[href='#solution']", "text", "Solution"],
           ["footer .footer-grid > div:nth-child(2) a[href='#process']", "text", "How it works"],
           ["footer .footer-grid > div:nth-child(2) a[href='#apply']", "text", "Become a partner"],
+          ["footer .footer-grid > div:nth-child(2) a[href='impressum.html']", "text", "Legal notice"],
+          ["footer .footer-grid > div:nth-child(2) a[href='datenschutz.html']", "text", "Privacy policy"],
           ["footer .footer-grid > div:last-child > div", "text", "Launch region"],
           ["footer .footer-grid > div:last-child p", "text", "Built with South Tyrol hospitality and its short-notice availability in mind."],
           [".footer-note span:nth-child(2)", "text", "Landing page for partner businesses"]

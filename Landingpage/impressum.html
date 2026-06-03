@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://joinnowa.com/impressum.html">
+  <link rel="alternate" hreflang="de" href="https://joinnowa.com/impressum.html">
+  <link rel="alternate" hreflang="it" href="https://joinnowa.com/impressum.html?lang=it">
+  <link rel="alternate" hreflang="en" href="https://joinnowa.com/impressum.html?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://joinnowa.com/impressum.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Impressum - nowa</title>
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --surface: #ffffff;
+      --text: #1d1711;
+      --muted: #544e48;
+      --line: rgba(29, 23, 17, 0.12);
+      --accent: #3f7464;
+      --forest: #2c4a43;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #fcfaf8 0%, var(--bg) 100%);
+      line-height: 1.62;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(920px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 244, 239, 0.96);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: grid;
+      gap: 3px;
+    }
+
+    .brand-mark {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .brand-mark .accent {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .brand-tagline {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-actions a {
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .language-switcher {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .language-switcher button {
+      min-width: 36px;
+      height: 32px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .language-switcher button[aria-pressed="true"] {
+      background: var(--forest);
+      color: #fff;
+    }
+
+    main {
+      padding: 72px 0 92px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1, h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      margin: 14px 0 18px;
+      font-size: clamp(2.5rem, 6vw, 4.7rem);
+      line-height: 0.96;
+    }
+
+    h2 {
+      margin: 34px 0 10px;
+      font-size: 1.7rem;
+    }
+
+    p { margin: 0 0 14px; color: var(--muted); }
+
+    .panel {
+      margin-top: 30px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: 0 18px 48px rgba(29, 23, 17, 0.06);
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: minmax(150px, 0.34fr) 1fr;
+      gap: 10px 18px;
+      margin: 0;
+    }
+
+    dt {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    dd { margin: 0; }
+
+    .language-panel { display: none; }
+    .language-panel.active { display: block; }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      .nav-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      dl { grid-template-columns: 1fr; }
+      .panel { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="nowa Startseite">
+        <span class="brand-mark"><span class="accent">now</span>a</span>
+        <span class="brand-tagline">now available</span>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" data-label="back">Zur Landingpage</a>
+        <div class="language-switcher" aria-label="Sprache wählen">
+          <button type="button" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" data-lang="it" aria-pressed="false">IT</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="language-panel active" data-panel="de">
+      <span class="eyebrow">Rechtliche Angaben</span>
+      <h1>Impressum</h1>
+      <p>Angaben zum Betreiber dieser Website und zum Projekt nowa.</p>
+
+      <div class="panel">
+        <h2>Betreiber / Verantwortliche Person</h2>
+        <dl>
+          <dt>Projektname</dt>
+          <dd>nowa</dd>
+          <dt>Verantwortliche Person</dt>
+          <dd>Karin Senn</dd>
+          <dt>Adresse</dt>
+          <dd>Latzfons Runggallen 9<br>39043 Klausen (BZ)<br>Italien</dd>
+          <dt>E-Mail</dt>
+          <dd><a href="mailto:nova.project@proton.me">nova.project@proton.me</a></dd>
+        </dl>
+
+        <h2>Projektstatus</h2>
+        <p>nowa ist derzeit ein Projekt in Vorbereitung. Die Website dient aktuell der Information und der Erfassung von Partnerinteresse.</p>
+        <p>Es besteht derzeit keine eingetragene Gesellschaft, keine Partita IVA, keine PEC-Adresse und kein Eintrag im Registro Imprese.</p>
+
+        <h2>Haftung für Inhalte</h2>
+        <p>Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Eine Gewähr für Vollständigkeit, Richtigkeit und Aktualität kann jedoch nicht übernommen werden.</p>
+
+        <h2>Urheberrecht</h2>
+        <p>Texte, Gestaltung und Struktur dieser Website sind urheberrechtlich geschützt. Verwendete Bildmaterialien stammen aus lizenzkonformen Quellen und werden im Rahmen der Landingpage genutzt.</p>
+
+        <h2>Stand</h2>
+        <p>03. Juni 2026</p>
+      </div>
+    </section>
+
+    <section class="language-panel" data-panel="it">
+      <span class="eyebrow">Informazioni legali</span>
+      <h1>Note legali</h1>
+      <p>Informazioni sul gestore di questo sito e sul progetto nowa.</p>
+
+      <div class="panel">
+        <h2>Gestore / persona responsabile</h2>
+        <dl>
+          <dt>Nome del progetto</dt>
+          <dd>nowa</dd>
+          <dt>Persona responsabile</dt>
+          <dd>Karin Senn</dd>
+          <dt>Indirizzo</dt>
+          <dd>Latzfons Runggallen 9<br>39043 Chiusa (BZ)<br>Italia</dd>
+          <dt>E-mail</dt>
+          <dd><a href="mailto:nova.project@proton.me">nova.project@proton.me</a></dd>
+        </dl>
+
+        <h2>Stato del progetto</h2>
+        <p>nowa e attualmente un progetto in fase di preparazione. Il sito serve al momento a fornire informazioni e a raccogliere manifestazioni di interesse da parte di potenziali partner.</p>
+        <p>Al momento non esistono societa registrata, Partita IVA, indirizzo PEC o iscrizione al Registro Imprese.</p>
+
+        <h2>Responsabilita per i contenuti</h2>
+        <p>I contenuti di questo sito sono stati preparati con cura. Non si puo tuttavia garantire completezza, correttezza e attualita in ogni momento.</p>
+
+        <h2>Diritti d'autore</h2>
+        <p>Testi, design e struttura di questo sito sono protetti dal diritto d'autore. Le immagini utilizzate provengono da fonti compatibili con la licenza e sono usate nell'ambito della landing page.</p>
+
+        <h2>Aggiornamento</h2>
+        <p>3 giugno 2026</p>
+      </div>
+    </section>
+
+    <section class="language-panel" data-panel="en">
+      <span class="eyebrow">Legal information</span>
+      <h1>Legal Notice</h1>
+      <p>Information about the operator of this website and the nowa project.</p>
+
+      <div class="panel">
+        <h2>Operator / responsible person</h2>
+        <dl>
+          <dt>Project name</dt>
+          <dd>nowa</dd>
+          <dt>Responsible person</dt>
+          <dd>Karin Senn</dd>
+          <dt>Address</dt>
+          <dd>Latzfons Runggallen 9<br>39043 Klausen (BZ)<br>Italy</dd>
+          <dt>Email</dt>
+          <dd><a href="mailto:nova.project@proton.me">nova.project@proton.me</a></dd>
+        </dl>
+
+        <h2>Project status</h2>
+        <p>nowa is currently a project in preparation. The website is used to provide information and collect partner interest.</p>
+        <p>There is currently no registered company, no Italian VAT number, no PEC address and no entry in the Italian Business Register.</p>
+
+        <h2>Liability for content</h2>
+        <p>The contents of this website have been prepared with care. However, no guarantee can be given for completeness, correctness or currentness.</p>
+
+        <h2>Copyright</h2>
+        <p>Texts, design and structure of this website are protected by copyright. Image material is used from license-compatible sources within the scope of the landing page.</p>
+
+        <h2>Last updated</h2>
+        <p>June 3, 2026</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2026 nowa · <a href="datenschutz.html">Datenschutz / Privacy</a>
+    </div>
+  </footer>
+
+  <script>
+    const labels = {
+      de: { title: "Impressum - nowa", back: "Zur Landingpage", aria: "Sprache wählen" },
+      it: { title: "Note legali - nowa", back: "Alla landing page", aria: "Scegli lingua" },
+      en: { title: "Legal Notice - nowa", back: "Back to landing page", aria: "Choose language" }
+    };
+
+    const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+    let activeLanguage = labels[requestedLanguage] ? requestedLanguage : (localStorage.getItem("nowa-language") || "de");
+
+    const setLanguage = (language) => {
+      activeLanguage = labels[language] ? language : "de";
+      document.documentElement.lang = activeLanguage;
+      document.title = labels[activeLanguage].title;
+      document.querySelector("[data-label='back']").textContent = labels[activeLanguage].back;
+      document.querySelector(".language-switcher").setAttribute("aria-label", labels[activeLanguage].aria);
+
+      document.querySelectorAll("[data-panel]").forEach((panel) => {
+        panel.classList.toggle("active", panel.dataset.panel === activeLanguage);
+      });
+
+      document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.lang === activeLanguage));
+      });
+
+      localStorage.setItem("nowa-language", activeLanguage);
+    };
+
+    document.querySelectorAll("[data-lang]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.lang));
+    });
+
+    setLanguage(activeLanguage);
+  </script>
+</body>
+</html>
