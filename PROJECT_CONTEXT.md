@@ -191,6 +191,15 @@ Still open on landing page:
 * final full-page sanity check on the live public domain
 * update legal pages once Partita IVA, PEC, Registro Imprese or a final legal form exist
 
+Current handoff status:
+
+* public landing page is live at `https://joinnowa.com`
+* GitHub repository `Stief2000/Nowa` is connected to Vercel
+* Vercel deploys the static landing page from `Landingpage/` on `master`
+* partner form is active through Formspree
+* multilingual landing page, Impressum and Datenschutz are live in German, Italian and English
+* next practical step is a final live-domain desktop/mobile sanity pass before returning to app MVP work
+
 ## Lean Go-Live Plan
 
 The preferred first public launch setup is intentionally lean:

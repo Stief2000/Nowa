@@ -109,3 +109,11 @@ This changelog tracks the shared progress of the nowa workspace.
 
 * Run a final live-domain sanity pass on desktop and mobile
 * Update legal pages once Partita IVA, PEC, Registro Imprese or a final legal form exist
+
+### Session Handoff
+
+* Current public landing page is live at `https://joinnowa.com`
+* Repository `Stief2000/Nowa` is connected to Vercel and deploys from `master`
+* Static landing page source is `Landingpage/`
+* Legal pages currently reflect the project-in-preparation status and must be updated when the final legal setup exists
+* Next practical work: live desktop/mobile sanity pass, then resume app MVP work only after the landing page is considered stable
