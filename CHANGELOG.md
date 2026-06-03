@@ -88,3 +88,19 @@ This changelog tracks the shared progress of the nowa workspace.
 * Final full-page landing-page sanity check before the public domain goes live
 * Create and connect the new shared GitHub repository `Nowa`
 * Complete Cloudflare domain registration and point the landing page live once the domain is ready
+
+## 2026-06-03
+
+### Go-Live
+
+* Connected the shared GitHub repository `Stief2000/Nowa` to Vercel
+* Deployed the static landing page from `Landingpage/` as a Vercel production project
+* Connected the purchased public domain `joinnowa.com`
+* Used Cloudflare DNS auto-configuration through Vercel for the custom domain
+* Confirmed the landing page is publicly online
+* Confirmed both `joinnowa.com` and `www.joinnowa.com` return `200 OK` from Vercel
+* Confirmed the partner inquiry form is connected to Formspree and accepts submissions successfully
+
+### Follow-Up
+
+* Run a final live-domain sanity pass on desktop and mobile

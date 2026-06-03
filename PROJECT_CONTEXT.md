@@ -176,12 +176,15 @@ Already done:
 * aligned the `nowa` wordmark more consistently across sections, including dark surfaces and FAQ sentences
 * fixed comparison-section brand rendering so `nowa` no longer appears as forced uppercase
 * adjusted hero inline branding so `now` stays green while the trailing `a` remains clearly readable on the dark background
+* deployed the landing page publicly through Vercel
+* connected the public domain `joinnowa.com`
+* connected and tested the partner inquiry form through Formspree
 
 Still open on landing page:
 
 * final mobile hero polish based on real-device testing
 * final copy consistency pass after visual finish
-* final full-page sanity check before the public domain goes live
+* final full-page sanity check on the live public domain
 
 ## Lean Go-Live Plan
 
@@ -189,7 +192,7 @@ The preferred first public launch setup is intentionally lean:
 
 * domain
 * Cloudflare DNS
-* GitHub Pages for the static landing page
+* Vercel Hobby for the static landing page
 * temporary separate mailbox setup before a branded paid mailbox is introduced
 
 This setup should be treated as a valid starting point, not the final long-term infrastructure.
@@ -197,16 +200,19 @@ This setup should be treated as a valid starting point, not the final long-term 
 Planned upgrade path:
 
 * temporary free mailbox -> branded domain mailbox later
-* GitHub Pages -> broader hosting structure later if app and landing page split operationally
+* Vercel landing-page project -> broader hosting structure later if app and landing page split operationally
 * simple root + app subdomain setup -> broader multi-subdomain structure later if needed
 
 ## Domain And Mail Status
 
 Current public-domain direction:
 
-* desired public domain: `nowa-app.com`
-* registrar / DNS target: Cloudflare
-* current status: waiting on Cloudflare response / registration flow
+* public domain: `joinnowa.com`
+* `www.joinnowa.com` also resolves successfully
+* registrar / DNS provider: Cloudflare
+* hosting: Vercel
+* current status: domain connected and landing page live
+* partner inquiry form: connected to Formspree and tested successfully
 
 Mail direction at this stage:
 
@@ -295,7 +301,7 @@ Landing page:
 Go-live support stack for the current lean launch:
 
 * Cloudflare DNS
-* GitHub Pages for the landing page
+* Vercel Hobby for the landing page
 * separate free mailbox now
 * later branded mailbox and broader hosting structure if needed
 
@@ -390,7 +396,7 @@ Avoid:
 
 ## Current Priority
 
-Landing page alignment and lean go-live readiness come first.
+Live landing page sanity checks, domain follow-up, and intake reliability come first.
 
 The next app work remains intentionally parked until the landing page direction is stable enough.
 
