@@ -833,6 +833,17 @@
       font-weight: 600;
     }
 
+    .form-error {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(182, 60, 60, 0.1);
+      border: 1px solid rgba(182, 60, 60, 0.18);
+      color: #8f2f2f;
+      font-weight: 600;
+    }
+
     footer {
       padding: 40px 0 54px;
       background: #1d1711;
@@ -1418,7 +1429,7 @@
       </div>
 
       <div class="form-card">
-        <form id="partner-form" action="#" method="post" novalidate>
+        <form id="partner-form" action="https://formspree.io/f/xwvjenyo" method="post">
           <div class="form-grid">
             <div class="field">
               <label for="hotel-name">Betrieb</label>
@@ -1465,6 +1476,7 @@
 
           <button id="form-submit" type="submit" class="btn-primary" style="width: 100%;">Betrieb vormerken</button>
           <div class="success" id="form-success">Danke. Ihre Anfrage ist vorgemerkt und wir melden uns persönlich zurück.</div>
+          <div class="form-error" id="form-error">Das Formular konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut.</div>
         </form>
       </div>
     </div>
@@ -1601,10 +1613,40 @@
 
     const partnerForm = document.getElementById("partner-form");
     if (partnerForm) {
-      partnerForm.addEventListener("submit", (event) => {
+      partnerForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-        document.getElementById("form-submit").style.display = "none";
-        document.getElementById("form-success").style.display = "block";
+        const submitButton = document.getElementById("form-submit");
+        const successMessage = document.getElementById("form-success");
+        const errorMessage = document.getElementById("form-error");
+
+        if (!partnerForm.reportValidity()) {
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Anfrage wird gesendet ...";
+        successMessage.style.display = "none";
+        errorMessage.style.display = "none";
+
+        try {
+          const response = await fetch(partnerForm.action, {
+            method: "POST",
+            body: new FormData(partnerForm),
+            headers: { Accept: "application/json" }
+          });
+
+          if (!response.ok) {
+            throw new Error("Formspree submission failed");
+          }
+
+          partnerForm.reset();
+          submitButton.style.display = "none";
+          successMessage.style.display = "block";
+        } catch (error) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Betrieb vormerken";
+          errorMessage.style.display = "block";
+        }
       });
     }
   </script>
