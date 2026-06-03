@@ -1214,13 +1214,13 @@
             <div class="mock-meta">Beispiel-Angebot</div>
             <div class="mock-title">Spa &amp; Stay heute verfügbar</div>
             <p class="mock-subtitle">Hotel Beispielhof &middot; Brixen</p>
-            <div class="mock-row">
-              <span>gültig bis 18:00 Uhr</span>
-              <strong>ab 129 EUR</strong>
+            <div class="mock-row mock-row-primary">
+              <span class="mock-row-label">gültig bis 18:00 Uhr</span>
+              <strong class="mock-row-value">129 EUR</strong>
             </div>
-            <div class="mock-row">
-              <span>Zimmer oder Spa-Package</span>
-              <strong>begrenzt verfügbar</strong>
+            <div class="mock-row mock-row-secondary">
+              <span class="mock-row-label">Zimmer oder Spa-Package</span>
+              <strong class="mock-row-value">begrenzt verfügbar</strong>
             </div>
           </div>
         </div>
@@ -1628,10 +1628,10 @@
           [".mock-meta", "text", "Beispiel-Angebot"],
           [".mock-title", "text", "Spa & Stay heute verfügbar"],
           [".mock-subtitle", "html", "Hotel Beispielhof &middot; Brixen"],
-          [".mock-row:nth-of-type(1) span", "text", "gültig bis 18:00 Uhr"],
-          [".mock-row:nth-of-type(1) strong", "text", "ab 129 EUR"],
-          [".mock-row:nth-of-type(2) span", "text", "Zimmer oder Spa-Package"],
-          [".mock-row:nth-of-type(2) strong", "text", "begrenzt verfügbar"],
+          [".mock-row-primary .mock-row-label", "text", "gültig bis 18:00 Uhr"],
+          [".mock-row-primary .mock-row-value", "text", "129 EUR"],
+          [".mock-row-secondary .mock-row-label", "text", "Zimmer oder Spa-Package"],
+          [".mock-row-secondary .mock-row-value", "text", "begrenzt verfügbar"],
           [".hero-aside .eyebrow", "html", `Warum ${brandInverse}`],
           [".hero-aside h3", "text", "Kein Rabattportal. Sondern ein klarer Kanal für kurzfristig frei."],
           [".hero-aside p", "html", `${brandInverse} startet regional, bleibt fokussiert und ist von Anfang an größer gedacht.`],
@@ -1791,11 +1791,11 @@
           [".mock-badge", "text", "disponibile oggi"],
           [".mock-meta", "text", "Offerta di esempio"],
           [".mock-title", "text", "Spa & Stay disponibile oggi"],
-          [".mock-subtitle", "html", "Hotel Beispielhof &middot; Bressanone"],
-          [".mock-row:nth-of-type(1) span", "text", "valida fino alle 18:00"],
-          [".mock-row:nth-of-type(1) strong", "text", "da 129 EUR"],
-          [".mock-row:nth-of-type(2) span", "text", "Camera o pacchetto spa"],
-          [".mock-row:nth-of-type(2) strong", "text", "disponibilita limitata"],
+          [".mock-subtitle", "html", "Hotel Esempio &middot; Bressanone"],
+          [".mock-row-primary .mock-row-label", "text", "valida fino alle 18:00"],
+          [".mock-row-primary .mock-row-value", "text", "129 EUR"],
+          [".mock-row-secondary .mock-row-label", "text", "Camera o pacchetto spa"],
+          [".mock-row-secondary .mock-row-value", "text", "disponibilita limitata"],
           [".hero-aside .eyebrow", "html", `Perche ${brandInverse}`],
           [".hero-aside h3", "text", "Non un portale sconti. Un canale chiaro per disponibilita immediate."],
           [".hero-aside p", "html", `${brandInverse} parte regionale, resta focalizzata ed e pensata per crescere fin dall'inizio.`],
@@ -1955,11 +1955,11 @@
           [".mock-badge", "text", "available today"],
           [".mock-meta", "text", "Example offer"],
           [".mock-title", "text", "Spa & Stay available today"],
-          [".mock-subtitle", "html", "Hotel Beispielhof &middot; Brixen"],
-          [".mock-row:nth-of-type(1) span", "text", "valid until 6:00 PM"],
-          [".mock-row:nth-of-type(1) strong", "text", "from 129 EUR"],
-          [".mock-row:nth-of-type(2) span", "text", "Room or spa package"],
-          [".mock-row:nth-of-type(2) strong", "text", "limited availability"],
+          [".mock-subtitle", "html", "Example Hotel &middot; Brixen"],
+          [".mock-row-primary .mock-row-label", "text", "valid until 6:00 PM"],
+          [".mock-row-primary .mock-row-value", "text", "129 EUR"],
+          [".mock-row-secondary .mock-row-label", "text", "Room or spa package"],
+          [".mock-row-secondary .mock-row-value", "text", "limited availability"],
           [".hero-aside .eyebrow", "html", `Why ${brandInverse}`],
           [".hero-aside h3", "text", "Not a discount portal. A clear channel for short-notice availability."],
           [".hero-aside p", "html", `${brandInverse} starts regionally, stays focused and is built to grow from day one.`],

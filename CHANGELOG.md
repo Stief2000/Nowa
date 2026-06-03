@@ -82,12 +82,19 @@ This changelog tracks the shared progress of the nowa workspace.
 * Prepared the workspace for a future shared GitHub repository named `Nowa`
 * Removed the temporary `/App/` ignore so the full workspace can move into one common repository
 * Added the local `ProtonLogin.png` setup screenshot to `.gitignore` so it does not pollute repo history
+* Consolidated the Git remotes on the current machine so only the shared `Nowa` repository remains as `origin`
+* Documented a follow-up reminder to apply the same Git remote cleanup on the second computer before continuing work there
 
 ### Open Follow-Up
 
 * Final full-page landing-page sanity check before the public domain goes live
 * Create and connect the new shared GitHub repository `Nowa`
 * Complete Cloudflare domain registration and point the landing page live once the domain is ready
+* Repeat the same Git remote cleanup on the second computer:
+  `git remote remove origin`
+  `git remote rename nowa origin`
+  `git branch --set-upstream-to=origin/master master`
+  `git pull`
 
 ## 2026-06-03
 

@@ -249,6 +249,28 @@ Important:
 * the older standalone landing-page repository still exists as history
 * the new shared repository is intended to become the main home for ongoing project work
 
+## Multi-PC Git Setup
+
+The preferred Git setup is now:
+
+* one shared repository only: `Stief2000/Nowa`
+* one active remote only: `origin`
+* local `master` should track `origin/master`
+
+This has already been cleaned up on the current machine.
+
+Important follow-up:
+
+* the second computer should be updated to the same Git remote setup before further work continues there
+
+Reference commands for the second computer:
+
+* `git remote -v`
+* `git remote remove origin`
+* `git remote rename nowa origin`
+* `git branch --set-upstream-to=origin/master master`
+* `git pull`
+
 ## Inquiry and Booking Intake
 
 Going live is not only about publishing the site. Incoming interest must land somewhere usable.
