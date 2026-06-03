@@ -183,6 +183,8 @@ Already done:
 * added a static language toggle for German, Italian and English landing-page copy
 * added multilingual Impressum / legal notice and Datenschutz / privacy pages
 * added footer legal links and a privacy notice directly below the partner form
+* fixed the example-offer card so all visible rows switch correctly in German, Italian and English
+* changed the example-offer price from a "starting at" price to a fixed displayed price
 
 Still open on landing page:
 
@@ -262,6 +264,7 @@ This has already been cleaned up on the current machine.
 Important follow-up:
 
 * the second computer should be updated to the same Git remote setup before further work continues there
+* once the latest repository state has been pulled on the second computer, repeat the same remote cleanup there immediately so that only the shared `Nowa` repository remains as `origin`
 
 Reference commands for the second computer:
 
@@ -296,6 +299,7 @@ Current testing approach:
 
 * Chrome device emulation on desktop
 * real-phone testing over local WLAN using a small local HTTP server
+* from now on, landing-page changes should be treated as live-repo work and pushed promptly so local review and public review do not drift apart
 
 Current mobile focus areas:
 

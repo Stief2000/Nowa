@@ -111,11 +111,15 @@ This changelog tracks the shared progress of the nowa workspace.
 * Added a German / Italian / English language toggle to the static landing page
 * Added multilingual legal notice and privacy pages with footer links
 * Added a privacy notice below the partner inquiry form
+* Fixed the example-offer card translations so the lower detail rows now switch correctly in German, Italian and English
+* Changed the example-offer price from `ab / da / from` wording to a fixed displayed price
+* Aligned the working mode so landing-page changes should be committed and pushed promptly to keep local and live review in sync
 
 ### Follow-Up
 
 * Run a final live-domain sanity pass on desktop and mobile
 * Update legal pages once Partita IVA, PEC, Registro Imprese or a final legal form exist
+* After pulling on the second computer, immediately repeat the Git remote cleanup there so only the shared `Nowa` repository remains as `origin`
 
 ### Session Handoff
 
