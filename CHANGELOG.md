@@ -100,7 +100,10 @@ This changelog tracks the shared progress of the nowa workspace.
 * Confirmed the landing page is publicly online
 * Confirmed both `joinnowa.com` and `www.joinnowa.com` return `200 OK` from Vercel
 * Confirmed the partner inquiry form is connected to Formspree and accepts submissions successfully
+* Added canonical URL, social preview metadata and a favicon for the public landing page
+* Added a German / Italian / English language toggle to the static landing page
 
 ### Follow-Up
 
 * Run a final live-domain sanity pass on desktop and mobile
+* Add legally complete Impressum and Datenschutz pages once the operator details are available

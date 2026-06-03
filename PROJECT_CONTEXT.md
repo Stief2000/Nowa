@@ -179,12 +179,15 @@ Already done:
 * deployed the landing page publicly through Vercel
 * connected the public domain `joinnowa.com`
 * connected and tested the partner inquiry form through Formspree
+* added launch metadata, canonical URL, social preview metadata and a favicon
+* added a static language toggle for German, Italian and English landing-page copy
 
 Still open on landing page:
 
 * final mobile hero polish based on real-device testing
 * final copy consistency pass after visual finish
 * final full-page sanity check on the live public domain
+* legal pages / footer links for Impressum and Datenschutz once the required operator details are available
 
 ## Lean Go-Live Plan
 

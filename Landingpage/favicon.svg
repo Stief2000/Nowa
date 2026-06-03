@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="nowa">
+  <rect width="64" height="64" rx="16" fill="#f6f3ee"/>
+  <circle cx="47" cy="17" r="7" fill="#3f7464"/>
+  <text x="9" y="42" fill="#1d1711" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="700">n</text>
+  <text x="27" y="42" fill="#3f7464" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-style="italic" font-weight="700">o</text>
+</svg>

@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="nowa - now available. Die Plattform f&uuml;r Hotels, Pensionen und Apartments, um kurzfristig verf&uuml;gbare Hotelangebote sichtbar zu machen.">
-  <title>nowa - now available</title>
+  <meta name="description" content="nowa macht kurzfristig verfuegbare Hotelangebote sichtbar - fuer Hotels, Pensionen und Apartments mit freien Zimmern, Spa-Zeiten oder Packages.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://joinnowa.com/">
+  <link rel="alternate" hreflang="de" href="https://joinnowa.com/">
+  <link rel="alternate" hreflang="it" href="https://joinnowa.com/?lang=it">
+  <link rel="alternate" hreflang="en" href="https://joinnowa.com/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://joinnowa.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="nowa">
+  <meta property="og:title" content="nowa - kurzfristig freie Hotelangebote sichtbar machen">
+  <meta property="og:description" content="Die Partnerplattform fuer Hotels, Pensionen und Apartments, die kurzfristig verfuegbare Angebote sichtbar machen wollen.">
+  <meta property="og:url" content="https://joinnowa.com/">
+  <meta property="og:image" content="https://joinnowa.com/sixteen-miles-out-bdVmIkx_gIs-unsplash.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="nowa - kurzfristig freie Hotelangebote sichtbar machen">
+  <meta name="twitter:description" content="Die Partnerplattform fuer kurzfristig verfuegbare Hotelangebote.">
+  <meta name="twitter:image" content="https://joinnowa.com/sixteen-miles-out-bdVmIkx_gIs-unsplash.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>nowa - kurzfristig freie Hotelangebote sichtbar machen</title>
 
   <style>
     :root {
@@ -168,6 +185,34 @@
       display: flex;
       align-items: center;
       gap: 12px;
+    }
+
+    .language-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(29, 23, 17, 0.1);
+      background: rgba(255, 255, 255, 0.66);
+    }
+
+    .language-switcher button {
+      min-width: 36px;
+      height: 32px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .language-switcher button[aria-pressed="true"] {
+      background: var(--forest);
+      color: #fff;
     }
 
     .btn-primary,
@@ -905,6 +950,19 @@
         display: none;
       }
 
+      .nav-actions {
+        gap: 8px;
+      }
+
+      .nav-actions .language-switcher {
+        display: none;
+      }
+
+      .mobile-menu .language-switcher {
+        margin-top: 6px;
+        width: max-content;
+      }
+
       .hamburger {
         display: inline-flex;
         align-items: center;
@@ -1081,6 +1139,11 @@
         </div>
 
         <div class="nav-actions">
+          <div class="language-switcher" aria-label="Sprache wählen">
+            <button type="button" data-lang="de" aria-pressed="true">DE</button>
+            <button type="button" data-lang="it" aria-pressed="false">IT</button>
+            <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          </div>
           <a href="#apply" class="btn-primary">Betrieb vormerken</a>
           <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">Menü</button>
         </div>
@@ -1092,6 +1155,11 @@
         <a href="#process">So funktioniert's</a>
         <a href="#faq">FAQ</a>
         <a href="#apply" class="btn-primary">Betrieb vormerken</a>
+        <div class="language-switcher" aria-label="Sprache wählen">
+          <button type="button" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" data-lang="it" aria-pressed="false">IT</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -1509,69 +1577,544 @@
   </footer>
 
   <script>
-    const forcedHtml = [
-      [
-        ".mock-subtitle",
-        "Hotel Beispielhof &middot; Brixen"
-      ],
-      [
-        "#comparison .problem-statement p",
-        '<span class="brand-inline brand-inverse" style="color:#fff;"><span class="accent">now</span>a</span> erg&auml;nzt bestehende Kan&auml;le um einen klaren Fokus auf kurzfristige Verf&uuml;gbarkeit.'
-      ]
-    ];
+    const brand = '<span class="brand-inline"><span class="accent">now</span>a</span>';
+    const brandInverse = '<span class="brand-inline brand-inverse" style="color:#fff;"><span class="accent">now</span>a</span>';
 
-    const forcedText = [
-      [
-        ".mock-badge",
-        "heute verfügbar"
-      ],
-      [
-        ".mock-title",
-        "Spa & Stay heute verfügbar"
-      ],
-      [
-        ".mock-row:nth-of-type(1) span",
-        "gültig bis 18:00 Uhr"
-      ],
-      [
-        ".mock-row:nth-of-type(2) strong",
-        "begrenzt verfügbar"
-      ],
-      [
-        ".hero-aside h3",
-        "Kein Rabattportal. Sondern ein klarer Kanal für kurzfristig frei."
-      ],
-      [
-        ".hero-aside p",
-        "nowa startet regional, bleibt fokussiert und ist von Anfang an größer gedacht."
-      ],
-      [
-        ".hero-aside .trust-item:nth-child(2) span:last-child",
-        "Keine komplizierten Kampagnen für spontane Aktionen."
-      ],
-      [
-        ".hero-aside .trust-item:nth-child(3) span:last-child",
-        "Entwickelt mit Blick auf reale Alltagsprobleme in der Südtiroler Hotellerie."
-      ],
-      [
-        "footer .footer-grid > div:last-child p",
-        "Entwickelt mit Blick auf die Südtiroler Hotellerie und deren kurzfristige Verfügbarkeiten."
-      ]
-    ];
-
-    forcedHtml.forEach(([selector, content]) => {
-      const element = document.querySelector(selector);
-      if (element) {
-        element.innerHTML = content;
+    const translations = {
+      de: {
+        metaTitle: "nowa - kurzfristig freie Hotelangebote sichtbar machen",
+        metaDescription: "nowa macht kurzfristig verfuegbare Hotelangebote sichtbar - fuer Hotels, Pensionen und Apartments mit freien Zimmern, Spa-Zeiten oder Packages.",
+        ogDescription: "Die Partnerplattform fuer Hotels, Pensionen und Apartments, die kurzfristig verfuegbare Angebote sichtbar machen wollen.",
+        sending: "Anfrage wird gesendet ...",
+        formSubmit: "Betrieb vormerken",
+        entries: [
+          [".site-nav", "aria-label", "Hauptnavigation"],
+          [".brand", "aria-label", "nowa Startseite"],
+          [".nav-actions .language-switcher, .mobile-menu .language-switcher", "aria-label", "Sprache wählen"],
+          [".hamburger", "text", "Menü"],
+          [".hamburger", "aria-label", "Menü öffnen"],
+          [".nav-links a[href='#problem'], .mobile-menu > a[href='#problem']", "text", "Problem"],
+          [".nav-links a[href='#solution'], .mobile-menu > a[href='#solution']", "text", "Lösung"],
+          [".nav-links a[href='#process'], .mobile-menu > a[href='#process']", "text", "So funktioniert's"],
+          [".nav-links a[href='#faq'], .mobile-menu > a[href='#faq']", "text", "FAQ"],
+          [".nav-actions .btn-primary, .mobile-menu > .btn-primary", "text", "Betrieb vormerken"],
+          ["#hero", "aria-label", "Hero"],
+          [".hero-media", "alt", "Hochwertiges Hotelzimmer"],
+          [".hero-copy .eyebrow", "text", "Start in Südtirol, gedacht für mehr"],
+          [".hero-copy h1", "html", "<span>Verwandeln Sie</span><span>kurzfristig freie</span><span>Hotelangebote</span><span>in neue</span><span>Buchungschancen.</span>"],
+          [".hero-copy p", "html", `Mit ${brandInverse} machen Hotels, Pensionen und Apartments kurzfristig freie Angebote sichtbar - von Zimmern über Spa-Zeiten bis zu Packages. Einfach, schnell und zum Start mit klarem Fokus auf Südtirol.`],
+          [".hero-point:nth-child(1)", "text", "Zimmer, Spa, Packages"],
+          [".hero-point:nth-child(2)", "text", "Startregion Südtirol"],
+          [".hero-point:nth-child(3)", "text", "volle Kontrolle"],
+          [".hero-actions .btn-primary", "text", "Kostenlos als Partner starten"],
+          [".hero-note", "text", "Für Hotels, Pensionen, Apartments und touristische Betriebe mit freien Kapazitäten."],
+          ["#mockup", "aria-label", "Beispielangebot"],
+          [".mock-image img", "alt", "Zimmeransicht eines Hotels"],
+          [".mock-badge", "text", "heute verfügbar"],
+          [".mock-meta", "text", "Beispiel-Angebot"],
+          [".mock-title", "text", "Spa & Stay heute verfügbar"],
+          [".mock-subtitle", "html", "Hotel Beispielhof &middot; Brixen"],
+          [".mock-row:nth-of-type(1) span", "text", "gültig bis 18:00 Uhr"],
+          [".mock-row:nth-of-type(1) strong", "text", "ab 129 EUR"],
+          [".mock-row:nth-of-type(2) span", "text", "Zimmer oder Spa-Package"],
+          [".mock-row:nth-of-type(2) strong", "text", "begrenzt verfügbar"],
+          [".hero-aside .eyebrow", "html", `Warum ${brandInverse}`],
+          [".hero-aside h3", "text", "Kein Rabattportal. Sondern ein klarer Kanal für kurzfristig frei."],
+          [".hero-aside p", "html", `${brandInverse} startet regional, bleibt fokussiert und ist von Anfang an größer gedacht.`],
+          [".hero-aside .trust-item:nth-child(1) span:last-child", "text", "Preis, Zeitraum und Anzahl bleiben beim Betrieb."],
+          [".hero-aside .trust-item:nth-child(2) span:last-child", "text", "Keine komplizierten Kampagnen für spontane Aktionen."],
+          [".hero-aside .trust-item:nth-child(3) span:last-child", "text", "Entwickelt mit Blick auf reale Alltagsprobleme in der Südtiroler Hotellerie."],
+          ["#problem .section-head .eyebrow", "text", "Das Problem"],
+          ["#problem .section-head h2", "text", "Ein freies Zimmer von heute ist morgen verlorener Umsatz."],
+          ["#problem .section-head p", "text", "Kurzfristige Stornierungen, freie Zimmer unter der Woche, Lücken in der Nebensaison oder spontane Restkapazitäten sind in vielen Betrieben Alltag. Oft sind diese Verfügbarkeiten auf der eigenen Website kaum sichtbar und spontane Aktionen kosten zu viel Zeit."],
+          ["#problem .problem-statement h3", "text", "Kurzfristig frei. Zu spät sichtbar."],
+          ["#problem .problem-statement p", "html", `Genau dort setzt ${brandInverse} an: freie Kapazitäten können schnell, klar und zeitlich begrenzt sichtbar gemacht werden.`],
+          ["#problem .mini-point:nth-child(1) span:last-child", "text", "Stornierungen lassen kurzfristig Lücken im Belegungsplan."],
+          ["#problem .mini-point:nth-child(2) span:last-child", "text", "Schwächere Tage bleiben oft unter Potenzial."],
+          ["#problem .mini-point:nth-child(3) span:last-child", "text", "Klassische Plattformen sind nicht auf spontane Verfügbarkeit spezialisiert."],
+          ["#solution .section-head .eyebrow", "text", "Die Lösung"],
+          ["#solution .section-head h2", "html", `${brand} bringt kurzfristige Verfügbarkeiten dorthin, wo spontane Gäste danach suchen.`],
+          ["#solution .section-head p", "text", "Betriebe stellen kurzfristige Angebote schnell online, begrenzen sie zeitlich und behalten die volle Kontrolle über Preis, Zeitraum und Verfügbarkeit."],
+          [".trust-pill:nth-child(1)", "text", "Angebote schnell erstellen"],
+          [".trust-pill:nth-child(2)", "text", "zeitlich begrenzen"],
+          [".trust-pill:nth-child(3)", "text", "Anfragen oder Buchungen erhalten"],
+          [".image-card.tall img", "alt", "Poolbereich eines Wellnesshotels"],
+          [".stack-col .image-card:nth-child(1) img", "alt", "Hochwertiger Hotelbereich"],
+          [".stack-col .image-card:nth-child(2) img", "alt", "Ruhiger Spa-Raum"],
+          ["#process .section-head .eyebrow", "text", "So funktioniert's"],
+          ["#process .section-head h2", "text", "In wenigen Minuten von freier Kapazität zu sichtbarem Angebot."],
+          ["#process .section-head p", "text", "Die Idee soll einfach sein: schnell einstellen, sichtbar werden, direkt reagieren können."],
+          [".step:nth-child(1) h3", "text", "Angebot erstellen"],
+          [".step:nth-child(1) p", "text", "Bild, Preis, Zeitraum und Verfügbarkeit angeben. Ziel: in unter 2 Minuten startklar."],
+          [".step:nth-child(2) h3", "text", "Auf nowa sichtbar werden"],
+          [".step:nth-child(2) p", "text", "Das Angebot erscheint für Nutzer, die kurzfristig nach verfügbaren Aufenthalten suchen."],
+          [".step:nth-child(3) h3", "text", "Anfrage oder Buchung erhalten"],
+          [".step:nth-child(3) p", "text", "Interessierte Gäste können direkt anfragen oder buchen, je nach gewähltem Modell."],
+          ["#benefits .section-head .eyebrow", "text", "Vorteile für Partner"],
+          ["#benefits .section-head h2", "text", "Alles auf einen Blick. Ohne unnötige Komplexität."],
+          ["#benefits .section-head p", "text", "nowa soll Partnerbetrieben helfen, freie Kapazitäten besser sichtbar zu machen - klar, hochwertig und kontrolliert."],
+          ["#benefits .feature-item:nth-child(1) h3", "text", "Freie Zimmer schnell sichtbar machen"],
+          ["#benefits .feature-item:nth-child(1) p", "text", "Kurzfristige Verfügbarkeiten werden dort sichtbar, wo spontane Nachfrage entstehen kann."],
+          ["#benefits .feature-item:nth-child(2) h3", "text", "Preis, Zeitraum und Verfügbarkeit selbst steuern"],
+          ["#benefits .feature-item:nth-child(2) p", "text", "Der Betrieb behält die volle Kontrolle und kann Angebote flexibel anpassen oder deaktivieren."],
+          ["#benefits .feature-item:nth-child(3) h3", "text", "Ohne kompliziertes Kampagnenmanagement arbeiten"],
+          ["#benefits .feature-item:nth-child(3) p", "text", "Kein schweres Setup, keine unnötigen Zwischenschritte, kein Überladen mit Funktionen."],
+          ["#benefits .feature-item:nth-child(4) h3", "text", "Regional, hochwertig und erweiterbar bleiben"],
+          ["#benefits .feature-item:nth-child(4) p", "html", `${brand} startet fokussiert auf Hotellerie und ist später für weitere kurzfristig verfügbare Angebote vorbereitet.`],
+          ["#comparison .section-head .eyebrow", "text", "Einordnung"],
+          ["#comparison .section-head h2", "html", `Klassische Buchungsplattformen zeigen alles. ${brand} zeigt, was kurzfristig verfügbar ist.`],
+          ["#comparison .section-head p", "html", `${brand} ist als zusätzlicher Kanal gedacht - nicht als Ersatz für Website, Booking oder Channel Manager.`],
+          ["#comparison .problem-statement h3", "text", "Kein Entweder-oder."],
+          ["#comparison .problem-statement p", "html", `${brandInverse} ergänzt bestehende Kanäle um einen klaren Fokus auf kurzfristige Verfügbarkeit.`],
+          [".comparison-row:nth-child(1) .comparison-side:nth-child(1) strong", "text", "Klassische Plattformen"],
+          [".comparison-row:nth-child(1) .comparison-side:nth-child(1) p", "text", "zeigen das gesamte Angebot eines Betriebs."],
+          [".comparison-row:nth-child(1) .comparison-side:nth-child(2) strong", "html", brand],
+          [".comparison-row:nth-child(1) .comparison-side:nth-child(2) p", "text", "zeigt gezielt, was kurzfristig frei und relevant ist."],
+          [".comparison-row:nth-child(2) .comparison-side:nth-child(1) strong", "text", "Klassische Plattformen"],
+          [".comparison-row:nth-child(2) .comparison-side:nth-child(1) p", "text", "sind für allgemeine Buchungssuche gedacht."],
+          [".comparison-row:nth-child(2) .comparison-side:nth-child(2) strong", "html", brand],
+          [".comparison-row:nth-child(2) .comparison-side:nth-child(2) p", "text", "setzt auf spontane Buchungschancen, Restkapazitäten und Last-Minute-Sichtbarkeit."],
+          [".comparison-row:nth-child(3) .comparison-side:nth-child(1) strong", "text", "Wichtig"],
+          [".comparison-row:nth-child(3) .comparison-side:nth-child(1) p", "text", "Website, Booking und Channel Manager bleiben bestehen."],
+          [".comparison-row:nth-child(3) .comparison-side:nth-child(2) strong", "html", `Rolle von ${brand}`],
+          [".comparison-row:nth-child(3) .comparison-side:nth-child(2) p", "text", "ein zusätzlicher, fokussierter Kanal für kurzfristig freie Kapazitäten."],
+          ["#trust .section-head .eyebrow", "text", "Vertrauen und Seriosität"],
+          ["#trust .section-head h2", "text", "Für Südtiroler Betriebe entwickelt. Klar, regional und partnerorientiert."],
+          ["#trust .section-head p", "html", `Gerade weil ${brand} neu ist, muss die Plattform Vertrauen schaffen: transparente Nutzung, klare Kontrolle und ein hochwertiger Auftritt - mit Start in Südtirol, aber nicht nur dafür gedacht.`],
+          ["#trust .feature-item:nth-child(1) h3", "text", "Direkt für Betriebe gedacht"],
+          ["#trust .feature-item:nth-child(1) p", "text", "Die Seite richtet sich klar an Hotels, Pensionen, Apartments und kleinere touristische Betriebe."],
+          ["#trust .feature-item:nth-child(2) h3", "text", "Angebote flexibel steuerbar"],
+          ["#trust .feature-item:nth-child(2) p", "text", "Angebote können angepasst, begrenzt oder deaktiviert werden. Der Betrieb behält die Kontrolle."],
+          ["#trust .feature-item:nth-child(3) h3", "text", "Weiter gedacht, aber nicht überladen"],
+          ["#trust .feature-item:nth-child(3) p", "text", "später erweiterbar auf Wellness, Gastronomie und Dienstleistungen - aktuell aber klar auf Hotellerie fokussiert."],
+          ["#faq .section-head .eyebrow", "text", "FAQ"],
+          ["#faq .section-head h2", "text", "Die wichtigsten Fragen auf einen Blick."],
+          ["#faq .section-head p", "text", "Kurz und klar, damit ein Partnerbetrieb den Sinn sofort versteht."],
+          [".faq-item:nth-child(1) .faq-label", "html", `Was ist ${brand}`],
+          [".faq-item:nth-child(1) .faq-body", "html", `${brand} ist eine Plattform für kurzfristig verfügbare Angebote. Aktuell liegt der Fokus auf Hotelbetrieben mit freien Zimmern, Stornierungen oder Restkapazitäten.`],
+          [".faq-item:nth-child(2) .faq-label", "html", `Für welche Betriebe ist ${brand} geeignet`],
+          [".faq-item:nth-child(2) .faq-body", "text", "Für Hotels, Pensionen, Apartments, Garni-Betriebe und touristische Anbieter mit kurzfristig verfügbaren Kapazitäten."],
+          [".faq-item:nth-child(3) .faq-label", "text", "Muss ich Rabatte geben"],
+          [".faq-item:nth-child(3) .faq-body", "text", "Nein. Der Betrieb behält die Kontrolle über Preis und Angebot. Ein attraktiver Preis kann helfen, ist aber nicht als Billigangebot gedacht."],
+          [".faq-item:nth-child(4) .faq-label", "text", "Kann ich Angebote jederzeit deaktivieren"],
+          [".faq-item:nth-child(4) .faq-body", "text", "Ja. Angebote sollen zeitlich begrenzt und flexibel deaktivierbar sein."],
+          [".faq-item:nth-child(5) .faq-label", "html", "Ist Direktbuchung Pflicht"],
+          [".faq-item:nth-child(5) .faq-body", "html", `Nein. Je nach Entwicklungsstand kann ${brand} mit Anfrage, Reservierung oder später Direktbuchung funktionieren.`],
+          [".faq-item:nth-child(6) .faq-label", "html", `Was kostet ${brand}`],
+          [".faq-item:nth-child(6) .faq-body", "html", `In der Startphase können ausgewählte Partnerbetriebe ${brand} testen. Die finalen Konditionen werden transparent kommuniziert.`],
+          [".faq-item:nth-child(7) .faq-label", "text", "Wie schnell kann ein Angebot online sein"],
+          [".faq-item:nth-child(7) .faq-body", "text", "Die Angebotserstellung soll einfach und schnell funktionieren. Ziel ist, kurzfristige Verfügbarkeiten in wenigen Minuten sichtbar zu machen."],
+          [".faq-item:nth-child(8) .faq-label", "html", `Ersetzt ${brand} meine Website oder Booking.com`],
+          [".faq-item:nth-child(8) .faq-body", "html", `Nein. ${brand} ist als zusätzlicher Kanal für kurzfristige Verfügbarkeiten gedacht.`],
+          ["#apply .closing-panel h2", "text", "Machen Sie kurzfristige Verfügbarkeiten sichtbar, bevor sie ungenutzt bleiben."],
+          ["#apply .closing-panel p", "html", `Starten Sie mit ${brandInverse} und testen Sie einen neuen, einfachen Kanal für spontane Buchungschancen.`],
+          ["#apply .mini-point:nth-child(1) span:last-child", "text", "regionaler Fokus auf Südtirol"],
+          ["#apply .mini-point:nth-child(2) span:last-child", "text", "hochwertiger Partnerauftritt statt Billigplattform"],
+          ["#apply .mini-point:nth-child(3) span:last-child", "text", "geeignet für Stornierungen, Restkapazitäten und schwächere Tage"],
+          ["label[for='hotel-name']", "text", "Betrieb"],
+          ["#hotel-name", "placeholder", "z. B. Hotel Alpenruhe"],
+          ["label[for='contact-name']", "text", "Ansprechpartner"],
+          ["#contact-name", "placeholder", "Vor- und Nachname"],
+          ["label[for='email']", "text", "E-Mail"],
+          ["#email", "placeholder", "kontakt@betrieb.it"],
+          ["label[for='phone']", "text", "Telefon"],
+          ["#phone", "placeholder", "+39 ..."],
+          ["label[for='business-type']", "text", "Betriebsart"],
+          ["#business-type option[value='']", "text", "Bitte wählen"],
+          ["#business-type option[value='hotel']", "text", "Hotel"],
+          ["#business-type option[value='pension']", "text", "Pension"],
+          ["#business-type option[value='apartment']", "text", "Apartment"],
+          ["#business-type option[value='garni']", "text", "Garni"],
+          ["label[for='region']", "text", "Ort / Region"],
+          ["#region", "placeholder", "z. B. Brixen, Meran, Bozen"],
+          ["label[for='availability']", "text", "Welche freien Kapazitäten möchten Sie testen"],
+          ["#availability", "placeholder", "z. B. kurzfristig freie Zimmer, Midweek-Lücken, Stornierungen ..."],
+          ["#form-submit", "text", "Betrieb vormerken"],
+          ["#form-success", "text", "Danke. Ihre Anfrage ist vorgemerkt und wir melden uns persönlich zurück."],
+          ["#form-error", "text", "Das Formular konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut."],
+          ["footer .footer-grid > div:first-child p", "text", "Kurzfristige Verfügbarkeiten sichtbar machen - einfach, regional und partnerorientiert."],
+          ["footer .footer-grid > div:nth-child(2) a[href='#problem']", "text", "Problem"],
+          ["footer .footer-grid > div:nth-child(2) a[href='#solution']", "text", "Lösung"],
+          ["footer .footer-grid > div:nth-child(2) a[href='#process']", "text", "So funktioniert's"],
+          ["footer .footer-grid > div:nth-child(2) a[href='#apply']", "text", "Partner werden"],
+          ["footer .footer-grid > div:last-child > div", "text", "Startregion"],
+          ["footer .footer-grid > div:last-child p", "text", "Entwickelt mit Blick auf die Südtiroler Hotellerie und deren kurzfristige Verfügbarkeiten."],
+          [".footer-note span:nth-child(2)", "text", "Landingpage für Partnerbetriebe"]
+        ]
+      },
+      it: {
+        metaTitle: "nowa - rendere visibili le offerte hotel last minute",
+        metaDescription: "nowa rende visibili offerte alberghiere disponibili a breve termine - per hotel, pensioni e appartamenti con camere, spa o pacchetti liberi.",
+        ogDescription: "La piattaforma partner per strutture ricettive che vogliono rendere visibili disponibilita a breve termine.",
+        sending: "Invio della richiesta ...",
+        formSubmit: "Registra la struttura",
+        entries: [
+          [".site-nav", "aria-label", "Navigazione principale"],
+          [".brand", "aria-label", "Homepage nowa"],
+          [".nav-actions .language-switcher, .mobile-menu .language-switcher", "aria-label", "Scegli lingua"],
+          [".hamburger", "text", "Menu"],
+          [".hamburger", "aria-label", "Apri menu"],
+          [".nav-links a[href='#problem'], .mobile-menu > a[href='#problem']", "text", "Problema"],
+          [".nav-links a[href='#solution'], .mobile-menu > a[href='#solution']", "text", "Soluzione"],
+          [".nav-links a[href='#process'], .mobile-menu > a[href='#process']", "text", "Come funziona"],
+          [".nav-links a[href='#faq'], .mobile-menu > a[href='#faq']", "text", "FAQ"],
+          [".nav-actions .btn-primary, .mobile-menu > .btn-primary", "text", "Registra la struttura"],
+          ["#hero", "aria-label", "Hero"],
+          [".hero-media", "alt", "Camera d'hotel di alta qualita"],
+          [".hero-copy .eyebrow", "text", "Partenza in Alto Adige, pensata per crescere"],
+          [".hero-copy h1", "html", "<span>Trasforma</span><span>offerte hotel</span><span>disponibili</span><span>a breve termine</span><span>in nuove opportunita.</span>"],
+          [".hero-copy p", "html", `Con ${brandInverse}, hotel, pensioni e appartamenti rendono visibili offerte disponibili a breve termine - dalle camere alle fasce spa fino ai pacchetti. Semplice, veloce e con un primo focus sull'Alto Adige.`],
+          [".hero-point:nth-child(1)", "text", "Camere, spa, pacchetti"],
+          [".hero-point:nth-child(2)", "text", "Regione di lancio: Alto Adige"],
+          [".hero-point:nth-child(3)", "text", "pieno controllo"],
+          [".hero-actions .btn-primary", "text", "Inizia gratis come partner"],
+          [".hero-note", "text", "Per hotel, pensioni, appartamenti e strutture turistiche con capacita libere."],
+          ["#mockup", "aria-label", "Offerta di esempio"],
+          [".mock-image img", "alt", "Vista di una camera d'hotel"],
+          [".mock-badge", "text", "disponibile oggi"],
+          [".mock-meta", "text", "Offerta di esempio"],
+          [".mock-title", "text", "Spa & Stay disponibile oggi"],
+          [".mock-subtitle", "html", "Hotel Beispielhof &middot; Bressanone"],
+          [".mock-row:nth-of-type(1) span", "text", "valida fino alle 18:00"],
+          [".mock-row:nth-of-type(1) strong", "text", "da 129 EUR"],
+          [".mock-row:nth-of-type(2) span", "text", "Camera o pacchetto spa"],
+          [".mock-row:nth-of-type(2) strong", "text", "disponibilita limitata"],
+          [".hero-aside .eyebrow", "html", `Perche ${brandInverse}`],
+          [".hero-aside h3", "text", "Non un portale sconti. Un canale chiaro per disponibilita immediate."],
+          [".hero-aside p", "html", `${brandInverse} parte regionale, resta focalizzata ed e pensata per crescere fin dall'inizio.`],
+          [".hero-aside .trust-item:nth-child(1) span:last-child", "text", "Prezzo, periodo e quantita restano sotto il controllo della struttura."],
+          [".hero-aside .trust-item:nth-child(2) span:last-child", "text", "Nessuna campagna complicata per azioni spontanee."],
+          [".hero-aside .trust-item:nth-child(3) span:last-child", "text", "Sviluppata guardando ai problemi reali dell'hotellerie altoatesina."],
+          ["#problem .section-head .eyebrow", "text", "Il problema"],
+          ["#problem .section-head h2", "text", "Una camera libera oggi domani e fatturato perso."],
+          ["#problem .section-head p", "text", "Cancellazioni dell'ultimo minuto, camere libere durante la settimana, buchi in bassa stagione o capacita residue fanno parte della quotidianita di molte strutture. Spesso queste disponibilita sono poco visibili sul proprio sito e le azioni spontanee richiedono troppo tempo."],
+          ["#problem .problem-statement h3", "text", "Libero a breve. Visibile troppo tardi."],
+          ["#problem .problem-statement p", "html", `E proprio qui interviene ${brandInverse}: le capacita libere possono essere rese visibili rapidamente, in modo chiaro e per un periodo limitato.`],
+          ["#problem .mini-point:nth-child(1) span:last-child", "text", "Le cancellazioni creano buchi improvvisi nel piano occupazione."],
+          ["#problem .mini-point:nth-child(2) span:last-child", "text", "I giorni piu deboli restano spesso sotto il loro potenziale."],
+          ["#problem .mini-point:nth-child(3) span:last-child", "text", "Le piattaforme classiche non sono specializzate nella disponibilita spontanea."],
+          ["#solution .section-head .eyebrow", "text", "La soluzione"],
+          ["#solution .section-head h2", "html", `${brand} porta le disponibilita a breve termine dove gli ospiti spontanei le cercano.`],
+          ["#solution .section-head p", "text", "Le strutture pubblicano rapidamente offerte last minute, le limitano nel tempo e mantengono pieno controllo su prezzo, periodo e disponibilita."],
+          [".trust-pill:nth-child(1)", "text", "Creare offerte rapidamente"],
+          [".trust-pill:nth-child(2)", "text", "limitarle nel tempo"],
+          [".trust-pill:nth-child(3)", "text", "ricevere richieste o prenotazioni"],
+          [".image-card.tall img", "alt", "Area piscina di un wellness hotel"],
+          [".stack-col .image-card:nth-child(1) img", "alt", "Area hotel di alta qualita"],
+          [".stack-col .image-card:nth-child(2) img", "alt", "Spa tranquilla"],
+          ["#process .section-head .eyebrow", "text", "Come funziona"],
+          ["#process .section-head h2", "text", "In pochi minuti dalla capacita libera all'offerta visibile."],
+          ["#process .section-head p", "text", "L'idea deve restare semplice: impostare velocemente, diventare visibili, reagire direttamente."],
+          [".step:nth-child(1) h3", "text", "Creare l'offerta"],
+          [".step:nth-child(1) p", "text", "Inserire immagine, prezzo, periodo e disponibilita. Obiettivo: pronto in meno di 2 minuti."],
+          [".step:nth-child(2) h3", "text", "Diventare visibili su nowa"],
+          [".step:nth-child(2) p", "text", "L'offerta appare agli utenti che cercano soggiorni disponibili a breve termine."],
+          [".step:nth-child(3) h3", "text", "Ricevere richiesta o prenotazione"],
+          [".step:nth-child(3) p", "text", "Gli ospiti interessati possono inviare una richiesta o prenotare, a seconda del modello scelto."],
+          ["#benefits .section-head .eyebrow", "text", "Vantaggi per i partner"],
+          ["#benefits .section-head h2", "text", "Tutto a colpo d'occhio. Senza complessita inutile."],
+          ["#benefits .section-head p", "text", "nowa aiuta le strutture partner a rendere piu visibili le capacita libere - in modo chiaro, curato e controllato."],
+          ["#benefits .feature-item:nth-child(1) h3", "text", "Rendere visibili rapidamente le camere libere"],
+          ["#benefits .feature-item:nth-child(1) p", "text", "Le disponibilita a breve termine diventano visibili dove puo nascere domanda spontanea."],
+          ["#benefits .feature-item:nth-child(2) h3", "text", "Gestire prezzo, periodo e disponibilita"],
+          ["#benefits .feature-item:nth-child(2) p", "text", "La struttura mantiene il pieno controllo e puo adattare o disattivare le offerte in modo flessibile."],
+          ["#benefits .feature-item:nth-child(3) h3", "text", "Lavorare senza campagne complicate"],
+          ["#benefits .feature-item:nth-child(3) p", "text", "Nessun setup pesante, nessun passaggio inutile, nessun sovraccarico di funzioni."],
+          ["#benefits .feature-item:nth-child(4) h3", "text", "Restare regionali, curati ed espandibili"],
+          ["#benefits .feature-item:nth-child(4) p", "html", `${brand} parte focalizzata sull'hotellerie ed e pronta per altre offerte disponibili a breve termine.`],
+          ["#comparison .section-head .eyebrow", "text", "Inquadramento"],
+          ["#comparison .section-head h2", "html", `Le piattaforme classiche mostrano tutto. ${brand} mostra cio che e disponibile a breve.`],
+          ["#comparison .section-head p", "html", `${brand} e pensata come canale aggiuntivo - non come sostituto del sito, di Booking o del channel manager.`],
+          ["#comparison .problem-statement h3", "text", "Non e un aut-aut."],
+          ["#comparison .problem-statement p", "html", `${brandInverse} integra i canali esistenti con un focus chiaro sulla disponibilita a breve termine.`],
+          [".comparison-row:nth-child(1) .comparison-side:nth-child(1) strong", "text", "Piattaforme classiche"],
+          [".comparison-row:nth-child(1) .comparison-side:nth-child(1) p", "text", "mostrano l'intera offerta di una struttura."],
+          [".comparison-row:nth-child(1) .comparison-side:nth-child(2) strong", "html", brand],
+          [".comparison-row:nth-child(1) .comparison-side:nth-child(2) p", "text", "mostra in modo mirato cio che e libero e rilevante a breve termine."],
+          [".comparison-row:nth-child(2) .comparison-side:nth-child(1) strong", "text", "Piattaforme classiche"],
+          [".comparison-row:nth-child(2) .comparison-side:nth-child(1) p", "text", "sono pensate per la ricerca generale di prenotazioni."],
+          [".comparison-row:nth-child(2) .comparison-side:nth-child(2) strong", "html", brand],
+          [".comparison-row:nth-child(2) .comparison-side:nth-child(2) p", "text", "punta su opportunita spontanee, capacita residue e visibilita last minute."],
+          [".comparison-row:nth-child(3) .comparison-side:nth-child(1) strong", "text", "Importante"],
+          [".comparison-row:nth-child(3) .comparison-side:nth-child(1) p", "text", "Sito, Booking e channel manager restano attivi."],
+          [".comparison-row:nth-child(3) .comparison-side:nth-child(2) strong", "html", `Ruolo di ${brand}`],
+          [".comparison-row:nth-child(3) .comparison-side:nth-child(2) p", "text", "un canale aggiuntivo e focalizzato per capacita libere a breve termine."],
+          ["#trust .section-head .eyebrow", "text", "Fiducia e serieta"],
+          ["#trust .section-head h2", "text", "Sviluppata per le strutture altoatesine. Chiara, regionale e orientata ai partner."],
+          ["#trust .section-head p", "html", `Proprio perche ${brand} e nuova, deve creare fiducia: uso trasparente, controllo chiaro e presenza curata - con partenza in Alto Adige, ma non pensata solo per questo.`],
+          ["#trust .feature-item:nth-child(1) h3", "text", "Pensata direttamente per le strutture"],
+          ["#trust .feature-item:nth-child(1) p", "text", "La pagina si rivolge chiaramente a hotel, pensioni, appartamenti e piccole strutture turistiche."],
+          ["#trust .feature-item:nth-child(2) h3", "text", "Offerte gestibili in modo flessibile"],
+          ["#trust .feature-item:nth-child(2) p", "text", "Le offerte possono essere modificate, limitate o disattivate. La struttura mantiene il controllo."],
+          ["#trust .feature-item:nth-child(3) h3", "text", "Pensata per crescere, ma senza sovraccaricare"],
+          ["#trust .feature-item:nth-child(3) p", "text", "espandibile in futuro a wellness, gastronomia e servizi - oggi pero chiaramente focalizzata sull'hotellerie."],
+          ["#faq .section-head .eyebrow", "text", "FAQ"],
+          ["#faq .section-head h2", "text", "Le domande piu importanti in breve."],
+          ["#faq .section-head p", "text", "Breve e chiaro, cosi una struttura partner capisce subito il senso."],
+          [".faq-item:nth-child(1) .faq-label", "html", `Che cos'e ${brand}`],
+          [".faq-item:nth-child(1) .faq-body", "html", `${brand} e una piattaforma per offerte disponibili a breve termine. Attualmente il focus e sulle strutture alberghiere con camere libere, cancellazioni o capacita residue.`],
+          [".faq-item:nth-child(2) .faq-label", "html", `Per quali strutture e adatta ${brand}`],
+          [".faq-item:nth-child(2) .faq-body", "text", "Per hotel, pensioni, appartamenti, garni e fornitori turistici con capacita disponibili a breve termine."],
+          [".faq-item:nth-child(3) .faq-label", "text", "Devo offrire sconti"],
+          [".faq-item:nth-child(3) .faq-body", "text", "No. La struttura mantiene il controllo su prezzo e offerta. Un prezzo interessante puo aiutare, ma non deve diventare un'offerta low-cost."],
+          [".faq-item:nth-child(4) .faq-label", "text", "Posso disattivare le offerte in qualsiasi momento"],
+          [".faq-item:nth-child(4) .faq-body", "text", "Si. Le offerte devono poter essere limitate nel tempo e disattivate in modo flessibile."],
+          [".faq-item:nth-child(5) .faq-label", "text", "La prenotazione diretta e obbligatoria"],
+          [".faq-item:nth-child(5) .faq-body", "html", `No. A seconda dello stato di sviluppo, ${brand} puo funzionare con richiesta, prenotazione o successivamente prenotazione diretta.`],
+          [".faq-item:nth-child(6) .faq-label", "html", `Quanto costa ${brand}`],
+          [".faq-item:nth-child(6) .faq-body", "html", `Nella fase iniziale alcune strutture partner selezionate possono testare ${brand}. Le condizioni finali saranno comunicate in modo trasparente.`],
+          [".faq-item:nth-child(7) .faq-label", "text", "Quanto velocemente puo andare online un'offerta"],
+          [".faq-item:nth-child(7) .faq-body", "text", "La creazione dell'offerta deve essere semplice e veloce. L'obiettivo e rendere visibili le disponibilita a breve termine in pochi minuti."],
+          [".faq-item:nth-child(8) .faq-label", "html", `${brand} sostituisce il mio sito o Booking.com`],
+          [".faq-item:nth-child(8) .faq-body", "html", `No. ${brand} e pensata come canale aggiuntivo per disponibilita a breve termine.`],
+          ["#apply .closing-panel h2", "text", "Rendi visibili le disponibilita a breve termine prima che restino inutilizzate."],
+          ["#apply .closing-panel p", "html", `Inizia con ${brandInverse} e testa un nuovo canale semplice per opportunita di prenotazione spontanee.`],
+          ["#apply .mini-point:nth-child(1) span:last-child", "text", "focus regionale sull'Alto Adige"],
+          ["#apply .mini-point:nth-child(2) span:last-child", "text", "presenza partner curata invece di portale sconti"],
+          ["#apply .mini-point:nth-child(3) span:last-child", "text", "adatta a cancellazioni, capacita residue e giorni piu deboli"],
+          ["label[for='hotel-name']", "text", "Struttura"],
+          ["#hotel-name", "placeholder", "es. Hotel Alpenruhe"],
+          ["label[for='contact-name']", "text", "Referente"],
+          ["#contact-name", "placeholder", "Nome e cognome"],
+          ["label[for='email']", "text", "E-mail"],
+          ["#email", "placeholder", "contatto@struttura.it"],
+          ["label[for='phone']", "text", "Telefono"],
+          ["#phone", "placeholder", "+39 ..."],
+          ["label[for='business-type']", "text", "Tipo di struttura"],
+          ["#business-type option[value='']", "text", "Seleziona"],
+          ["#business-type option[value='hotel']", "text", "Hotel"],
+          ["#business-type option[value='pension']", "text", "Pensione"],
+          ["#business-type option[value='apartment']", "text", "Appartamento"],
+          ["#business-type option[value='garni']", "text", "Garni"],
+          ["label[for='region']", "text", "Localita / regione"],
+          ["#region", "placeholder", "es. Bressanone, Merano, Bolzano"],
+          ["label[for='availability']", "text", "Quali capacita libere vuoi testare"],
+          ["#availability", "placeholder", "es. camere libere a breve termine, buchi midweek, cancellazioni ..."],
+          ["#form-submit", "text", "Registra la struttura"],
+          ["#form-success", "text", "Grazie. La tua richiesta e registrata e ti contatteremo personalmente."],
+          ["#form-error", "text", "Al momento non e stato possibile inviare il modulo. Riprova."],
+          ["footer .footer-grid > div:first-child p", "text", "Rendere visibili disponibilita a breve termine - semplice, regionale e orientato ai partner."],
+          ["footer .footer-grid > div:nth-child(2) a[href='#problem']", "text", "Problema"],
+          ["footer .footer-grid > div:nth-child(2) a[href='#solution']", "text", "Soluzione"],
+          ["footer .footer-grid > div:nth-child(2) a[href='#process']", "text", "Come funziona"],
+          ["footer .footer-grid > div:nth-child(2) a[href='#apply']", "text", "Diventa partner"],
+          ["footer .footer-grid > div:last-child > div", "text", "Regione di lancio"],
+          ["footer .footer-grid > div:last-child p", "text", "Sviluppata guardando all'hotellerie altoatesina e alle sue disponibilita a breve termine."],
+          [".footer-note span:nth-child(2)", "text", "Landing page per strutture partner"]
+        ]
+      },
+      en: {
+        metaTitle: "nowa - make short-notice hotel offers visible",
+        metaDescription: "nowa makes short-notice hotel offers visible - for hotels, guesthouses and apartments with available rooms, spa slots or packages.",
+        ogDescription: "The partner platform for hospitality businesses that want to make short-notice availability visible.",
+        sending: "Sending request ...",
+        formSubmit: "Register your business",
+        entries: [
+          [".site-nav", "aria-label", "Main navigation"],
+          [".brand", "aria-label", "nowa homepage"],
+          [".nav-actions .language-switcher, .mobile-menu .language-switcher", "aria-label", "Choose language"],
+          [".hamburger", "text", "Menu"],
+          [".hamburger", "aria-label", "Open menu"],
+          [".nav-links a[href='#problem'], .mobile-menu > a[href='#problem']", "text", "Problem"],
+          [".nav-links a[href='#solution'], .mobile-menu > a[href='#solution']", "text", "Solution"],
+          [".nav-links a[href='#process'], .mobile-menu > a[href='#process']", "text", "How it works"],
+          [".nav-links a[href='#faq'], .mobile-menu > a[href='#faq']", "text", "FAQ"],
+          [".nav-actions .btn-primary, .mobile-menu > .btn-primary", "text", "Register your business"],
+          ["#hero", "aria-label", "Hero"],
+          [".hero-media", "alt", "Premium hotel room"],
+          [".hero-copy .eyebrow", "text", "Starting in South Tyrol, built to grow"],
+          [".hero-copy h1", "html", "<span>Turn</span><span>short-notice</span><span>hotel offers</span><span>into new</span><span>booking chances.</span>"],
+          [".hero-copy p", "html", `With ${brandInverse}, hotels, guesthouses and apartments make short-notice offers visible - from rooms and spa slots to packages. Simple, fast and starting with a clear focus on South Tyrol.`],
+          [".hero-point:nth-child(1)", "text", "Rooms, spa, packages"],
+          [".hero-point:nth-child(2)", "text", "Launch region South Tyrol"],
+          [".hero-point:nth-child(3)", "text", "full control"],
+          [".hero-actions .btn-primary", "text", "Start as a partner for free"],
+          [".hero-note", "text", "For hotels, guesthouses, apartments and tourism businesses with available capacity."],
+          ["#mockup", "aria-label", "Example offer"],
+          [".mock-image img", "alt", "View of a hotel room"],
+          [".mock-badge", "text", "available today"],
+          [".mock-meta", "text", "Example offer"],
+          [".mock-title", "text", "Spa & Stay available today"],
+          [".mock-subtitle", "html", "Hotel Beispielhof &middot; Brixen"],
+          [".mock-row:nth-of-type(1) span", "text", "valid until 6:00 PM"],
+          [".mock-row:nth-of-type(1) strong", "text", "from 129 EUR"],
+          [".mock-row:nth-of-type(2) span", "text", "Room or spa package"],
+          [".mock-row:nth-of-type(2) strong", "text", "limited availability"],
+          [".hero-aside .eyebrow", "html", `Why ${brandInverse}`],
+          [".hero-aside h3", "text", "Not a discount portal. A clear channel for short-notice availability."],
+          [".hero-aside p", "html", `${brandInverse} starts regionally, stays focused and is built to grow from day one.`],
+          [".hero-aside .trust-item:nth-child(1) span:last-child", "text", "Price, period and quantity stay with the business."],
+          [".hero-aside .trust-item:nth-child(2) span:last-child", "text", "No complicated campaigns for spontaneous offers."],
+          [".hero-aside .trust-item:nth-child(3) span:last-child", "text", "Built around real day-to-day problems in South Tyrol hospitality."],
+          ["#problem .section-head .eyebrow", "text", "The problem"],
+          ["#problem .section-head h2", "text", "A free room today is lost revenue tomorrow."],
+          ["#problem .section-head p", "text", "Last-minute cancellations, free rooms during the week, gaps in low season or spontaneous remaining capacity are part of everyday life for many businesses. Often this availability is barely visible on the hotel's own website, and spontaneous promotions take too much time."],
+          ["#problem .problem-statement h3", "text", "Available at short notice. Visible too late."],
+          ["#problem .problem-statement p", "html", `That is exactly where ${brandInverse} comes in: free capacity can be made visible quickly, clearly and for a limited time.`],
+          ["#problem .mini-point:nth-child(1) span:last-child", "text", "Cancellations create short-notice gaps in the occupancy plan."],
+          ["#problem .mini-point:nth-child(2) span:last-child", "text", "Weaker days often stay below their potential."],
+          ["#problem .mini-point:nth-child(3) span:last-child", "text", "Classic platforms are not specialized in spontaneous availability."],
+          ["#solution .section-head .eyebrow", "text", "The solution"],
+          ["#solution .section-head h2", "html", `${brand} brings short-notice availability to where spontaneous guests are looking for it.`],
+          ["#solution .section-head p", "text", "Businesses publish short-notice offers quickly, limit them in time and keep full control over price, period and availability."],
+          [".trust-pill:nth-child(1)", "text", "Create offers quickly"],
+          [".trust-pill:nth-child(2)", "text", "limit them in time"],
+          [".trust-pill:nth-child(3)", "text", "receive requests or bookings"],
+          [".image-card.tall img", "alt", "Pool area of a wellness hotel"],
+          [".stack-col .image-card:nth-child(1) img", "alt", "Premium hotel area"],
+          [".stack-col .image-card:nth-child(2) img", "alt", "Quiet spa room"],
+          ["#process .section-head .eyebrow", "text", "How it works"],
+          ["#process .section-head h2", "text", "From free capacity to visible offer in a few minutes."],
+          ["#process .section-head p", "text", "The idea should stay simple: set up quickly, become visible, respond directly."],
+          [".step:nth-child(1) h3", "text", "Create offer"],
+          [".step:nth-child(1) p", "text", "Add image, price, period and availability. Goal: ready in under 2 minutes."],
+          [".step:nth-child(2) h3", "text", "Become visible on nowa"],
+          [".step:nth-child(2) p", "text", "The offer appears for users looking for stays available at short notice."],
+          [".step:nth-child(3) h3", "text", "Receive request or booking"],
+          [".step:nth-child(3) p", "text", "Interested guests can request or book directly, depending on the selected model."],
+          ["#benefits .section-head .eyebrow", "text", "Partner benefits"],
+          ["#benefits .section-head h2", "text", "Everything at a glance. Without unnecessary complexity."],
+          ["#benefits .section-head p", "text", "nowa helps partner businesses make free capacity more visible - clearly, with quality and under control."],
+          ["#benefits .feature-item:nth-child(1) h3", "text", "Make free rooms visible quickly"],
+          ["#benefits .feature-item:nth-child(1) p", "text", "Short-notice availability becomes visible where spontaneous demand can arise."],
+          ["#benefits .feature-item:nth-child(2) h3", "text", "Control price, period and availability yourself"],
+          ["#benefits .feature-item:nth-child(2) p", "text", "The business keeps full control and can adjust or deactivate offers flexibly."],
+          ["#benefits .feature-item:nth-child(3) h3", "text", "Work without complicated campaign management"],
+          ["#benefits .feature-item:nth-child(3) p", "text", "No heavy setup, no unnecessary steps, no overloaded feature set."],
+          ["#benefits .feature-item:nth-child(4) h3", "text", "Stay regional, premium and ready to expand"],
+          ["#benefits .feature-item:nth-child(4) p", "html", `${brand} starts focused on hospitality and is prepared for more short-notice offer types later.`],
+          ["#comparison .section-head .eyebrow", "text", "Positioning"],
+          ["#comparison .section-head h2", "html", `Classic booking platforms show everything. ${brand} shows what is available at short notice.`],
+          ["#comparison .section-head p", "html", `${brand} is designed as an additional channel - not as a replacement for the website, Booking or channel manager.`],
+          ["#comparison .problem-statement h3", "text", "Not either-or."],
+          ["#comparison .problem-statement p", "html", `${brandInverse} adds a clear focus on short-notice availability to existing channels.`],
+          [".comparison-row:nth-child(1) .comparison-side:nth-child(1) strong", "text", "Classic platforms"],
+          [".comparison-row:nth-child(1) .comparison-side:nth-child(1) p", "text", "show the entire offer of a business."],
+          [".comparison-row:nth-child(1) .comparison-side:nth-child(2) strong", "html", brand],
+          [".comparison-row:nth-child(1) .comparison-side:nth-child(2) p", "text", "shows specifically what is free and relevant at short notice."],
+          [".comparison-row:nth-child(2) .comparison-side:nth-child(1) strong", "text", "Classic platforms"],
+          [".comparison-row:nth-child(2) .comparison-side:nth-child(1) p", "text", "are built for general booking search."],
+          [".comparison-row:nth-child(2) .comparison-side:nth-child(2) strong", "html", brand],
+          [".comparison-row:nth-child(2) .comparison-side:nth-child(2) p", "text", "focuses on spontaneous booking chances, remaining capacity and last-minute visibility."],
+          [".comparison-row:nth-child(3) .comparison-side:nth-child(1) strong", "text", "Important"],
+          [".comparison-row:nth-child(3) .comparison-side:nth-child(1) p", "text", "Website, Booking and channel manager stay in place."],
+          [".comparison-row:nth-child(3) .comparison-side:nth-child(2) strong", "html", `Role of ${brand}`],
+          [".comparison-row:nth-child(3) .comparison-side:nth-child(2) p", "text", "an additional, focused channel for short-notice free capacity."],
+          ["#trust .section-head .eyebrow", "text", "Trust and seriousness"],
+          ["#trust .section-head h2", "text", "Built for South Tyrol businesses. Clear, regional and partner-oriented."],
+          ["#trust .section-head p", "html", `Because ${brand} is new, the platform has to build trust: transparent use, clear control and a high-quality presence - starting in South Tyrol, but not designed only for it.`],
+          ["#trust .feature-item:nth-child(1) h3", "text", "Designed directly for businesses"],
+          ["#trust .feature-item:nth-child(1) p", "text", "The page is clearly aimed at hotels, guesthouses, apartments and smaller tourism businesses."],
+          ["#trust .feature-item:nth-child(2) h3", "text", "Offers can be controlled flexibly"],
+          ["#trust .feature-item:nth-child(2) p", "text", "Offers can be adjusted, limited or deactivated. The business keeps control."],
+          ["#trust .feature-item:nth-child(3) h3", "text", "Built to grow, but not overloaded"],
+          ["#trust .feature-item:nth-child(3) p", "text", "expandable later to wellness, gastronomy and services - but currently clearly focused on hospitality."],
+          ["#faq .section-head .eyebrow", "text", "FAQ"],
+          ["#faq .section-head h2", "text", "The most important questions at a glance."],
+          ["#faq .section-head p", "text", "Short and clear, so a partner business understands the idea immediately."],
+          [".faq-item:nth-child(1) .faq-label", "html", `What is ${brand}`],
+          [".faq-item:nth-child(1) .faq-body", "html", `${brand} is a platform for short-notice available offers. The current focus is on hospitality businesses with free rooms, cancellations or remaining capacity.`],
+          [".faq-item:nth-child(2) .faq-label", "html", `Which businesses is ${brand} for`],
+          [".faq-item:nth-child(2) .faq-body", "text", "For hotels, guesthouses, apartments, garni businesses and tourism providers with capacity available at short notice."],
+          [".faq-item:nth-child(3) .faq-label", "text", "Do I have to offer discounts"],
+          [".faq-item:nth-child(3) .faq-body", "text", "No. The business keeps control over price and offer. An attractive price can help, but it is not meant as a cheap discount offer."],
+          [".faq-item:nth-child(4) .faq-label", "text", "Can I deactivate offers at any time"],
+          [".faq-item:nth-child(4) .faq-body", "text", "Yes. Offers should be time-limited and flexibly deactivatable."],
+          [".faq-item:nth-child(5) .faq-label", "text", "Is direct booking required"],
+          [".faq-item:nth-child(5) .faq-body", "html", `No. Depending on the development stage, ${brand} can work with requests, reservations or later direct bookings.`],
+          [".faq-item:nth-child(6) .faq-label", "html", `What does ${brand} cost`],
+          [".faq-item:nth-child(6) .faq-body", "html", `In the launch phase, selected partner businesses can test ${brand}. Final conditions will be communicated transparently.`],
+          [".faq-item:nth-child(7) .faq-label", "text", "How fast can an offer go online"],
+          [".faq-item:nth-child(7) .faq-body", "text", "Offer creation should be simple and fast. The goal is to make short-notice availability visible within a few minutes."],
+          [".faq-item:nth-child(8) .faq-label", "html", `Does ${brand} replace my website or Booking.com`],
+          [".faq-item:nth-child(8) .faq-body", "html", `No. ${brand} is designed as an additional channel for short-notice availability.`],
+          ["#apply .closing-panel h2", "text", "Make short-notice availability visible before it stays unused."],
+          ["#apply .closing-panel p", "html", `Start with ${brandInverse} and test a new, simple channel for spontaneous booking chances.`],
+          ["#apply .mini-point:nth-child(1) span:last-child", "text", "regional focus on South Tyrol"],
+          ["#apply .mini-point:nth-child(2) span:last-child", "text", "high-quality partner presence instead of discount portal"],
+          ["#apply .mini-point:nth-child(3) span:last-child", "text", "suitable for cancellations, remaining capacity and weaker days"],
+          ["label[for='hotel-name']", "text", "Business"],
+          ["#hotel-name", "placeholder", "e.g. Hotel Alpenruhe"],
+          ["label[for='contact-name']", "text", "Contact person"],
+          ["#contact-name", "placeholder", "First and last name"],
+          ["label[for='email']", "text", "Email"],
+          ["#email", "placeholder", "contact@business.it"],
+          ["label[for='phone']", "text", "Phone"],
+          ["#phone", "placeholder", "+39 ..."],
+          ["label[for='business-type']", "text", "Business type"],
+          ["#business-type option[value='']", "text", "Please select"],
+          ["#business-type option[value='hotel']", "text", "Hotel"],
+          ["#business-type option[value='pension']", "text", "Guesthouse"],
+          ["#business-type option[value='apartment']", "text", "Apartment"],
+          ["#business-type option[value='garni']", "text", "Garni"],
+          ["label[for='region']", "text", "Place / region"],
+          ["#region", "placeholder", "e.g. Brixen, Meran, Bolzano"],
+          ["label[for='availability']", "text", "Which free capacity would you like to test"],
+          ["#availability", "placeholder", "e.g. short-notice free rooms, midweek gaps, cancellations ..."],
+          ["#form-submit", "text", "Register your business"],
+          ["#form-success", "text", "Thank you. Your request has been registered and we will get back to you personally."],
+          ["#form-error", "text", "The form could not be sent right now. Please try again."],
+          ["footer .footer-grid > div:first-child p", "text", "Make short-notice availability visible - simple, regional and partner-oriented."],
+          ["footer .footer-grid > div:nth-child(2) a[href='#problem']", "text", "Problem"],
+          ["footer .footer-grid > div:nth-child(2) a[href='#solution']", "text", "Solution"],
+          ["footer .footer-grid > div:nth-child(2) a[href='#process']", "text", "How it works"],
+          ["footer .footer-grid > div:nth-child(2) a[href='#apply']", "text", "Become a partner"],
+          ["footer .footer-grid > div:last-child > div", "text", "Launch region"],
+          ["footer .footer-grid > div:last-child p", "text", "Built with South Tyrol hospitality and its short-notice availability in mind."],
+          [".footer-note span:nth-child(2)", "text", "Landing page for partner businesses"]
+        ]
       }
+    };
+
+    const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+    let activeLanguage = translations[requestedLanguage] ? requestedLanguage : (localStorage.getItem("nowa-language") || "de");
+
+    const applyEntry = ([selector, type, content]) => {
+      document.querySelectorAll(selector).forEach((element) => {
+        if (type === "html") {
+          element.innerHTML = content;
+        } else if (type === "text") {
+          element.textContent = content;
+        } else {
+          element.setAttribute(type, content);
+        }
+      });
+    };
+
+    const setLanguage = (language) => {
+      const dictionary = translations[language] || translations.de;
+      activeLanguage = translations[language] ? language : "de";
+      document.documentElement.lang = activeLanguage;
+      document.title = dictionary.metaTitle;
+
+      const description = document.querySelector("meta[name='description']");
+      const ogTitle = document.querySelector("meta[property='og:title']");
+      const ogDescription = document.querySelector("meta[property='og:description']");
+      const twitterTitle = document.querySelector("meta[name='twitter:title']");
+      const twitterDescription = document.querySelector("meta[name='twitter:description']");
+
+      if (description) description.setAttribute("content", dictionary.metaDescription);
+      if (ogTitle) ogTitle.setAttribute("content", dictionary.metaTitle);
+      if (ogDescription) ogDescription.setAttribute("content", dictionary.ogDescription);
+      if (twitterTitle) twitterTitle.setAttribute("content", dictionary.metaTitle);
+      if (twitterDescription) twitterDescription.setAttribute("content", dictionary.ogDescription);
+
+      dictionary.entries.forEach(applyEntry);
+
+      document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.lang === activeLanguage));
+      });
+
+      localStorage.setItem("nowa-language", activeLanguage);
+    };
+
+    document.querySelectorAll("[data-lang]").forEach((button) => {
+      button.addEventListener("click", () => {
+        setLanguage(button.dataset.lang);
+      });
     });
 
-    forcedText.forEach(([selector, content]) => {
-      const element = document.querySelector(selector);
-      if (element) {
-        element.textContent = content;
-      }
-    });
+    setLanguage(activeLanguage);
 
     const hamburger = document.getElementById("hamburger");
     const mobileNav = document.getElementById("mobile-nav");
@@ -1624,7 +2167,7 @@
         }
 
         submitButton.disabled = true;
-        submitButton.textContent = "Anfrage wird gesendet ...";
+        submitButton.textContent = translations[activeLanguage].sending;
         successMessage.style.display = "none";
         errorMessage.style.display = "none";
 
@@ -1644,7 +2187,7 @@
           successMessage.style.display = "block";
         } catch (error) {
           submitButton.disabled = false;
-          submitButton.textContent = "Betrieb vormerken";
+          submitButton.textContent = translations[activeLanguage].formSubmit;
           errorMessage.style.display = "block";
         }
       });
