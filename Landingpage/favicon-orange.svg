@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="nowa">
+  <rect width="128" height="128" rx="28" fill="#1b1816"/>
+  <text x="14" y="78" fill="#ff6b1a" font-family="Arial Black, Segoe UI, Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="-4">nowa</text>
+  <rect x="18" y="90" width="62" height="5" rx="2.5" fill="#ff6b1a"/>
+</svg>
