@@ -2,6 +2,19 @@
 
 This changelog tracks the shared progress of the nowa workspace.
 
+## 2026-06-04
+
+### Landing Page
+
+* Replaced the active landing-page photography with the new image set
+* Finalized the new SVG logo integration with tighter framing and better sizing
+
+### Documentation
+
+* Added `IMAGE_SOURCES.md` as an internal-only record for landing-page image origins and license traceability
+* Documented that visible image attribution is currently not shown on the public landing page
+* Excluded the local raw image source folder `Landingpage/Bilder neu/` from Git tracking
+
 ## 2026-06-01
 
 ### Workspace

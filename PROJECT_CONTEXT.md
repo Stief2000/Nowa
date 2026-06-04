@@ -11,6 +11,10 @@ Current top-level structure:
 
 Root documentation is the canonical source of truth for the full project.
 
+Additional internal documentation:
+
+* `IMAGE_SOURCES.md` - internal-only image source and license traceability for landing-page assets
+
 ## Brand
 
 Project name:
@@ -34,6 +38,17 @@ Active brand color direction:
 * strong orange as the primary commercial accent
 * supported by white, anthracite, black and warm greys
 * the previous green landing-page direction is archived in Git branch `archive/green-landingpage-2026-06-04`
+
+## Image Source Handling
+
+Landing-page image attribution is currently handled internally, not visibly on the website.
+
+Current rule:
+
+* keep image source tracking in `IMAGE_SOURCES.md`
+* do not show attribution text on the landing page unless a specific license requires it
+* keep raw source material in `Landingpage/Bilder neu/` as a local working folder, excluded from Git
+* keep corrected original filenames where they help traceability
 
 ## Product Vision
 
