@@ -116,7 +116,7 @@
       text-decoration: none;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 0;
     }
 
     .brand-mark {
@@ -134,14 +134,29 @@
       font-style: normal;
     }
 
+    .brand-logo-shell {
+      display: block;
+      width: 154px;
+      height: 46px;
+      overflow: hidden;
+    }
+
     .brand-logo {
       display: block;
-      width: 132px;
+      width: 220px;
+      max-width: none;
       height: auto;
+      margin: -29px 0 -29px -34px;
+    }
+
+    footer .brand-logo-shell {
+      width: 172px;
+      height: 52px;
     }
 
     footer .brand-logo {
-      width: 148px;
+      width: 246px;
+      margin: -32px 0 -32px -38px;
     }
 
     .brand-inline {
@@ -1188,7 +1203,9 @@
     <div class="container">
       <div class="nav-inner">
         <a href="#hero" class="brand" aria-label="nowa Startseite">
-          <img class="brand-logo" src="nova.svg" alt="nowa">
+          <span class="brand-logo-shell">
+            <img class="brand-logo" src="nova.svg" alt="nowa">
+          </span>
         </a>
 
         <div class="nav-links">
@@ -1612,7 +1629,9 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img class="brand-logo" src="nova.svg" alt="nowa">
+          <span class="brand-logo-shell">
+            <img class="brand-logo" src="nova.svg" alt="nowa">
+          </span>
           <p style="max-width: 340px; color: rgba(255,255,255,0.54);">Kurzfristige Verfügbarkeiten sichtbar machen - einfach, regional und partnerorientiert.</p>
         </div>
         <div style="display:grid;gap:10px;">
