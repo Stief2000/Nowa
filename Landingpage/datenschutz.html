@@ -13,13 +13,13 @@
   <title>Datenschutz - nowa</title>
   <style>
     :root {
-      --bg: #f6f3ee;
+      --bg: #f5f1ec;
       --surface: #ffffff;
-      --text: #1d1711;
-      --muted: #544e48;
-      --line: rgba(29, 23, 17, 0.12);
-      --accent: #3f7464;
-      --forest: #2c4a43;
+      --text: #1b1816;
+      --muted: #5a5550;
+      --line: rgba(27, 24, 22, 0.12);
+      --accent: #ff6b1a;
+      --forest: #24211f;
     }
 
     * { box-sizing: border-box; }
@@ -28,7 +28,7 @@
       margin: 0;
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg, #fcfaf8 0%, var(--bg) 100%);
+      background: linear-gradient(180deg, #fffaf6 0%, var(--bg) 100%);
       line-height: 1.62;
     }
 
@@ -41,7 +41,7 @@
 
     header {
       border-bottom: 1px solid var(--line);
-      background: rgba(247, 244, 239, 0.96);
+      background: rgba(247, 243, 238, 0.96);
     }
 
     .nav {
@@ -59,19 +59,21 @@
     }
 
     .brand-mark {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 30px;
-      font-weight: 700;
+      color: var(--accent);
+      font-family: "Arial Black", "Segoe UI", Arial, sans-serif;
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -0.06em;
       line-height: 1;
     }
 
     .brand-mark .accent {
-      color: var(--accent);
-      font-style: italic;
+      color: inherit;
+      font-style: normal;
     }
 
     .brand-tagline {
-      color: var(--muted);
+      color: var(--accent);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.18em;
@@ -153,7 +155,7 @@
       border: 1px solid var(--line);
       border-radius: 24px;
       background: var(--surface);
-      box-shadow: 0 18px 48px rgba(29, 23, 17, 0.06);
+      box-shadow: 0 18px 48px rgba(27, 24, 22, 0.06);
     }
 
     .language-panel { display: none; }

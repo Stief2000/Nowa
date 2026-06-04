@@ -128,3 +128,17 @@ This changelog tracks the shared progress of the nowa workspace.
 * Static landing page source is `Landingpage/`
 * Legal pages currently reflect the project-in-preparation status and must be updated when the final legal setup exists
 * Next practical work: live desktop/mobile sanity pass, then resume app MVP work only after the landing page is considered stable
+
+## 2026-06-04
+
+### Brand
+
+* Archived the current green landing-page direction in Git branch `archive/green-landingpage-2026-06-04`
+* Returned the active landing page to a stronger orange brand direction based on market-analysis feedback
+* Updated the CSS wordmark so `nowa` appears as one orange logo with the slogan `now available`
+* Reworked visible brand accents around orange, anthracite, black, white and warm greys
+* Updated the landing page, legal pages and favicon to match the orange direction without rebuilding the layout
+
+### Follow-Up
+
+* Run a final desktop and mobile sanity pass before pushing the orange brand pass live

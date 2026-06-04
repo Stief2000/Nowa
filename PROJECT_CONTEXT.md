@@ -29,6 +29,12 @@ Brand intent:
 * regional in tone
 * trustworthy
 
+Active brand color direction:
+
+* strong orange as the primary commercial accent
+* supported by white, anthracite, black and warm greys
+* the previous green landing-page direction is archived in Git branch `archive/green-landingpage-2026-06-04`
+
 ## Product Vision
 
 nowa is a platform for kurzfristig verfuegbare Angebote.
@@ -153,7 +159,7 @@ Visual direction:
 * calm
 * direct
 * hospitality-first
-* warm brand accent
+* strong orange brand accent with neutral white, grey, anthracite and black support colors
 
 The brand name `nowa` should be visually emphasized in body copy where relevant so it does not disappear inside longer text.
 
@@ -167,7 +173,8 @@ Already done:
 * broadened messaging from only `Zimmer` to wider hotel offers such as rooms, spa and packages
 * reduced repeated card patterns and moved parts of the page to calmer list and row structures
 * added clearer differentiation from classic booking platforms
-* replaced the earlier orange direction with a stronger green brand accent
+* tested a stronger green brand accent during the early live-site refinement phase
+* returned the active landing page to a stronger orange brand direction after market-analysis feedback
 * clarified that the public launch starts in South Tyrol but is not meant as a permanently purely regional concept
 * removed redundant example CTA buttons in the hero mockup flow
 * cleaned up the landing-page text encoding and removed the remaining visible mojibake in the most important sections
@@ -175,7 +182,7 @@ Already done:
 * started a dedicated mobile pass for hero spacing, card sizing and CTA behavior on small screens
 * aligned the `nowa` wordmark more consistently across sections, including dark surfaces and FAQ sentences
 * fixed comparison-section brand rendering so `nowa` no longer appears as forced uppercase
-* adjusted hero inline branding so `now` stays green while the trailing `a` remains clearly readable on the dark background
+* adjusted inline branding so `nowa` reads as one orange wordmark across light and dark surfaces
 * deployed the landing page publicly through Vercel
 * connected the public domain `joinnowa.com`
 * connected and tested the partner inquiry form through Formspree
@@ -185,6 +192,8 @@ Already done:
 * added footer legal links and a privacy notice directly below the partner form
 * fixed the example-offer card so all visible rows switch correctly in German, Italian and English
 * changed the example-offer price from a "starting at" price to a fixed displayed price
+* archived the green landing-page version in Git branch `archive/green-landingpage-2026-06-04`
+* updated landing-page, legal-page and favicon colors back to orange, anthracite, black, white and warm grey
 
 Still open on landing page:
 
@@ -200,6 +209,7 @@ Current handoff status:
 * Vercel deploys the static landing page from `Landingpage/` on `master`
 * partner form is active through Formspree
 * multilingual landing page, Impressum and Datenschutz are live in German, Italian and English
+* active landing-page brand direction is orange; the green version is preserved in branch `archive/green-landingpage-2026-06-04`
 * next practical step is a final live-domain desktop/mobile sanity pass before returning to app MVP work
 
 ## Lean Go-Live Plan

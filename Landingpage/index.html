@@ -25,17 +25,17 @@
 
   <style>
     :root {
-      --bg: #f6f3ee;
-      --bg-soft: #c8d9cf;
+      --bg: #f5f1ec;
+      --bg-soft: #efe2d7;
       --surface: rgba(255, 255, 255, 0.88);
       --surface-strong: #ffffff;
-      --text: #1d1711;
-      --muted: #544e48;
-      --line: rgba(29, 23, 17, 0.1);
-      --accent: #3f7464;
-      --accent-dark: #255344;
-      --forest: #2c4a43;
-      --shadow: 0 18px 48px rgba(29, 23, 17, 0.08);
+      --text: #1b1816;
+      --muted: #5a5550;
+      --line: rgba(27, 24, 22, 0.1);
+      --accent: #ff6b1a;
+      --accent-dark: #b9430b;
+      --forest: #24211f;
+      --shadow: 0 18px 48px rgba(27, 24, 22, 0.08);
       --radius: 24px;
     }
 
@@ -46,12 +46,12 @@
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(63, 116, 100, 0.12), transparent 28%),
-        linear-gradient(180deg, #fcfaf8 0%, var(--bg) 52%, #e1ebe4 100%);
+        radial-gradient(circle at top left, rgba(255, 107, 26, 0.13), transparent 28%),
+        linear-gradient(180deg, #fffaf6 0%, var(--bg) 52%, #ece4dc 100%);
       line-height: 1.55;
     }
 
-    h1, h2, h3, .brand-mark {
+    h1, h2, h3 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
       letter-spacing: -0.03em;
@@ -100,8 +100,8 @@
       top: 0;
       z-index: 30;
       backdrop-filter: blur(16px);
-      background: rgba(247, 244, 239, 0.96);
-      border-bottom: 1px solid rgba(29, 23, 17, 0.08);
+      background: rgba(247, 243, 238, 0.96);
+      border-bottom: 1px solid rgba(27, 24, 22, 0.08);
     }
 
     .nav-inner {
@@ -120,47 +120,56 @@
     }
 
     .brand-mark {
-      font-size: 30px;
+      margin: 0;
+      color: var(--accent);
+      font-family: "Arial Black", "Segoe UI", Arial, sans-serif;
+      font-size: 34px;
       line-height: 1;
-      font-weight: 700;
+      font-weight: 900;
+      letter-spacing: -0.06em;
     }
 
     .brand-mark .accent {
-      color: var(--accent);
-      font-style: italic;
+      color: inherit;
+      font-style: normal;
     }
 
     .brand-inline {
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 700;
-      letter-spacing: -0.03em;
+      font-family: "Arial Black", "Segoe UI", Arial, sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.04em;
       white-space: nowrap;
       font-style: normal;
       line-height: 1;
     }
 
     .brand-inline .accent {
-      color: var(--accent);
-      font-style: italic;
+      color: inherit;
+      font-style: normal;
     }
 
     .brand-inline:not(.brand-inverse) {
-      color: var(--text);
-    }
-
-    .brand-inline.brand-inverse .accent {
       color: var(--accent);
     }
 
+    .brand-inline.brand-inverse .accent {
+      color: inherit;
+    }
+
     .brand-inline.brand-inverse {
-      color: rgba(255, 255, 255, 0.92);
+      color: var(--accent);
+    }
+
+    .eyebrow .brand-inline {
+      text-transform: lowercase;
     }
 
     .brand-tagline {
       font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--accent);
+      font-weight: 700;
     }
 
     .nav-links {
@@ -193,7 +202,7 @@
       gap: 4px;
       padding: 4px;
       border-radius: 999px;
-      border: 1px solid rgba(29, 23, 17, 0.1);
+      border: 1px solid rgba(27, 24, 22, 0.1);
       background: rgba(255, 255, 255, 0.66);
     }
 
@@ -235,7 +244,7 @@
       background: var(--accent);
       color: #fff;
       border-color: var(--accent);
-      box-shadow: 0 10px 28px rgba(182, 108, 60, 0.24);
+      box-shadow: 0 10px 28px rgba(255, 107, 26, 0.24);
     }
 
     .btn-secondary {
@@ -247,7 +256,7 @@
     .btn-ghost {
       background: rgba(255, 255, 255, 0.72);
       color: var(--text);
-      border-color: rgba(29, 23, 17, 0.1);
+      border-color: rgba(27, 24, 22, 0.1);
     }
 
     .btn-primary:hover,
@@ -261,7 +270,7 @@
       width: 44px;
       height: 44px;
       border-radius: 999px;
-      border: 1px solid rgba(29, 23, 17, 0.12);
+      border: 1px solid rgba(27, 24, 22, 0.12);
       background: rgba(255, 255, 255, 0.6);
       color: var(--text);
     }
@@ -278,7 +287,7 @@
 
     .mobile-menu a {
       padding: 10px 0;
-      border-bottom: 1px solid rgba(29, 23, 17, 0.08);
+      border-bottom: 1px solid rgba(27, 24, 22, 0.08);
     }
 
     .hero {
@@ -301,7 +310,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(120deg, rgba(16, 16, 16, 0.8) 0%, rgba(16, 16, 16, 0.35) 48%, rgba(44, 74, 67, 0.16) 100%),
+        linear-gradient(120deg, rgba(10, 10, 10, 0.82) 0%, rgba(16, 16, 16, 0.38) 48%, rgba(255, 107, 26, 0.16) 100%),
         linear-gradient(180deg, rgba(16, 16, 16, 0.15) 0%, rgba(16, 16, 16, 0.72) 100%);
     }
 
@@ -317,6 +326,7 @@
 
     .hero-copy {
       max-width: 500px;
+      min-width: 0;
     }
 
     .hero-copy h1 {
@@ -409,14 +419,16 @@
       align-self: center;
       padding-top: 52px;
       justify-items: end;
+      min-width: 0;
     }
 
     .mock-card {
       width: min(100%, 640px);
+      min-width: 0;
       border-radius: 28px;
       overflow: hidden;
       background: rgba(255, 255, 255, 0.94);
-      border-color: rgba(221, 132, 65, 0.16);
+      border-color: rgba(255, 107, 26, 0.18);
       color: var(--text);
     }
 
@@ -502,6 +514,7 @@
       display: grid;
       gap: 12px;
       padding: 2px 4px 0;
+      min-width: 0;
     }
 
     .hero-aside h3 {
@@ -592,7 +605,7 @@
     .closing-panel {
       border-radius: 28px;
       padding: 30px;
-      background: linear-gradient(180deg, var(--forest) 0%, #243a34 100%);
+      background: linear-gradient(180deg, var(--forest) 0%, #151312 100%);
       color: #fff;
       box-shadow: var(--shadow);
     }
@@ -764,7 +777,7 @@
     }
 
     .faq-item + .faq-item {
-      border-top: 1px solid rgba(29, 23, 17, 0.1);
+      border-top: 1px solid rgba(27, 24, 22, 0.1);
     }
 
     .faq-btn {
@@ -818,8 +831,8 @@
     .trust-pill {
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(221, 132, 65, 0.1);
-      border: 1px solid rgba(221, 132, 65, 0.12);
+      background: rgba(255, 107, 26, 0.1);
+      border: 1px solid rgba(255, 107, 26, 0.14);
       font-size: 13px;
       color: var(--accent-dark);
       font-weight: 700;
@@ -849,7 +862,7 @@
       width: 100%;
       padding: 13px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(29, 23, 17, 0.12);
+      border: 1px solid rgba(27, 24, 22, 0.12);
       background: rgba(255, 255, 255, 0.9);
       color: var(--text);
       font: inherit;
@@ -863,7 +876,7 @@
     .field input:focus,
     .field select:focus,
     .field textarea:focus {
-      outline: 2px solid rgba(182, 108, 60, 0.18);
+      outline: 2px solid rgba(255, 107, 26, 0.18);
       border-color: var(--accent);
     }
 
@@ -872,9 +885,9 @@
       margin-top: 16px;
       padding: 16px 18px;
       border-radius: 16px;
-      background: rgba(44, 74, 67, 0.12);
-      border: 1px solid rgba(44, 74, 67, 0.16);
-      color: var(--forest);
+      background: rgba(255, 107, 26, 0.1);
+      border: 1px solid rgba(255, 107, 26, 0.18);
+      color: var(--accent-dark);
       font-weight: 600;
     }
 
@@ -902,7 +915,7 @@
 
     footer {
       padding: 40px 0 54px;
-      background: #1d1711;
+      background: #1b1816;
       color: rgba(255, 255, 255, 0.74);
     }
 
@@ -987,6 +1000,7 @@
       .hero-inner {
         padding: 64px 0 28px;
         gap: 24px;
+        overflow: hidden;
       }
 
       .hero-side {
@@ -995,9 +1009,31 @@
       }
 
       .hero-copy,
+      .hero-side,
+      .hero-aside,
       .hero-copy p,
       .hero-aside p {
+        width: 100%;
         max-width: none;
+      }
+
+      .hero-copy,
+      .hero-side {
+        max-width: calc(100vw - 28px);
+      }
+
+      .hero-copy p,
+      .hero-note,
+      .hero-points,
+      .hero-actions {
+        max-width: calc(100vw - 28px);
+      }
+
+      .hero-copy p,
+      .hero-note,
+      .hero-aside p {
+        overflow-wrap: break-word;
+        padding-right: 14px;
       }
 
       .hero-copy h1 {
@@ -1087,6 +1123,10 @@
       .btn-secondary,
       .btn-ghost {
         width: 100%;
+      }
+
+      .hero-actions .btn-primary {
+        width: calc(100% - 14px);
       }
 
       .hero-actions,
@@ -1182,14 +1222,11 @@
       <div class="hero-copy">
         <span class="eyebrow" style="color: rgba(255,255,255,0.72);">Start in Südtirol, gedacht für mehr</span>
         <h1>
-          <span>Verwandeln Sie</span>
-          <span>kurzfristig freie</span>
-          <span>Hotelangebote</span>
-          <span>in neue</span>
-          <span>Buchungschancen.</span>
+          <span>Freie Plätze</span>
+          <span>verdienen Gäste.</span>
         </h1>
         <p>
-          Mit <span class="brand-inline brand-inverse" style="color:#fff;"><span class="accent">now</span>a</span> machen Hotels, Pensionen und Apartments kurzfristig freie Angebote sichtbar -
+          Mit <span class="brand-inline brand-inverse"><span class="accent">now</span>a</span> machen Hotels, Pensionen und Apartments kurzfristig freie Angebote sichtbar -
           von Zimmern über Spa-Zeiten bis zu Packages. Einfach, schnell und zum Start mit klarem Fokus auf Südtirol.
         </p>
         <div class="hero-points">
@@ -1226,9 +1263,9 @@
         </div>
 
         <div class="hero-aside">
-          <span class="eyebrow" style="color: rgba(255,255,255,0.74);">Warum <span class="brand-inline brand-inverse" style="color:#fff;"><span class="accent">now</span>a</span></span>
+          <span class="eyebrow" style="color: rgba(255,255,255,0.74);">Warum <span class="brand-inline brand-inverse"><span class="accent">now</span>a</span></span>
           <h3>Kein Rabattportal. Sondern ein klarer Kanal für kurzfristig frei.</h3>
-          <p><span class="brand-inline brand-inverse" style="color:#fff;"><span class="accent">now</span>a</span> startet regional, bleibt fokussiert und ist von Anfang an gr&ouml;&szlig;er gedacht.</p>
+          <p><span class="brand-inline brand-inverse"><span class="accent">now</span>a</span> startet regional, bleibt fokussiert und ist von Anfang an gr&ouml;&szlig;er gedacht.</p>
           <div class="trust-list-inline">
             <div class="trust-item"><span class="trust-dot"></span><span>Preis, Zeitraum und Anzahl bleiben beim Betrieb.</span></div>
             <div class="trust-item"><span class="trust-dot"></span><span>Keine komplizierten Kampagnen für spontane Aktionen.</span></div>
@@ -1253,7 +1290,7 @@
 
       <div class="problem-statement">
         <h3>Kurzfristig frei. Zu spät sichtbar.</h3>
-        <p>Genau dort setzt <span class="brand-inline brand-inverse" style="color:#fff;"><span class="accent">now</span>a</span> an: freie Kapazitäten können schnell, klar und zeitlich begrenzt sichtbar gemacht werden.</p>
+        <p>Genau dort setzt <span class="brand-inline brand-inverse"><span class="accent">now</span>a</span> an: freie Kapazitäten können schnell, klar und zeitlich begrenzt sichtbar gemacht werden.</p>
         <div class="mini-points">
           <div class="mini-point"><span class="trust-dot"></span><span>Stornierungen lassen kurzfristig Lücken im Belegungsplan.</span></div>
           <div class="mini-point"><span class="trust-dot"></span><span>Schwächere Tage bleiben oft unter Potenzial.</span></div>
@@ -1378,7 +1415,7 @@
       <div class="comparison-layout">
         <div class="problem-statement">
           <h3>Kein Entweder-oder.</h3>
-          <p><span class="brand-inline brand-inverse" style="color:#fff;"><span class="accent">now</span>a</span> ergänzt bestehende Kanäle um einen klaren Fokus auf kurzfristige Verfügbarkeit.</p>
+          <p><span class="brand-inline brand-inverse"><span class="accent">now</span>a</span> ergänzt bestehende Kanäle um einen klaren Fokus auf kurzfristige Verfügbarkeit.</p>
         </div>
         <div class="comparison-panel">
           <div class="comparison-row">
@@ -1499,7 +1536,7 @@
     <div class="container form-layout">
       <div class="closing-panel">
         <h2>Machen Sie kurzfristige Verfügbarkeiten sichtbar, bevor sie ungenutzt bleiben.</h2>
-        <p>Starten Sie mit <span class="brand-inline brand-inverse" style="color:#fff;"><span class="accent">now</span>a</span> und testen Sie einen neuen, einfachen Kanal für spontane Buchungschancen.</p>
+        <p>Starten Sie mit <span class="brand-inline brand-inverse"><span class="accent">now</span>a</span> und testen Sie einen neuen, einfachen Kanal für spontane Buchungschancen.</p>
         <div class="mini-points">
           <div class="mini-point"><span class="trust-dot"></span><span>regionaler Fokus auf Südtirol</span></div>
           <div class="mini-point"><span class="trust-dot"></span><span>hochwertiger Partnerauftritt statt Billigplattform</span></div>
@@ -1566,8 +1603,8 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand-mark" style="color:#fff;"><span class="accent">now</span>a</div>
-          <div class="brand-tagline" style="color: rgba(255,255,255,0.48); margin-top: 8px;">now available</div>
+          <div class="brand-mark"><span class="accent">now</span>a</div>
+          <div class="brand-tagline" style="margin-top: 8px;">now available</div>
           <p style="max-width: 340px; color: rgba(255,255,255,0.54);">Kurzfristige Verfügbarkeiten sichtbar machen - einfach, regional und partnerorientiert.</p>
         </div>
         <div style="display:grid;gap:10px;">
@@ -1592,7 +1629,7 @@
 
   <script>
     const brand = '<span class="brand-inline"><span class="accent">now</span>a</span>';
-    const brandInverse = '<span class="brand-inline brand-inverse" style="color:#fff;"><span class="accent">now</span>a</span>';
+    const brandInverse = '<span class="brand-inline brand-inverse"><span class="accent">now</span>a</span>';
 
     const translations = {
       de: {
@@ -1615,7 +1652,7 @@
           ["#hero", "aria-label", "Hero"],
           [".hero-media", "alt", "Hochwertiges Hotelzimmer"],
           [".hero-copy .eyebrow", "text", "Start in Südtirol, gedacht für mehr"],
-          [".hero-copy h1", "html", "<span>Verwandeln Sie</span><span>kurzfristig freie</span><span>Hotelangebote</span><span>in neue</span><span>Buchungschancen.</span>"],
+          [".hero-copy h1", "html", "<span>Freie Plätze</span><span>verdienen Gäste.</span>"],
           [".hero-copy p", "html", `Mit ${brandInverse} machen Hotels, Pensionen und Apartments kurzfristig freie Angebote sichtbar - von Zimmern über Spa-Zeiten bis zu Packages. Einfach, schnell und zum Start mit klarem Fokus auf Südtirol.`],
           [".hero-point:nth-child(1)", "text", "Zimmer, Spa, Packages"],
           [".hero-point:nth-child(2)", "text", "Startregion Südtirol"],
@@ -1779,7 +1816,7 @@
           ["#hero", "aria-label", "Hero"],
           [".hero-media", "alt", "Camera d'hotel di alta qualita"],
           [".hero-copy .eyebrow", "text", "Partenza in Alto Adige, pensata per crescere"],
-          [".hero-copy h1", "html", "<span>Trasforma</span><span>offerte hotel</span><span>disponibili</span><span>a breve termine</span><span>in nuove opportunita.</span>"],
+          [".hero-copy h1", "html", "<span>I posti liberi</span><span>meritano ospiti.</span>"],
           [".hero-copy p", "html", `Con ${brandInverse}, hotel, pensioni e appartamenti rendono visibili offerte disponibili a breve termine - dalle camere alle fasce spa fino ai pacchetti. Semplice, veloce e con un primo focus sull'Alto Adige.`],
           [".hero-point:nth-child(1)", "text", "Camere, spa, pacchetti"],
           [".hero-point:nth-child(2)", "text", "Regione di lancio: Alto Adige"],
@@ -1943,7 +1980,7 @@
           ["#hero", "aria-label", "Hero"],
           [".hero-media", "alt", "Premium hotel room"],
           [".hero-copy .eyebrow", "text", "Starting in South Tyrol, built to grow"],
-          [".hero-copy h1", "html", "<span>Turn</span><span>short-notice</span><span>hotel offers</span><span>into new</span><span>booking chances.</span>"],
+          [".hero-copy h1", "html", "<span>Free places</span><span>deserve guests.</span>"],
           [".hero-copy p", "html", `With ${brandInverse}, hotels, guesthouses and apartments make short-notice offers visible - from rooms and spa slots to packages. Simple, fast and starting with a clear focus on South Tyrol.`],
           [".hero-point:nth-child(1)", "text", "Rooms, spa, packages"],
           [".hero-point:nth-child(2)", "text", "Launch region South Tyrol"],
