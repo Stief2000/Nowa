@@ -19,7 +19,7 @@ export function OfferVisual({
   return (
     <div
       className={`relative overflow-hidden bg-gradient-to-br ${tones[offer.tone]} ${
-        compact ? "h-20 w-28 shrink-0" : "aspect-[1.3/1]"
+        compact ? "h-20 w-28 shrink-0 rounded-2xl" : "aspect-[1.3/1] rounded-t-3xl"
       }`}
     >
       <div className="absolute -right-[15%] top-[12%] h-[90%] w-[78%] rounded-tl-[80%] bg-white/25" />
@@ -31,17 +31,20 @@ export function OfferVisual({
 
 export function OfferCard({ offer }: { offer: Offer }) {
   return (
-    <article className="group overflow-hidden border border-stone-200 bg-white">
+    <article
+      className="group overflow-hidden bg-white rounded-3xl"
+      style={{ boxShadow: "0 18px 48px rgba(27, 24, 22, 0.08)" }}
+    >
       <OfferVisual offer={offer} />
       <div className="p-6">
         <p className="eyebrow">{categoryLabels[offer.category]}</p>
-        <h3 className="mt-3 font-serif text-[1.65rem] tracking-[-0.035em] text-stone-900">
+        <h3 className="mt-3 font-serif text-[1.65rem] tracking-[-0.035em]" style={{ color: "#1b1816" }}>
           {offer.title}
         </h3>
-        <p className="mt-1 text-xs font-bold uppercase tracking-wider text-stone-500">
+        <p className="mt-1 text-xs font-bold uppercase tracking-wider" style={{ color: "#5a5550" }}>
           {offer.partner}
         </p>
-        <div className="mt-5 flex flex-wrap gap-4 text-xs text-stone-500">
+        <div className="mt-5 flex flex-wrap gap-4 text-xs" style={{ color: "#5a5550" }}>
           <span className="flex items-center gap-1.5">
             <Location className="size-3.5" /> {offer.location}
           </span>
@@ -49,13 +52,13 @@ export function OfferCard({ offer }: { offer: Offer }) {
             <Clock className="size-3.5" /> {offer.duration}
           </span>
         </div>
-        <div className="mt-6 flex items-end justify-between border-t border-stone-100 pt-5">
+        <div className="mt-6 flex items-end justify-between border-t pt-5" style={{ borderColor: "rgba(27,24,22,0.08)" }}>
           <div>
-            <p className="text-xs text-stone-500">ab</p>
-            <p className="mt-1 text-lg font-bold text-stone-900">
+            <p className="text-xs" style={{ color: "#5a5550" }}>ab</p>
+            <p className="mt-1 text-lg font-bold" style={{ color: "#1b1816" }}>
               {offer.price} EUR
               {offer.originalPrice ? (
-                <span className="ml-2 text-sm font-normal text-stone-400 line-through">
+                <span className="ml-2 text-sm font-normal line-through" style={{ color: "#a8a29e" }}>
                   {offer.originalPrice} EUR
                 </span>
               ) : null}
@@ -63,7 +66,7 @@ export function OfferCard({ offer }: { offer: Offer }) {
           </div>
           <Link
             aria-label={`${offer.title} ansehen`}
-            className="flex size-10 items-center justify-center border border-stone-200 text-[#ff6b1a] group-hover:border-[#ff6b1a] group-hover:bg-[#ff6b1a] group-hover:text-white"
+            className="flex size-10 items-center justify-center rounded-full text-[#ff6b1a] border border-[rgba(255,107,26,0.2)] group-hover:bg-[#ff6b1a] group-hover:text-white group-hover:border-[#ff6b1a]"
             href={`/offers/${offer.id}`}
           >
             <ArrowRight className="size-4" />

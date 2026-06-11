@@ -33,14 +33,14 @@ export function StatCard({
   value: string;
 }) {
   return (
-    <div className="border border-stone-200 bg-white p-5">
-      <p className="text-xs font-bold uppercase tracking-[0.12em] text-stone-500">
+    <div className="rounded-3xl bg-white p-5" style={{ boxShadow: "0 18px 48px rgba(27,24,22,0.06)" }}>
+      <p className="text-xs font-bold uppercase tracking-[0.12em]" style={{ color: "#5a5550" }}>
         {label}
       </p>
-      <p className="mt-4 text-3xl font-bold tracking-tight text-stone-900">
+      <p className="mt-4 text-3xl font-bold tracking-tight" style={{ color: "#1b1816" }}>
         {value}
       </p>
-      <p className="mt-2 text-xs text-stone-500">{detail}</p>
+      <p className="mt-2 text-xs" style={{ color: "#5a5550" }}>{detail}</p>
     </div>
   );
 }
@@ -55,7 +55,7 @@ export function StatusBadge({ status }: { status: string }) {
 
   return (
     <span
-      className={`inline-flex px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${tone}`}
+      className={`inline-flex rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${tone}`}
     >
       {status}
     </span>
@@ -64,7 +64,7 @@ export function StatusBadge({ status }: { status: string }) {
 
 export function TableShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="overflow-x-auto border border-stone-200 bg-white">
+    <div className="overflow-x-auto rounded-3xl bg-white" style={{ boxShadow: "0 18px 48px rgba(27,24,22,0.06)" }}>
       <table className="w-full min-w-[760px] text-left text-sm">{children}</table>
     </div>
   );

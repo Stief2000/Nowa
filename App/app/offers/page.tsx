@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function OffersPage() {
   return (
     <PublicShell>
-      <section className="border-b border-stone-200 bg-[#f2ede5]">
+      <section style={{ borderBottom: "1px solid rgba(27,24,22,0.1)", background: "#efe2d7" }}>
         <div className="page-container py-16 lg:py-20">
           <p className="eyebrow">Kurzfristig verfügbar</p>
           <h1 className="mt-4 max-w-3xl font-serif text-6xl tracking-[-0.065em] text-stone-900 sm:text-7xl">

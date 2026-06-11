@@ -1,16 +1,20 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Leaf } from "@/app/ui/icons";
 
-export function Logo({ inverse = false }: { inverse?: boolean }) {
+export function Logo({ size = "md" }: { inverse?: boolean; size?: "sm" | "md" | "lg" }) {
+  const widths = { sm: 90, md: 120, lg: 160 };
+  const w = widths[size];
+
   return (
-    <Link
-      className={`inline-flex items-center gap-2 font-serif text-2xl tracking-[-0.06em] ${
-        inverse ? "text-white" : "text-stone-900"
-      }`}
-      href="/"
-    >
-      <Leaf className={`size-5 ${inverse ? "text-[#ff6b1a]" : "text-[#ff6b1a]"}`} />
-      nowa
+    <Link href="/" aria-label="nowa Startseite" className="inline-flex items-center">
+      <Image
+        src="/nova.svg"
+        alt="nowa"
+        width={w}
+        height={Math.round(w * (270 / 950))}
+        priority
+        style={{ height: "auto" }}
+      />
     </Link>
   );
 }

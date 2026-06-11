@@ -45,7 +45,7 @@ export default async function OfferDetailPage({ params }: OfferPageProps) {
 
   return (
     <PublicShell>
-      <section className="border-b border-stone-200 bg-[#f2ede5]">
+      <section style={{ borderBottom: "1px solid rgba(27,24,22,0.1)", background: "#efe2d7" }}>
         <div className="page-container py-5">
           <Link
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-500 hover:text-[#ff6b1a]"

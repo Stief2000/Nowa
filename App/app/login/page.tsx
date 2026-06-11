@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <main className="grid min-h-screen bg-[#f2ede5] lg:grid-cols-[0.9fr_1.1fr]">
+    <main className="grid min-h-screen lg:grid-cols-[0.9fr_1.1fr]" style={{ background: "#f5f1ec" }}>
       <section className="flex flex-col justify-between px-6 py-8 sm:px-12 lg:px-16">
         <div>
           <Logo />

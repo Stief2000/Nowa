@@ -33,7 +33,7 @@ export function ReservationForm({ offer }: { offer: Offer }) {
 
   if (formState === "success") {
     return (
-      <div className="border border-stone-200 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-3xl bg-white p-6 sm:p-8" style={{ boxShadow: "0 18px 48px rgba(27,24,22,0.08)" }}>
         <div className="flex size-12 items-center justify-center rounded-full bg-[#fff0e6]">
           <Check className="size-6 text-[#ff6b1a]" />
         </div>
@@ -81,7 +81,7 @@ export function ReservationForm({ offer }: { offer: Offer }) {
   }
 
   return (
-    <div className="border border-stone-200 bg-white p-6 shadow-sm sm:p-8">
+    <div className="rounded-3xl bg-white p-6 sm:p-8" style={{ boxShadow: "0 18px 48px rgba(27,24,22,0.08)" }}>
       <p className="eyebrow">Jetzt anfragen</p>
       <div className="mt-4 flex items-end justify-between border-b border-stone-100 pb-5">
         <p className="text-sm text-stone-500">Preis pro Person</p>

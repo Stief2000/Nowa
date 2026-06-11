@@ -80,11 +80,11 @@ export function OfferBrowser({ offers }: { offers: Offer[] }) {
   return (
     <>
       {/* Filter bar */}
-      <section className="sticky top-0 z-10 border-b border-stone-200 bg-white">
+      <section className="sticky top-0 z-10 bg-white" style={{ borderBottom: "1px solid rgba(27,24,22,0.1)" }}>
         <div className="page-container space-y-3 py-4">
           {/* Row 1: search + view toggle */}
           <div className="flex gap-3">
-            <label className="flex min-h-11 flex-1 items-center gap-3 border border-stone-200 px-4">
+            <label className="flex min-h-11 flex-1 items-center gap-3 rounded-full px-4 border" style={{ borderColor: "rgba(27,24,22,0.1)" }}>
               <Search className="size-4 shrink-0 text-stone-400" />
               <span className="sr-only">Angebot suchen</span>
               <input
@@ -95,7 +95,7 @@ export function OfferBrowser({ offers }: { offers: Offer[] }) {
                 value={search}
               />
             </label>
-            <div className="flex border border-stone-200">
+            <div className="flex rounded-full overflow-hidden border" style={{ borderColor: "rgba(27,24,22,0.1)" }}>
               <button
                 aria-label="Listenansicht"
                 className={`flex items-center justify-center px-3.5 transition-colors ${

@@ -29,11 +29,11 @@ export function WorkspaceShell({
     !isAdmin && process.env.NODE_ENV === "development";
 
   return (
-    <div className="min-h-screen bg-[#f6f4f0] lg:grid lg:grid-cols-[248px_1fr]">
-      <aside className="bg-[#292524] text-stone-300 lg:min-h-screen">
+    <div className="min-h-screen lg:grid lg:grid-cols-[248px_1fr]" style={{ background: "#f5f1ec" }}>
+      <aside className="lg:min-h-screen" style={{ background: "#24211f", color: "rgba(255,255,255,0.7)" }}>
         <div className="flex h-full flex-col py-6">
           <div className="px-5">
-            <Logo inverse />
+            <Logo />
             <p className="mt-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[#ff6b1a]">
               {isAdmin ? "Administration" : "Partner Portal"}
             </p>
@@ -66,7 +66,7 @@ export function WorkspaceShell({
         </div>
       </aside>
       <div className="min-w-0">
-        <header className="flex min-h-16 items-center justify-between border-b border-stone-200 bg-white px-6 lg:px-10">
+        <header className="flex min-h-16 items-center justify-between px-6 lg:px-10" style={{ background: "#fff", borderBottom: "1px solid rgba(27,24,22,0.1)" }}>
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-stone-500">
             {isAdmin ? "nowa Plattform" : "Naturhotel Waldruhe"}
           </p>

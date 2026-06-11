@@ -31,7 +31,7 @@ const steps = [
 export default function Home() {
   return (
     <PublicShell>
-      <section className="overflow-hidden border-b border-stone-200 bg-[#f5f1ea]">
+      <section className="overflow-hidden" style={{ borderBottom: "1px solid rgba(27,24,22,0.1)", background: "#f5f1ec" }}>
         <div className="mx-auto grid min-h-[670px] max-w-[1440px] lg:grid-cols-[1.08fr_0.92fr]">
           <div className="flex flex-col justify-center px-6 py-20 sm:px-10 lg:px-16 xl:px-24">
             <p className="eyebrow">Wellness, wenn du es brauchst</p>
@@ -92,7 +92,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-stone-200 bg-white" id="how-it-works">
+      <section className="bg-white" id="how-it-works" style={{ borderTop: "1px solid rgba(27,24,22,0.1)", borderBottom: "1px solid rgba(27,24,22,0.1)" }}>
         <div className="page-container grid gap-12 py-24 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div>
             <p className="eyebrow">Einfach abschalten</p>
@@ -121,13 +121,13 @@ export default function Home() {
       </section>
 
       <section className="page-container py-24">
-        <div className="grid gap-px overflow-hidden border border-stone-200 bg-stone-200 md:grid-cols-3">
+        <div className="grid overflow-hidden rounded-3xl md:grid-cols-3" style={{ gap: 1, background: "rgba(27,24,22,0.08)", boxShadow: "0 18px 48px rgba(27,24,22,0.08)" }}>
           {[
             [Leaf, "Sorgfältig kuratiert", "Nur ausgewählte Wellness-Partner"],
             [Calendar, "Kurzfristig buchbar", "Freie Termine direkt entdecken"],
             [Sparkles, "Besondere Momente", "Zeit, die wirklich dir gehört"],
           ].map(([Icon, title, text]) => (
-            <div className="bg-[#faf8f4] p-8" key={String(title)}>
+            <div className="bg-white p-8" key={String(title)}>
               <Icon className="size-5 text-[#ff6b1a]" />
               <h3 className="mt-8 font-serif text-2xl text-stone-900">
                 {String(title)}
