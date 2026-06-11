@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export function Logo({ size = "md" }: { inverse?: boolean; size?: "sm" | "md" | "lg" }) {
-  const widths = { sm: 90, md: 120, lg: 160 };
+  const widths = { sm: 90, md: 140, lg: 240 };
   const w = widths[size];
 
   return (

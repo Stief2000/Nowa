@@ -192,6 +192,30 @@ Erste vollständige Implementierungsrunde der nowa Web-App. Alle vier Phasen abg
 * Installed `leaflet` and `@types/leaflet`
 * All 19 app routes build without TypeScript errors
 
+### App — Design System Alignment mit Landingpage
+
+* Aligned full app design system to match landing-page brand tokens: colors, typography, buttons, cards, nav
+* Replaced Geist font imports with system font stack (Segoe UI / Helvetica Neue) matching landing page
+* Rebuilt `globals.css` with CSS custom properties: `--background`, `--foreground`, `--accent`, `--surface`, `--shadow`, `--radius`
+* Replaced flat-border cards with `24px border-radius` + `box-shadow` style throughout
+* Updated buttons to pill shape (`border-radius: 999px`) with orange drop shadow on primary
+* Replaced `Logo` component to use `nova.svg` from `public/` folder via `next/image`
+* Updated nav to frosted glass style and footer to dark forest background matching landing page
+* Copied `nova.svg` wordmark from `Landingpage/` to `App/public/`
+
+### App — Design Refinement
+
+* Orange-Einsatz auf interaktive Elemente und Preise reduziert — Eyebrow-Labels von orange auf dunkelgrau (`#6b6560`)
+* Metadaten-Icons (Location, Clock, Calendar) auf Detailseite von orange auf grau
+* Globaler Hintergrund von `#f5f1ec` auf `#f7f4f0` aufgehellt
+* Hero-Linkspalte vollständig dunkel (`#1b1816`) mit weißer Typografie — oranger Akzent auf Headline-Italic bleibt
+* Hero-Rechtsspalte auf helles Creme (`#f0ebe2`) mit luftigeren Gradienten aufgehellt
+* Nav-Balken vollständig dunkel (`#1b1816`), kein Frosted-Glass mehr
+* Logo in Nav auf `size="lg"` (240px) vergrößert
+* „Auszeit finden" CTA-Button aus der Nav entfernt
+* „Partner-Login" aus der Nav entfernt — bleibt im Footer für Partner zugänglich
+* Alle vier Offer-Card-Gradients auf einheitlichen warmen Dunkelton vereinheitlicht (`#2c2825 → #3e3832 → #211e1b`)
+
 
 ## 2026-06-04
 

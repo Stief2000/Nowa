@@ -68,15 +68,15 @@ export default async function OfferDetailPage({ params }: OfferPageProps) {
             </p>
             <div className="mt-7 flex flex-wrap gap-5 border-y border-stone-200 py-4 text-sm text-stone-600">
               <span className="flex items-center gap-2">
-                <Location className="size-4 text-[#ff6b1a]" />
+                <Location className="size-4 text-stone-400" />
                 {offer.location}
               </span>
               <span className="flex items-center gap-2">
-                <Clock className="size-4 text-[#ff6b1a]" />
+                <Clock className="size-4 text-stone-400" />
                 {offer.duration}
               </span>
               <span className="flex items-center gap-2">
-                <Calendar className="size-4 text-[#ff6b1a]" />
+                <Calendar className="size-4 text-stone-400" />
                 {offer.availability}
               </span>
             </div>

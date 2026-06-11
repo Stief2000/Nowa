@@ -7,28 +7,20 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
       <header
         className="sticky top-0 z-30"
         style={{
-          background: "rgba(222, 217, 212, 0.97)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-          boxShadow: "0 10px 28px rgba(27, 24, 22, 0.035)",
+          background: "#1b1816",
+          boxShadow: "0 1px 0 rgba(255,255,255,0.07)",
         }}
       >
-        <div className="page-container flex h-[76px] items-center justify-between gap-8">
-          <Logo />
-          <nav className="hidden items-center gap-8 text-xs font-bold uppercase tracking-[0.12em] md:flex" style={{ color: "#5a5550" }}>
-            <Link className="hover:text-[#1b1816] transition-colors" href="/offers">
+        <div className="page-container flex h-[72px] items-center justify-between gap-8">
+          <Logo size="lg" />
+          <nav className="hidden items-center gap-8 text-xs font-bold uppercase tracking-[0.12em] md:flex" style={{ color: "rgba(255,255,255,0.52)" }}>
+            <Link className="hover:text-white transition-colors" href="/offers">
               Angebote
             </Link>
-            <a className="hover:text-[#1b1816] transition-colors" href="#how-it-works">
+            <a className="hover:text-white transition-colors" href="#how-it-works">
               So funktioniert&apos;s
             </a>
-            <Link className="hover:text-[#1b1816] transition-colors" href="/login">
-              Partner-Login
-            </Link>
           </nav>
-          <Link className="button-primary hidden sm:inline-flex" href="/offers">
-            Auszeit finden
-          </Link>
         </div>
       </header>
       <main className="flex-1">{children}</main>

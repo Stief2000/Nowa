@@ -228,7 +228,7 @@ Current handoff status:
 
 ## Current App Status
 
-The app MVP has completed its first full implementation round (Phases 1–4) and runs locally without errors.
+The app MVP has completed its first full implementation round (Phases 1–4) including a full design system alignment and a design refinement pass. Runs locally without errors.
 
 Already done:
 
@@ -243,6 +243,11 @@ Already done:
 * functional `ReservationForm` on `/offers/[id]`: Name, E-Mail, Datum, Nachricht, validation, confirmation screen
 * functional partner create-offer form at `/partner/offers/new` with validation and success screen
 * all 19 routes build cleanly with no TypeScript errors
+* design system fully aligned with landing page (logo, colors, typography, buttons, cards, nav)
+* orange usage reduced to interactive elements and prices only — eyebrows and meta icons are neutral grey
+* hero redesigned: dark left column (`#1b1816`), light right column — dunkle obere Zone fließt nahtlos in dunkle Nav
+* nav fully dark (`#1b1816`), enlarged logo (`size="lg"` 240px), no CTA button, Partner-Login moved to footer only
+* all offer card gradient tones unified to a single warm dark charcoal gradient
 
 Still open on app (next phase):
 
@@ -490,7 +495,9 @@ Avoid:
 
 ## Current Priority
 
-App MVP mock-data phase is complete. The next priority is mobile testing of the app, followed by Supabase integration.
+App design system is polished and visually aligned. The next major milestone is making the partner area fully functional — this requires Supabase Auth and a real database. The partner area is currently visual-only (no persistence, no real login).
+
+Multilingual support (DE / IT / EN) is deliberately deferred until Supabase is live and real partner content flows in — translating mock data is wasted effort.
 
 Landing page remaining items (lower priority, still open):
 
@@ -498,14 +505,45 @@ Landing page remaining items (lower priority, still open):
 * final copy consistency pass
 * update legal pages once Partita IVA, PEC, Registro Imprese or a final legal form exist
 
+## Auth and User Management Strategy
+
+nowa has three user roles. End users (Gäste) do not need a login for the MVP — the reservation request form is sufficient. Partners and admins need real authenticated accounts.
+
+User roles:
+
+* `partner` — creates and manages offers, sees incoming reservation requests
+* `admin` — approves partners, oversees platform
+* end users — no login required in MVP (reservation via form only)
+
+Implementation approach using Supabase Auth:
+
+* All authenticated users (partners, admins) live in Supabase `auth.users`
+* A `profiles` table extends `auth.users` with `role: "partner" | "admin"` and partner-specific data
+* Row Level Security (RLS) at the database level: every partner can only read and write their own rows
+* After login, the app reads the user's role from `profiles` and redirects accordingly:
+  * `partner` → `/partner/dashboard`
+  * `admin` → `/admin`
+* One login page (`/login`) handles both roles
+* Partner onboarding: invite-based or open registration with admin approval step
+
+Database schema (planned):
+
+* `profiles` — id (fk auth.users), role, display_name, created_at
+* `partners` — id, profile_id (fk), name, description, location, approved, created_at
+* `offers` — id, partner_id (fk), title, category, description, price, availability, active, created_at
+* `bookings` — id, offer_id (fk), guest_name, guest_email, requested_date, message, status, created_at
+
 ## Deferred Next Steps
 
-1. Mobile testing pass for the app (real device, key flows: browse, filter, map, request form)
-2. Supabase project setup: schema for offers, bookings, partners
-3. Supabase Auth integration for partner and admin login
-4. Replace mock ReservationForm submit with real Supabase insert
-5. Replace mock create-offer form submit with real Supabase insert
-6. Partner notification on new reservation request (email via Supabase Edge Functions or Resend)
-7. Partner approval workflow for admin
-8. App subdomain and Vercel deployment for the Next.js app
-9. Native app migration assessment (Capacitor or React Native) — deferred until justified
+1. Supabase project setup — create project, define schema above, enable RLS policies
+2. Supabase Auth in the app — wire up `/login` so it actually authenticates against Supabase
+3. Session handling — middleware to protect `/partner/*` and `/admin/*` routes by role
+4. Partner dashboard with real data — offers and incoming booking requests from DB
+5. Offer creation saves to DB — replace mock form submit with real Supabase insert
+6. Reservation form saves to DB — replace mock submit with real Supabase insert
+7. Partner notification on new request — email via Supabase Edge Function or Resend
+8. Admin approval workflow — partners must be approved before their offers go live
+9. Mobile testing pass for the app (real device, key flows: browse, filter, map, request form)
+10. App subdomain and Vercel deployment for the Next.js app (`app.joinnowa.com` or similar)
+11. Multilingual support (DE / IT / EN) — implement after Supabase is live and real content exists
+12. Native app migration assessment (Capacitor or React Native) — deferred until justified by usage

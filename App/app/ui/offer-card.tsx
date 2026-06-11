@@ -3,10 +3,10 @@ import { ArrowRight, Clock, Location } from "@/app/ui/icons";
 import { categoryLabels, type Offer } from "@/app/lib/mock-data";
 
 const tones = {
-  sand: "from-[#d9c5a6] via-[#eee2cd] to-[#b4916f]",
-  sage: "from-[#afb7a3] via-[#d9d5bd] to-[#7d876f]",
-  clay: "from-[#cc9b7b] via-[#e8cbb2] to-[#9a6a54]",
-  mist: "from-[#aebfc0] via-[#d7ded8] to-[#789294]",
+  sand: "from-[#2c2825] via-[#3e3832] to-[#211e1b]",
+  sage: "from-[#2c2825] via-[#3e3832] to-[#211e1b]",
+  clay: "from-[#2c2825] via-[#3e3832] to-[#211e1b]",
+  mist: "from-[#2c2825] via-[#3e3832] to-[#211e1b]",
 };
 
 export function OfferVisual({

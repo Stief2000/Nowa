@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f1ec;
+  --background: #f7f4f0;
   --foreground: #1b1816;
   --muted: #5a5550;
   --line: rgba(27, 24, 22, 0.1);
@@ -57,7 +57,7 @@ button {
 }
 
 .eyebrow {
-  color: var(--accent);
+  color: #6b6560;
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   font-size: 0.6875rem;
   font-weight: 700;
