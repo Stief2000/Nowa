@@ -9,8 +9,8 @@ export function Logo({ inverse = false }: { inverse?: boolean }) {
       }`}
       href="/"
     >
-      <Leaf className={`size-5 ${inverse ? "text-[#d7a48d]" : "text-[#a46245]"}`} />
-      FreiPlatz
+      <Leaf className={`size-5 ${inverse ? "text-[#ff6b1a]" : "text-[#ff6b1a]"}`} />
+      nowa
     </Link>
   );
 }

@@ -34,7 +34,7 @@ export function WorkspaceShell({
         <div className="flex h-full flex-col py-6">
           <div className="px-5">
             <Logo inverse />
-            <p className="mt-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[#d28d70]">
+            <p className="mt-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[#ff6b1a]">
               {isAdmin ? "Administration" : "Partner Portal"}
             </p>
           </div>
@@ -45,7 +45,7 @@ export function WorkspaceShell({
                 {isAdmin ? "Mara Frei" : "Naturhotel Waldruhe"}
               </p>
               <p className="mt-1 text-xs text-stone-500">
-                {isAdmin ? "FreiPlatz Admin" : "Partner-Konto"}
+                {isAdmin ? "nowa Admin" : "Partner-Konto"}
               </p>
               <Link
                 className="mt-5 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-400 hover:text-white"
@@ -55,7 +55,7 @@ export function WorkspaceShell({
               </Link>
               {showDevelopmentAdminLink ? (
                 <Link
-                  className="mt-4 block text-xs font-bold uppercase tracking-wider text-[#d28d70] hover:text-white"
+                  className="mt-4 block text-xs font-bold uppercase tracking-wider text-[#ff6b1a] hover:text-white"
                   href="/admin"
                 >
                   Admin
@@ -68,7 +68,7 @@ export function WorkspaceShell({
       <div className="min-w-0">
         <header className="flex min-h-16 items-center justify-between border-b border-stone-200 bg-white px-6 lg:px-10">
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-stone-500">
-            {isAdmin ? "FreiPlatz Plattform" : "Naturhotel Waldruhe"}
+            {isAdmin ? "nowa Plattform" : "Naturhotel Waldruhe"}
           </p>
           <div className="flex items-center gap-3">
             <div className="text-right">
@@ -79,7 +79,7 @@ export function WorkspaceShell({
                 {isAdmin ? "Administratorin" : "Partner Management"}
               </p>
             </div>
-            <span className="flex size-9 items-center justify-center rounded-full bg-[#eee5dc] text-xs font-bold text-[#a46245]">
+            <span className="flex size-9 items-center justify-center rounded-full bg-[#fff0e6] text-xs font-bold text-[#ff6b1a]">
               {isAdmin ? "MF" : "EB"}
             </span>
           </div>

@@ -1,10 +1,21 @@
-export type OfferCategory = "day_spa" | "overnight_stay" | "wellness_package";
+export type OfferCategory = "overnight" | "wellness" | "gastro" | "other";
+
+export type OfferRegion =
+  | "bozen"
+  | "meran"
+  | "brixen"
+  | "vinschgau"
+  | "unterland"
+  | "ritten";
 
 export type Offer = {
   id: string;
   title: string;
   partner: string;
   location: string;
+  region: OfferRegion;
+  lat: number;
+  lng: number;
   category: OfferCategory;
   price: number;
   originalPrice?: number;
@@ -17,9 +28,28 @@ export type Offer = {
 };
 
 export const categoryLabels: Record<OfferCategory, string> = {
-  day_spa: "Day Spa",
-  overnight_stay: "Übernachtung",
-  wellness_package: "Wellnesspaket",
+  overnight: "Übernachtung",
+  wellness: "Beauty & Wellness",
+  gastro: "Gastro",
+  other: "Sonstiges",
+};
+
+// "coming-soon" categories are shown greyed-out in the UI
+export const categoryStatus: Record<OfferCategory, "active" | "coming-soon"> =
+  {
+    overnight: "active",
+    wellness: "active",
+    gastro: "coming-soon",
+    other: "coming-soon",
+  };
+
+export const regionLabels: Record<OfferRegion, string> = {
+  bozen: "Bozen & Umgebung",
+  meran: "Meran & Umgebung",
+  brixen: "Brixen & Eisacktal",
+  vinschgau: "Vinschgau",
+  unterland: "Unterland & Überetsch",
+  ritten: "Ritten",
 };
 
 export const offers: Offer[] = [
@@ -28,7 +58,10 @@ export const offers: Offer[] = [
     title: "Forest Reset Day Spa",
     partner: "Naturhotel Waldruhe",
     location: "Oberbozen, Südtirol",
-    category: "day_spa",
+    region: "ritten",
+    lat: 46.481,
+    lng: 11.422,
+    category: "wellness",
     price: 89,
     originalPrice: 118,
     duration: "1 Tag",
@@ -49,7 +82,10 @@ export const offers: Offer[] = [
     title: "Alpine Slowdown",
     partner: "Hotel Miramonti",
     location: "Meran, Südtirol",
-    category: "overnight_stay",
+    region: "meran",
+    lat: 46.672,
+    lng: 11.159,
+    category: "overnight",
     price: 219,
     originalPrice: 289,
     duration: "1 Nacht",
@@ -70,7 +106,10 @@ export const offers: Offer[] = [
     title: "Quiet Morning Ritual",
     partner: "Lana Garden Spa",
     location: "Lana, Südtirol",
-    category: "wellness_package",
+    region: "meran",
+    lat: 46.616,
+    lng: 11.148,
+    category: "wellness",
     price: 129,
     duration: "4 Stunden",
     availability: "Noch 3 Termine",
@@ -90,7 +129,10 @@ export const offers: Offer[] = [
     title: "Lake & Sauna Escape",
     partner: "Seehaus Kaltern",
     location: "Kaltern, Südtirol",
-    category: "day_spa",
+    region: "unterland",
+    lat: 46.411,
+    lng: 11.248,
+    category: "wellness",
     price: 72,
     originalPrice: 96,
     duration: "1 Tag",
@@ -111,7 +153,10 @@ export const offers: Offer[] = [
     title: "Vineyard Hideaway",
     partner: "Ansitz Rielinger",
     location: "Ritten, Südtirol",
-    category: "overnight_stay",
+    region: "ritten",
+    lat: 46.503,
+    lng: 11.405,
+    category: "overnight",
     price: 184,
     duration: "1 Nacht",
     availability: "Nächste Woche",
@@ -131,7 +176,10 @@ export const offers: Offer[] = [
     title: "Mountain Recovery",
     partner: "Naturhotel Waldruhe",
     location: "Oberbozen, Südtirol",
-    category: "wellness_package",
+    region: "ritten",
+    lat: 46.479,
+    lng: 11.419,
+    category: "wellness",
     price: 148,
     originalPrice: 172,
     duration: "5 Stunden",
@@ -155,7 +203,7 @@ export const partnerOffers = offers.filter(
 
 export const bookings = [
   {
-    id: "FP-24051",
+    id: "NW-24051",
     guest: "Anna Hofer",
     offer: "Forest Reset Day Spa",
     date: "04. Juni 2026",
@@ -163,7 +211,7 @@ export const bookings = [
     status: "Bestätigt",
   },
   {
-    id: "FP-24050",
+    id: "NW-24050",
     guest: "Lukas Frei",
     offer: "Mountain Recovery",
     date: "05. Juni 2026",
@@ -171,7 +219,7 @@ export const bookings = [
     status: "Bestätigt",
   },
   {
-    id: "FP-24047",
+    id: "NW-24047",
     guest: "Mia Bauer",
     offer: "Forest Reset Day Spa",
     date: "02. Juni 2026",
@@ -179,7 +227,7 @@ export const bookings = [
     status: "Ausstehend",
   },
   {
-    id: "FP-24042",
+    id: "NW-24042",
     guest: "Daniel Gruber",
     offer: "Forest Reset Day Spa",
     date: "30. Mai 2026",

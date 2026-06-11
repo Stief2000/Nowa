@@ -31,7 +31,7 @@ export function WorkspaceNav({ items }: { items: WorkspaceNavItem[] }) {
           <Link
             className={`flex items-center gap-3 border-l-2 px-5 py-3 text-sm font-medium ${
               active
-                ? "border-[#d28d70] bg-white/10 text-white"
+                ? "border-[#ff6b1a] bg-white/10 text-white"
                 : "border-transparent text-stone-400 hover:bg-white/5 hover:text-white"
             }`}
             href={item.href}

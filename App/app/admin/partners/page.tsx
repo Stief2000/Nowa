@@ -13,7 +13,7 @@ export default function AdminPartnersPage() {
       <PageHeading
         action={<button className="button-primary"><Plus className="size-4" /> Partner anlegen</button>}
         eyebrow="Partnernetzwerk"
-        text="Hotels und Spa-Betriebe auf der FreiPlatz Plattform."
+        text="Hotels und Spa-Betriebe auf der nowa Plattform."
         title="Partner"
       />
       <label className="mt-8 flex min-h-12 max-w-md items-center gap-3 border border-stone-200 bg-white px-4">
@@ -37,7 +37,7 @@ export default function AdminPartnersPage() {
                 <td className="px-5 py-4">{partner.bookings}</td>
                 <td className="px-5 py-4"><StatusBadge status={partner.status} /></td>
                 <td className="px-5 py-4 text-right">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#a46245]">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#ff6b1a]">
                     Details
                   </span>
                 </td>

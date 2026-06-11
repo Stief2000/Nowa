@@ -46,7 +46,7 @@ export default function PartnerOffersPage() {
                   <StatusBadge status={offer.status} />
                 </td>
                 <td className="px-5 py-4 text-right">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#a46245]">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#ff6b1a]">
                     Bearbeiten
                   </span>
                 </td>

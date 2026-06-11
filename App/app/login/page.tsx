@@ -14,7 +14,7 @@ export default function LoginPage() {
         <div>
           <Logo />
           <Link
-            className="mt-14 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-500 hover:text-[#a46245]"
+            className="mt-14 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-500 hover:text-[#ff6b1a]"
             href="/"
           >
             <ArrowLeft className="size-4" /> Zurück zur Startseite
@@ -43,10 +43,10 @@ export default function LoginPage() {
             </label>
             <div className="flex items-center justify-between text-sm">
               <label className="flex items-center gap-2 text-stone-600">
-                <input className="accent-[#a46245]" type="checkbox" />
+                <input className="accent-[#ff6b1a]" type="checkbox" />
                 Angemeldet bleiben
               </label>
-              <span className="font-bold text-[#a46245]">Passwort vergessen?</span>
+              <span className="font-bold text-[#ff6b1a]">Passwort vergessen?</span>
             </div>
             <Link className="button-primary w-full" href="/partner/dashboard">
               Anmelden
@@ -54,7 +54,7 @@ export default function LoginPage() {
           </form>
         </div>
         <p className="text-xs text-stone-500">
-          Noch kein Partner? <span className="font-bold text-[#a46245]">Kontakt aufnehmen</span>
+          Noch kein Partner? <span className="font-bold text-[#ff6b1a]">Kontakt aufnehmen</span>
         </p>
       </section>
       <section className="relative hidden overflow-hidden bg-[#526052] lg:block">

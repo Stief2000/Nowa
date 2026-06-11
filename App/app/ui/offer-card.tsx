@@ -63,7 +63,7 @@ export function OfferCard({ offer }: { offer: Offer }) {
           </div>
           <Link
             aria-label={`${offer.title} ansehen`}
-            className="flex size-10 items-center justify-center border border-stone-200 text-[#a46245] group-hover:border-[#a46245] group-hover:bg-[#a46245] group-hover:text-white"
+            className="flex size-10 items-center justify-center border border-stone-200 text-[#ff6b1a] group-hover:border-[#ff6b1a] group-hover:bg-[#ff6b1a] group-hover:text-white"
             href={`/offers/${offer.id}`}
           >
             <ArrowRight className="size-4" />

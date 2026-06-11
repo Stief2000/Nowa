@@ -36,7 +36,7 @@ export default function AdminOffersPage() {
                 <td className="px-5 py-4 font-bold text-stone-800">{offer.price} EUR</td>
                 <td className="px-5 py-4"><StatusBadge status={offer.status} /></td>
                 <td className="px-5 py-4 text-right">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#a46245]">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#ff6b1a]">
                     Prüfen
                   </span>
                 </td>

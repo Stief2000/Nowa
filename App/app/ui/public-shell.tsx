@@ -8,13 +8,13 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
         <div className="page-container flex h-20 items-center justify-between gap-8">
           <Logo />
           <nav className="hidden items-center gap-8 text-xs font-bold uppercase tracking-[0.12em] text-stone-600 md:flex">
-            <Link className="hover:text-[#a46245]" href="/offers">
+            <Link className="hover:text-[#ff6b1a]" href="/offers">
               Angebote
             </Link>
-            <a className="hover:text-[#a46245]" href="#how-it-works">
+            <a className="hover:text-[#ff6b1a]" href="#how-it-works">
               So funktioniert&apos;s
             </a>
-            <Link className="hover:text-[#a46245]" href="/login">
+            <Link className="hover:text-[#ff6b1a]" href="/login">
               Partner-Login
             </Link>
           </nav>
@@ -45,7 +45,7 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
           </div>
           <div className="text-sm">
             <p className="font-bold uppercase tracking-widest text-white">
-              FreiPlatz
+              nowa
             </p>
             <p className="mt-4 text-stone-400">Impressum</p>
             <p className="mt-3 text-stone-400">Datenschutz</p>
@@ -53,7 +53,7 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
         </div>
         <div className="border-t border-white/10">
           <div className="page-container py-5 text-xs text-stone-500">
-            © 2026 FreiPlatz. Für spontane Auszeiten gemacht.
+            © 2026 nowa. Für spontane Auszeiten gemacht.
           </div>
         </div>
       </footer>

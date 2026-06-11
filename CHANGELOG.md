@@ -142,6 +142,57 @@ This changelog tracks the shared progress of the nowa workspace.
 * Legal pages currently reflect the project-in-preparation status and must be updated when the final legal setup exists
 * Next practical work: live desktop/mobile sanity pass, then resume app MVP work only after the landing page is considered stable
 
+## 2026-06-11
+
+### App MVP — Phase 1 bis 4
+
+Erste vollständige Implementierungsrunde der nowa Web-App. Alle vier Phasen abgeschlossen, Build sauber.
+
+#### Phase 1 — Branding und Datenbasis
+
+* Renamed all remaining `FreiPlatz` references in the app to `nowa` (logo, footer, workspace shell, metadata, page copy)
+* Updated app brand color from `#a46245` to `#ff6b1a` to match the live landing page across all files
+* Replaced the old three-category system (`day_spa`, `overnight_stay`, `wellness_package`) with a new four-category structure: `overnight`, `wellness`, `gastro`, `other`
+* Set `gastro` and `other` as `coming-soon` in code — visible in the UI as disabled chips, no extra launch step needed when the time comes
+* Added `region` field and `lat`/`lng` coordinates to all six mock offers (South Tyrol locations)
+* Added `regionLabels` map for the six Südtirol regions: Bozen, Meran, Brixen, Vinschgau, Unterland, Ritten
+* Added `categoryStatus` map to control active vs coming-soon display per category
+
+#### Phase 2 — Customer Offer Discovery
+
+* Converted the offers page from a static server component into a server shell with an extracted `OfferBrowser` client component
+* Implemented three functional filters with client-side state: Kategorie (chips), Zeitraum (quick-picks: Heute / Wochenende / Nächste Woche), Region (dropdown)
+* Coming-soon categories rendered as disabled, greyed-out chips with "bald" label
+* Added text search over offer title and partner name
+* Added clear-filters button when any filter is active
+* Added List / Map view toggle
+* Created `MapView` client component using Leaflet and OpenStreetMap (no API key required)
+* Map shows orange `divIcon` pins for all currently filtered offers
+* Clicking a pin opens a popup with offer title, partner, price and a direct link to the detail page
+* `MapView` loaded via `next/dynamic` with `ssr: false` to avoid server-side rendering issues with Leaflet
+* Added `ListBullet` and `MapIcon` SVG icons to `icons.tsx`
+
+#### Phase 3 — Reservierungsanfrage
+
+* Created `ReservationForm` client component with controlled fields: Name, E-Mail, Wunschdatum, optionale Nachricht
+* Added client-side validation for required fields (name, email format)
+* Submit handler uses a mock 800ms timeout and transitions to a confirmation screen showing the submitted data
+* Confirmation screen includes a "Neue Anfrage stellen" reset option
+* Replaced the static offer-detail sidebar with the live `ReservationForm` component
+
+#### Phase 4 — Partner Create-Offer
+
+* Converted `partner/offers/new/page.tsx` to a client component with fully controlled form fields
+* Added validation for required fields (title, category, price)
+* Submit transitions to a success screen with the offer title and links back to offer list or to create another offer
+* "Als Entwurf speichern" skips validation and submits directly as draft
+
+#### Tech
+
+* Installed `leaflet` and `@types/leaflet`
+* All 19 app routes build without TypeScript errors
+
+
 ## 2026-06-04
 
 ### Brand

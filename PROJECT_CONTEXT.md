@@ -225,7 +225,33 @@ Current handoff status:
 * partner form is active through Formspree
 * multilingual landing page, Impressum and Datenschutz are live in German, Italian and English
 * active landing-page brand direction is orange; the green version is preserved in branch `archive/green-landingpage-2026-06-04`
-* next practical step is a final live-domain desktop/mobile sanity pass before returning to app MVP work
+
+## Current App Status
+
+The app MVP has completed its first full implementation round (Phases 1–4) and runs locally without errors.
+
+Already done:
+
+* full rebrand from FreiPlatz to `nowa` in all app files
+* brand color aligned to `#ff6b1a` (matches landing page)
+* new four-category system: `overnight`, `wellness`, `gastro` (coming-soon), `other` (coming-soon)
+* mock data extended with `region`, `lat`, `lng` for all six offers
+* six Südtirol regions defined: Bozen, Meran, Brixen, Vinschgau, Unterland, Ritten
+* functional filter bar on `/offers`: Kategorie chips, Zeitraum quick-picks, Region dropdown, text search
+* List / Map view toggle on `/offers` with Leaflet + OpenStreetMap (no API key, SSR-safe)
+* orange map pins per offer, popup with title, partner, price and detail link
+* functional `ReservationForm` on `/offers/[id]`: Name, E-Mail, Datum, Nachricht, validation, confirmation screen
+* functional partner create-offer form at `/partner/offers/new` with validation and success screen
+* all 19 routes build cleanly with no TypeScript errors
+
+Still open on app (next phase):
+
+* real mobile testing of the app UI
+* Supabase integration: database, auth, storage
+* real persistence for reservation requests
+* partner approval and verification flow
+* app subdomain setup (`app.joinnowa.com` or similar)
+* native app migration assessment (deferred until justified by usage)
 
 ## Lean Go-Live Plan
 
@@ -339,12 +365,15 @@ Current mobile focus areas:
 
 Current order:
 
-1. Finish landing page clarity, layout and brand positioning
-2. Prepare a lean public go-live path
-3. Resume desktop-first web app MVP work
-4. Refine responsive behavior where needed
-5. Add backend integration later
-6. Explore native app only if still justified
+1. ✅ Finish landing page clarity, layout and brand positioning
+2. ✅ Prepare a lean public go-live path
+3. ✅ Resume desktop-first web app MVP work (mock data, all core flows)
+4. Mobile testing and responsive polish for the app
+5. Supabase integration (auth, database, storage)
+6. Real reservation request persistence and partner notification
+7. Partner approval workflow
+8. App subdomain and hosting setup
+9. Explore native app only if still justified by usage
 
 ## Tech Stack
 
@@ -461,15 +490,22 @@ Avoid:
 
 ## Current Priority
 
-Live landing page sanity checks, domain follow-up, and intake reliability come first.
+App MVP mock-data phase is complete. The next priority is mobile testing of the app, followed by Supabase integration.
 
-The next app work remains intentionally parked until the landing page direction is stable enough.
+Landing page remaining items (lower priority, still open):
+
+* final mobile hero polish based on real-device testing
+* final copy consistency pass
+* update legal pages once Partita IVA, PEC, Registro Imprese or a final legal form exist
 
 ## Deferred Next Steps
 
-The following app work is intentionally parked for later:
-
-1. Turn the static partner offer form into a usable mock create-offer flow.
-2. Turn the offer detail page into a usable mock reservation-request flow.
-3. Tighten shared types and mock interaction states before starting Supabase work.
-4. Fix text encoding issues in the app UI so German copy renders correctly.
+1. Mobile testing pass for the app (real device, key flows: browse, filter, map, request form)
+2. Supabase project setup: schema for offers, bookings, partners
+3. Supabase Auth integration for partner and admin login
+4. Replace mock ReservationForm submit with real Supabase insert
+5. Replace mock create-offer form submit with real Supabase insert
+6. Partner notification on new reservation request (email via Supabase Edge Functions or Resend)
+7. Partner approval workflow for admin
+8. App subdomain and Vercel deployment for the Next.js app
+9. Native app migration assessment (Capacitor or React Native) — deferred until justified

@@ -36,7 +36,7 @@ export default function Home() {
           <div className="flex flex-col justify-center px-6 py-20 sm:px-10 lg:px-16 xl:px-24">
             <p className="eyebrow">Wellness, wenn du es brauchst</p>
             <h1 className="mt-6 max-w-3xl font-serif text-6xl leading-[0.98] tracking-[-0.06em] text-stone-900 sm:text-7xl xl:text-[92px]">
-              Zeit für eine <span className="italic text-[#a46245]">Pause.</span>
+              Zeit für eine <span className="italic text-[#ff6b1a]">Pause.</span>
             </h1>
             <p className="mt-8 max-w-xl text-lg leading-8 text-stone-600">
               Entdecke ausgewählte Wellness-Erlebnisse und besondere
@@ -53,7 +53,7 @@ export default function Home() {
             <ul className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-sm text-stone-600">
               {benefits.map((benefit) => (
                 <li className="flex items-center gap-2" key={benefit}>
-                  <Check className="size-4 text-[#a46245]" />
+                  <Check className="size-4 text-[#ff6b1a]" />
                   {benefit}
                 </li>
               ))}
@@ -98,14 +98,14 @@ export default function Home() {
             <p className="eyebrow">Einfach abschalten</p>
             <h2 className="section-title mt-4">Deine Pause beginnt hier.</h2>
             <p className="mt-5 max-w-md leading-7 text-stone-600">
-              FreiPlatz bringt freie Kapazitäten besonderer Hotels und Spas mit
+              nowa bringt kurzfristig freie Kapazitäten besonderer Hotels und Spas mit
               deiner spontanen Lust auf Erholung zusammen.
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-3">
             {steps.map((step) => (
               <div className="border-t border-stone-300 pt-5" key={step.number}>
-                <p className="font-mono text-xs tracking-widest text-[#a46245]">
+                <p className="font-mono text-xs tracking-widest text-[#ff6b1a]">
                   {step.number}
                 </p>
                 <h3 className="mt-5 font-serif text-2xl text-stone-900">
@@ -128,7 +128,7 @@ export default function Home() {
             [Sparkles, "Besondere Momente", "Zeit, die wirklich dir gehört"],
           ].map(([Icon, title, text]) => (
             <div className="bg-[#faf8f4] p-8" key={String(title)}>
-              <Icon className="size-5 text-[#a46245]" />
+              <Icon className="size-5 text-[#ff6b1a]" />
               <h3 className="mt-8 font-serif text-2xl text-stone-900">
                 {String(title)}
               </h3>

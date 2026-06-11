@@ -10,6 +10,7 @@ import {
 } from "@/app/ui/icons";
 import { OfferVisual } from "@/app/ui/offer-card";
 import { PublicShell } from "@/app/ui/public-shell";
+import { ReservationForm } from "@/app/ui/reservation-form";
 import { categoryLabels, offers } from "@/app/lib/mock-data";
 
 type OfferPageProps = {
@@ -47,7 +48,7 @@ export default async function OfferDetailPage({ params }: OfferPageProps) {
       <section className="border-b border-stone-200 bg-[#f2ede5]">
         <div className="page-container py-5">
           <Link
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-500 hover:text-[#a46245]"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-500 hover:text-[#ff6b1a]"
             href="/offers"
           >
             <ArrowLeft className="size-4" /> Zurück zu allen Angeboten
@@ -67,15 +68,15 @@ export default async function OfferDetailPage({ params }: OfferPageProps) {
             </p>
             <div className="mt-7 flex flex-wrap gap-5 border-y border-stone-200 py-4 text-sm text-stone-600">
               <span className="flex items-center gap-2">
-                <Location className="size-4 text-[#a46245]" />
+                <Location className="size-4 text-[#ff6b1a]" />
                 {offer.location}
               </span>
               <span className="flex items-center gap-2">
-                <Clock className="size-4 text-[#a46245]" />
+                <Clock className="size-4 text-[#ff6b1a]" />
                 {offer.duration}
               </span>
               <span className="flex items-center gap-2">
-                <Calendar className="size-4 text-[#a46245]" />
+                <Calendar className="size-4 text-[#ff6b1a]" />
                 {offer.availability}
               </span>
             </div>
@@ -98,7 +99,7 @@ export default async function OfferDetailPage({ params }: OfferPageProps) {
                       className="flex gap-3 text-sm leading-6 text-stone-600"
                       key={item}
                     >
-                      <Check className="mt-1 size-4 shrink-0 text-[#a46245]" />
+                      <Check className="mt-1 size-4 shrink-0 text-[#ff6b1a]" />
                       {item}
                     </li>
                   ))}
@@ -109,43 +110,7 @@ export default async function OfferDetailPage({ params }: OfferPageProps) {
         </div>
 
         <aside className="lg:sticky lg:top-6 lg:self-start">
-          <div className="border border-stone-200 bg-white p-6 shadow-sm sm:p-8">
-            <p className="eyebrow">Deine Auszeit</p>
-            <div className="mt-5 flex items-end justify-between border-b border-stone-100 pb-5">
-              <p className="text-sm text-stone-500">Preis pro Person</p>
-              <div className="text-right">
-                {offer.originalPrice ? (
-                  <p className="text-sm text-stone-400 line-through">
-                    {offer.originalPrice} EUR
-                  </p>
-                ) : null}
-                <p className="text-3xl font-bold tracking-tight text-stone-900">
-                  {offer.price} EUR
-                </p>
-              </div>
-            </div>
-            <form className="mt-6 space-y-5">
-              <label>
-                <span className="field-label">Wunschtermin</span>
-                <input className="field" type="date" />
-              </label>
-              <label>
-                <span className="field-label">Personen</span>
-                <select className="field" defaultValue="2">
-                  <option value="1">1 Person</option>
-                  <option value="2">2 Personen</option>
-                  <option value="3">3 Personen</option>
-                  <option value="4">4 Personen</option>
-                </select>
-              </label>
-              <button className="button-primary w-full" type="button">
-                Verfügbarkeit prüfen
-              </button>
-            </form>
-            <p className="mt-5 text-center text-xs leading-5 text-stone-500">
-              Noch keine Zahlung. Du siehst zuerst alle verfügbaren Termine.
-            </p>
-          </div>
+          <ReservationForm offer={offer} />
         </aside>
       </section>
     </PublicShell>

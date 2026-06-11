@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "FreiPlatz | Wellness, wenn du es brauchst",
-    template: "%s | FreiPlatz",
+    default: "nowa | Kurzfristig verfügbare Auszeiten",
+    template: "%s | nowa",
   },
   description:
     "Entdecke ausgewählte Wellness-Erlebnisse und besondere Rückzugsorte, die spontan für dich frei sind.",

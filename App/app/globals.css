@@ -48,7 +48,7 @@ button {
 }
 
 .eyebrow {
-  color: #a46245;
+  color: #ff6b1a;
   font-family: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
   font-size: 0.6875rem;
   font-weight: 700;
@@ -81,12 +81,12 @@ button {
 }
 
 .button-primary {
-  background: #a46245;
+  background: #ff6b1a;
   color: #fffaf5;
 }
 
 .button-primary:hover {
-  background: #884b35;
+  background: #e05500;
 }
 
 .button-secondary {
@@ -110,7 +110,7 @@ button {
 
 .text-link {
   align-items: center;
-  color: #8c513b;
+  color: #e05500;
   display: inline-flex;
   font-size: 0.75rem;
   font-weight: 700;
@@ -120,7 +120,7 @@ button {
 }
 
 .text-link:hover {
-  color: #623825;
+  color: #c44a00;
 }
 
 .field {
@@ -135,8 +135,8 @@ button {
 }
 
 .field:focus {
-  border-color: #a46245;
-  box-shadow: 0 0 0 3px rgba(164, 98, 69, 0.12);
+  border-color: #ff6b1a;
+  box-shadow: 0 0 0 3px rgba(255, 107, 26, 0.12);
 }
 
 .field-label {

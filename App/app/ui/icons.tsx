@@ -158,3 +158,19 @@ export function Wallet(props: IconProps) {
     </Icon>
   );
 }
+
+export function ListBullet(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M9 6h11M9 12h11M9 18h11M5 6v.01M5 12v.01M5 18v.01" />
+    </Icon>
+  );
+}
+
+export function MapIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M9 20 3 17V4l6 3m0 13V7m0 13 6-3M9 7l6 3m0 7 6 3V7l-6-3m0 10V10" />
+    </Icon>
+  );
+}
