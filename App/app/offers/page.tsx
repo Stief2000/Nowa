@@ -1,14 +1,54 @@
 import type { Metadata } from "next";
 import { PublicShell } from "@/app/ui/public-shell";
 import { OfferBrowser } from "@/app/offers/offer-browser";
-import { offers } from "@/app/lib/mock-data";
+import { offers as mockOffers, type Offer } from "@/app/lib/mock-data";
+import { createClient } from "@/app/lib/supabase/server";
 
 export const metadata: Metadata = {
   title: "Angebote",
   description: "Entdecke kurzfristig verfügbare Wellness-Angebote in Südtirol.",
 };
 
-export default function OffersPage() {
+async function fetchDbOffers(): Promise<Offer[]> {
+  try {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from("offers")
+      .select("*, partners(name)")
+      .eq("active", true)
+      .eq("status", "Aktiv")
+      .order("created_at", { ascending: false });
+
+    if (!data) return [];
+
+    return data.map((o) => ({
+      id: o.id as string,
+      title: o.title as string,
+      partner: (o.partners as { name: string } | null)?.name ?? "Partner",
+      location: (o.location as string) ?? "",
+      region: ((o.region as string) ?? "bozen") as Offer["region"],
+      lat: (o.lat as number) ?? 46.4983,
+      lng: (o.lng as number) ?? 11.3548,
+      category: o.category as Offer["category"],
+      price: o.price as number,
+      originalPrice: (o.original_price as number | null) ?? undefined,
+      duration: (o.duration as string) ?? "",
+      availability: (o.availability as string) ?? "",
+      description: (o.description as string) ?? "",
+      includes: [],
+      tone: "sand" as const,
+      status: (o.status as Offer["status"]) ?? "Aktiv",
+    }));
+  } catch (err) {
+    console.error("[fetchDbOffers]", err);
+    return [];
+  }
+}
+
+export default async function OffersPage() {
+  const dbOffers = await fetchDbOffers();
+  const allOffers = [...mockOffers, ...dbOffers];
+
   return (
     <PublicShell>
       <section style={{ borderBottom: "1px solid rgba(27,24,22,0.1)", background: "#efe2d7" }}>
@@ -24,7 +64,7 @@ export default function OffersPage() {
           </p>
         </div>
       </section>
-      <OfferBrowser offers={offers} />
+      <OfferBrowser offers={allOffers} />
     </PublicShell>
   );
 }

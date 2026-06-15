@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check } from "@/app/ui/icons";
 import type { Offer } from "@/app/lib/mock-data";
+import { submitBooking } from "@/app/actions/submit-booking";
 
 type FormState = "idle" | "submitting" | "success";
 
@@ -12,7 +13,7 @@ export function ReservationForm({ offer }: { offer: Offer }) {
   const [email, setEmail] = useState("");
   const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
-  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+  const [errors, setErrors] = useState<{ name?: string; email?: string; submit?: string }>({});
 
   function validate() {
     const next: typeof errors = {};
@@ -23,12 +24,26 @@ export function ReservationForm({ offer }: { offer: Offer }) {
     return Object.keys(next).length === 0;
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!validate()) return;
     setFormState("submitting");
-    // Mock submit — replace with real API call once Supabase is wired up
-    setTimeout(() => setFormState("success"), 800);
+
+    const result = await submitBooking({
+      offerTitle: offer.title,
+      guestName: name,
+      guestEmail: email,
+      requestedDate: date || undefined,
+      message: message || undefined,
+    });
+
+    if (!result.success) {
+      setErrors({ submit: result.error });
+      setFormState("idle");
+      return;
+    }
+
+    setFormState("success");
   }
 
   if (formState === "success") {
@@ -145,6 +160,11 @@ export function ReservationForm({ offer }: { offer: Offer }) {
             value={message}
           />
         </label>
+        {errors.submit && (
+          <p className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600">
+            {errors.submit}
+          </p>
+        )}
         <button
           className="button-primary w-full"
           disabled={formState === "submitting"}

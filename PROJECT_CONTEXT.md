@@ -228,7 +228,7 @@ Current handoff status:
 
 ## Current App Status
 
-The app MVP has completed its first full implementation round (Phases 1–4) including a full design system alignment and a design refinement pass. Runs locally without errors.
+The app MVP has completed Supabase integration (Steps 1–5). Auth, persistence and partner notifications are live. Runs locally without errors.
 
 Already done:
 
@@ -242,20 +242,30 @@ Already done:
 * orange map pins per offer, popup with title, partner, price and detail link
 * functional `ReservationForm` on `/offers/[id]`: Name, E-Mail, Datum, Nachricht, validation, confirmation screen
 * functional partner create-offer form at `/partner/offers/new` with validation and success screen
-* all 19 routes build cleanly with no TypeScript errors
+* all routes build cleanly with no TypeScript errors
 * design system fully aligned with landing page (logo, colors, typography, buttons, cards, nav)
-* orange usage reduced to interactive elements and prices only — eyebrows and meta icons are neutral grey
-* hero redesigned: dark left column (`#1b1816`), light right column — dunkle obere Zone fließt nahtlos in dunkle Nav
-* nav fully dark (`#1b1816`), enlarged logo (`size="lg"` 240px), no CTA button, Partner-Login moved to footer only
-* all offer card gradient tones unified to a single warm dark charcoal gradient
+* Supabase project live (EU North / Stockholm)
+* DB schema: `profiles`, `partners`, `offers`, `bookings` with full RLS
+* Supabase Auth wired to login page — role-based redirect (partner → dashboard, admin → /admin)
+* Next.js middleware protects `/partner/*` and `/admin/*` — unauthenticated redirect to `/login`
+* reservation form saves to `bookings` table (public insert, no login required)
+* partner create-offer saves to `offers` table (auth required, auto-partner-record creation)
+* partner offers list (`/partner/offers`) reads real data from Supabase
+* public offers page (`/offers`) merges mock data with real DB offers
+* offer detail page supports UUID-based real offers alongside mock slug-based offers
+* Resend installed — email notification on new booking (best-effort, activated via `RESEND_API_KEY`)
 
 Still open on app (next phase):
 
 * real mobile testing of the app UI
-* Supabase integration: database, auth, storage
-* real persistence for reservation requests
-* partner approval and verification flow
-* app subdomain setup (`app.joinnowa.com` or similar)
+* partner approval workflow (admin approves partners before their offers go live)
+* partner bookings page reads real data from Supabase (currently mock)
+* partner dashboard reads real data from Supabase (currently mock)
+* admin pages read real data from Supabase (currently mock)
+* migrate mock offers to real DB offers (or remove mock data once enough real content exists)
+* Resend domain verification (`joinnowa.com`) and real partner email notifications
+* app subdomain setup (`app.joinnowa.com`) and Vercel deployment for the Next.js app
+* Supabase Storage for offer images
 * native app migration assessment (deferred until justified by usage)
 
 ## Lean Go-Live Plan
@@ -373,11 +383,11 @@ Current order:
 1. ✅ Finish landing page clarity, layout and brand positioning
 2. ✅ Prepare a lean public go-live path
 3. ✅ Resume desktop-first web app MVP work (mock data, all core flows)
-4. Mobile testing and responsive polish for the app
-5. Supabase integration (auth, database, storage)
-6. Real reservation request persistence and partner notification
-7. Partner approval workflow
-8. App subdomain and hosting setup
+4. ✅ Supabase integration (auth, database, persistence, partner notifications)
+5. Mobile testing and responsive polish for the app
+6. Partner approval workflow
+7. Real data in partner dashboard, bookings page and admin pages
+8. App subdomain and hosting setup (`app.joinnowa.com`)
 9. Explore native app only if still justified by usage
 
 ## Tech Stack

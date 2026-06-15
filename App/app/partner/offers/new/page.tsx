@@ -5,6 +5,7 @@ import { useState } from "react";
 import { ArrowLeft, Check } from "@/app/ui/icons";
 import { PageHeading } from "@/app/ui/workspace-components";
 import { categoryLabels, type OfferCategory } from "@/app/lib/mock-data";
+import { createOffer } from "@/app/actions/create-offer";
 
 type FormState = "idle" | "submitting" | "success";
 
@@ -21,6 +22,7 @@ export default function NewOfferPage() {
   const [availableFrom, setAvailableFrom] = useState("");
   const [availableTo, setAvailableTo] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   function validate() {
     const next: Record<string, string> = {};
@@ -32,12 +34,31 @@ export default function NewOfferPage() {
     return Object.keys(next).length === 0;
   }
 
-  function handleSubmit(e: React.FormEvent, asDraft = false) {
+  async function handleSubmit(e: React.FormEvent, asDraft = false) {
     e.preventDefault();
     if (!asDraft && !validate()) return;
     setFormState("submitting");
-    // Mock submit — will be replaced with Supabase insert
-    setTimeout(() => setFormState("success"), 800);
+    setSubmitError(null);
+
+    const result = await createOffer({
+      title,
+      category,
+      description,
+      duration,
+      price: Number(price),
+      originalPrice: comparePrice ? Number(comparePrice) : undefined,
+      availableFrom: availableFrom || undefined,
+      availableTo: availableTo || undefined,
+      status: asDraft ? "Entwurf" : "Aktiv",
+    });
+
+    if (!result.success) {
+      setSubmitError(result.error);
+      setFormState("idle");
+      return;
+    }
+
+    setFormState("success");
   }
 
   if (formState === "success") {
@@ -230,6 +251,11 @@ export default function NewOfferPage() {
           <p className="mt-4 text-sm leading-6 text-stone-600">
             Du kannst dein Angebot als Entwurf speichern und später ergänzen.
           </p>
+          {submitError && (
+            <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600">
+              {submitError}
+            </p>
+          )}
           <button
             className="button-primary mt-6 w-full"
             disabled={formState === "submitting"}

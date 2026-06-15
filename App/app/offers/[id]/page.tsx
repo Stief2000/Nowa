@@ -11,13 +11,55 @@ import {
 import { OfferVisual } from "@/app/ui/offer-card";
 import { PublicShell } from "@/app/ui/public-shell";
 import { ReservationForm } from "@/app/ui/reservation-form";
-import { categoryLabels, offers } from "@/app/lib/mock-data";
+import { categoryLabels, offers, type Offer } from "@/app/lib/mock-data";
+import { createClient } from "@/app/lib/supabase/server";
 
 type OfferPageProps = {
   params: Promise<{ id: string }>;
 };
 
-export const dynamicParams = false;
+// true = mock offer IDs are pre-rendered, real DB UUIDs are rendered on demand
+export const dynamicParams = true;
+
+async function findOffer(id: string): Promise<Offer | null> {
+  // Try mock data first (slug-based IDs)
+  const mock = offers.find((o) => o.id === id);
+  if (mock) return mock;
+
+  // Fall back to Supabase (UUID-based IDs from real partners)
+  try {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from("offers")
+      .select("*, partners(name)")
+      .eq("id", id)
+      .single();
+
+    if (!data) return null;
+
+    return {
+      id: data.id as string,
+      title: data.title as string,
+      partner: (data.partners as { name: string } | null)?.name ?? "Partner",
+      location: (data.location as string) ?? "",
+      region: ((data.region as string) ?? "bozen") as Offer["region"],
+      lat: (data.lat as number) ?? 46.4983,
+      lng: (data.lng as number) ?? 11.3548,
+      category: data.category as Offer["category"],
+      price: data.price as number,
+      originalPrice: (data.original_price as number | null) ?? undefined,
+      duration: (data.duration as string) ?? "",
+      availability: (data.availability as string) ?? "",
+      description: (data.description as string) ?? "",
+      includes: [],
+      tone: "sand" as const,
+      status: (data.status as Offer["status"]) ?? "Aktiv",
+    };
+  } catch (err) {
+    console.error("[findOffer]", err);
+    return null;
+  }
+}
 
 export function generateStaticParams() {
   return offers.map((offer) => ({ id: offer.id }));
@@ -27,7 +69,7 @@ export async function generateMetadata({
   params,
 }: OfferPageProps): Promise<Metadata> {
   const { id } = await params;
-  const offer = offers.find((item) => item.id === id);
+  const offer = await findOffer(id);
 
   return {
     title: offer?.title ?? "Angebot",
@@ -37,7 +79,7 @@ export async function generateMetadata({
 
 export default async function OfferDetailPage({ params }: OfferPageProps) {
   const { id } = await params;
-  const offer = offers.find((item) => item.id === id);
+  const offer = await findOffer(id);
 
   if (!offer) {
     notFound();

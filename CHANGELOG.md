@@ -2,6 +2,53 @@
 
 This changelog tracks the shared progress of the nowa workspace.
 
+## 2026-06-15
+
+### App — Supabase Integration (Steps 1–5)
+
+Erste vollständige Backend-Integration der nowa Web-App. Mock-Daten für Auth, Angebote und Buchungen wurden durch echte Supabase-Persistenz ersetzt.
+
+#### Infrastruktur
+
+* Supabase-Projekt `nowa` erstellt (Region: EU North / Stockholm)
+* DB-Schema definiert und ausgeführt: `profiles`, `partners`, `offers`, `bookings` mit Row Level Security
+* RLS-Policies für alle vier Tabellen — Partner sehen nur eigene Daten, Admins sehen alles
+* Öffentliche Grants für `anon`-Role auf `offers` und `partners` (Lesezugriff für Gäste)
+* Öffentlicher Insert-Grant auf `bookings` (Gäste können ohne Login anfragen)
+* Trigger `handle_new_user` erstellt — legt bei jeder Registrierung automatisch einen `profiles`-Eintrag an
+* Hilfsfunktion `is_admin()` als `security definer` zur Vermeidung von RLS-Rekursion in Admin-Policies
+* Supabase-Client-Utilities angelegt: `app/lib/supabase/client.ts`, `server.ts`, `middleware.ts`
+* Next.js `middleware.ts` schützt `/partner/*` und `/admin/*` — Redirect zu `/login` ohne Session
+* Auth-Callback-Route `app/auth/callback/route.ts` für E-Mail-Bestätigungslinks
+
+#### Auth
+
+* Login-Seite auf echte Supabase-Auth umgestellt (`signInWithPassword`)
+* Nach Login: Rollen-Lookup in `profiles` → Redirect zu `/partner/dashboard` oder `/admin`
+* Fehleranzeige bei falschen Zugangsdaten direkt im Formular
+
+#### Persistenz
+
+* `app/actions/submit-booking.ts` — Server Action für Buchungsanfragen (öffentlich, kein Login nötig)
+* `app/actions/create-offer.ts` — Server Action für Angebotserstellung (Auth erforderlich, auto-Partner-Anlage)
+* `ReservationForm` ersetzt Mock-Timeout durch echten DB-Insert
+* Partner Create-Offer-Formular ersetzt Mock-Timeout durch echten DB-Insert
+* Partner-Angebotsliste (`/partner/offers`) liest jetzt echte Daten aus Supabase statt Mock-Daten
+* Öffentliche Angebotsseite (`/offers`) mergt Mock-Daten mit echten DB-Angeboten
+* Angebot-Detailseite unterstützt UUID-basierte Offers aus Supabase (`dynamicParams = true`)
+
+#### Benachrichtigungen
+
+* `resend` installiert
+* E-Mail-Versand nach erfolgreicher Buchung in `submit-booking.ts` integriert (best-effort, blockiert nicht bei Fehler)
+* Aktivierung durch Setzen von `RESEND_API_KEY` in `.env.local`
+
+#### Fehlerbehebung
+
+* RLS-Rekursion auf `profiles`-Tabelle behoben (Self-referentielle Policy durch `security definer`-Funktion ersetzt)
+* Fehlende `GRANT`-Berechtigungen für `anon`- und `authenticated`-Roles nachgetragen
+* Fehlende `SELECT`-Berechtigung für `anon` auf `partners` hinzugefügt (für öffentliche Angebots-Joins)
+
 ## 2026-06-04
 
 ### Landing Page
