@@ -2,6 +2,35 @@
 
 This changelog tracks the shared progress of the nowa workspace.
 
+## 2026-08-04
+
+### Landing Page — Slogan & Beispielangebot
+
+* Hero-Headline geändert: „Aus freien Kapazitäten neue Buchungschancen machen" → **„Mehr Buchungen aus freien Kapazitäten"** (kürzer, klarer, auf allen drei Sprachen angepasst)
+* Beispielangebot im Hero erweitert: Gültigkeitszeitraum jetzt als Von/Bis-Angabe („heute, 10:00 – 18:00 Uhr") statt nur „gültig bis"
+* Verfügbare Anzahl im Beispielangebot hinzugefügt: „2 Personen" (war: „begrenzt verfügbar")
+* Alle Änderungen in allen drei Sprachversionen (DE / IT / EN) umgesetzt
+
+### Landing Page — Übersetzungen IT/EN (teilweise)
+
+* IT Hero h1 neu: „Più prenotazioni dalle capacità libere." (war: „I posti liberi meritano ospiti.")
+* EN Hero h1 neu: „More bookings from free capacity." (war: „Free places deserve guests.")
+* IT/EN Hero-Body-Text auf neue Ausrichtung angepasst: breiter als nur Hotels (Aufenthalte, Spa, Packages, Erlebnisse, Aktivitäten)
+* „hotellerie" / „hospitality"-Formulierungen im hero-aside durch „strutture turistiche" / „tourism businesses" ersetzt
+* Vollständige IT/EN Übersetzung aller Sections (Problem, Lösung, Prozess, Benefits, FAQ, CTA) steht noch aus
+
+### Strategie & Analyse (PDF-Auswertung)
+
+* Produktstrategie-Dokument ausgewertet: Zielkunden breiter als nur Hotellerie (Tourismus, Freizeit, Erlebnisse)
+* Webapp-Prioritäten für nächste Implementierungsrunde definiert:
+  * Bild-Upload mit Rechtebestätigung (launch-kritisch, fehlt komplett)
+  * Angebot bearbeiten (fehlt komplett)
+  * Angebot pausieren + Status „Abgelaufen" (Status-System vervollständigen)
+  * Gast-Bestätigungs-E-Mail
+  * „Morgen"-Filter in der Angebotsübersicht
+  * Weitere Kategorien aktivieren (Gastro, Erlebnisse, Aktivitäten)
+* Vollständige IT/EN Landingpage-Übersetzung als eigener Schritt geplant
+
 ## 2026-06-15
 
 ### App — Supabase Integration (Steps 1–5)
