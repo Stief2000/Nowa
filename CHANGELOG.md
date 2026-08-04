@@ -11,13 +11,22 @@ This changelog tracks the shared progress of the nowa workspace.
 * Verfügbare Anzahl im Beispielangebot hinzugefügt: „2 Personen" (war: „begrenzt verfügbar")
 * Alle Änderungen in allen drei Sprachversionen (DE / IT / EN) umgesetzt
 
-### Landing Page — Übersetzungen IT/EN (teilweise)
+### Landing Page — Übersetzungen IT/EN (vollständig)
 
 * IT Hero h1 neu: „Più prenotazioni dalle capacità libere." (war: „I posti liberi meritano ospiti.")
 * EN Hero h1 neu: „More bookings from free capacity." (war: „Free places deserve guests.")
 * IT/EN Hero-Body-Text auf neue Ausrichtung angepasst: breiter als nur Hotels (Aufenthalte, Spa, Packages, Erlebnisse, Aktivitäten)
 * „hotellerie" / „hospitality"-Formulierungen im hero-aside durch „strutture turistiche" / „tourism businesses" ersetzt
-* Vollständige IT/EN Übersetzung aller Sections (Problem, Lösung, Prozess, Benefits, FAQ, CTA) steht noch aus
+* Problem-Section IT/EN: neuer Frame „Treffpunkt fehlt" statt „Zimmer = Umsatzverlust"; alle Texte neu
+* Solution-Section IT/EN: Eyebrow jetzt „COME FUNZIONA NOWA" / „HOW NOWA WORKS"; h2 ohne eingebetteten Brand-Span; vollständiger Beschreibungstext
+* Process-Section IT/EN: Schritt-1-Text um „Beschreibung" und „Anzahl" ergänzt; Schritt 2 heißt jetzt „Definire la visibilità" / „Set visibility"
+* Benefits-Section IT/EN: h2/p neu, Feature-1 (Angebote statt nur Zimmer) und Feature-4 (spontane Gäste) vollständig überarbeitet
+* Trust-Section IT/EN: Einleitungstext und alle drei Feature-Items auf DE-Stand gebracht
+* FAQ Item 1 IT/EN: Beschreibung nicht mehr hotel-only, jetzt alle Angebotstypen genannt
+* CTA-Section IT/EN: Mini-Point 1 listet jetzt Angebotstypen statt regionalen Fokus; Mini-Point 3 aktualisiert
+* Footer IT/EN: „Regione di lancio" / „Launch region" → „Fase di avvio" / „Launch phase"; Tagline aktualisiert
+* Meta-Title und -Description IT/EN: nicht mehr hotel-spezifisch, breiter Tourismus-Fokus
+* Orphaned Translation-Einträge entfernt: `.hero-point`, `.hero-note`, `.trust-pill`, `#faq .section-head p` (Elemente existieren nicht mehr im HTML)
 
 ### Strategie & Analyse (PDF-Auswertung)
 
