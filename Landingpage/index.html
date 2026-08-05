@@ -30,10 +30,10 @@
       --surface: rgba(255, 255, 255, 0.88);
       --surface-strong: #ffffff;
       --text: #1b1816;
-      --muted: #5a5550;
+      --muted: #3a3531;
       --line: rgba(27, 24, 22, 0.1);
-      --accent: #ff6b1a;
-      --accent-dark: #b9430b;
+      --accent: #F2510C;
+      --accent-dark: #B83D09;
       --forest: #24211f;
       --shadow: 0 18px 48px rgba(27, 24, 22, 0.08);
       --radius: 24px;
@@ -43,11 +43,12 @@
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
+      font-size: 17.6px;
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(255, 107, 26, 0.13), transparent 28%),
-        linear-gradient(180deg, #fffaf6 0%, var(--bg) 52%, #ece4dc 100%);
+        radial-gradient(ellipse at top left, rgba(242, 81, 12, 0.11) 0%, transparent 55%),
+        linear-gradient(160deg, #fffaf6 0%, var(--bg) 45%, #ece4dc 100%);
       line-height: 1.55;
     }
 
@@ -89,6 +90,7 @@
       margin-bottom: 12px;
     }
 
+
     .section-head p {
       margin: 0;
       font-size: 17px;
@@ -99,18 +101,20 @@
       position: sticky;
       top: 0;
       z-index: 30;
-      backdrop-filter: blur(16px);
-      background: rgba(222, 217, 212, 0.97);
-      border-bottom: none;
-      box-shadow: 0 10px 28px rgba(27, 24, 22, 0.035);
+      padding: 14px 20px;
+      background: transparent;
     }
 
     .nav-inner {
-      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
+      background: var(--surface-strong);
+      border: 1px solid rgba(27, 24, 22, 0.08);
+      border-radius: 100px;
+      box-shadow: 0 2px 20px rgba(27, 24, 22, 0.07);
+      padding: 8px 10px 8px 24px;
     }
 
     .brand {
@@ -137,8 +141,8 @@
 
     .brand-logo-shell {
       display: block;
-      width: 266px;
-      transform: translateY(4px);
+      width: 105px;
+      transform: translateY(2px);
     }
 
     .brand-logo {
@@ -149,8 +153,15 @@
     }
 
     footer .brand-logo-shell {
-      width: 282px;
+      width: 115px;
       transform: none;
+    }
+
+    img.brand-img {
+      height: 0.62em;
+      width: auto;
+      vertical-align: -0.06em;
+      display: inline-block;
     }
 
     .brand-inline {
@@ -201,7 +212,8 @@
     .nav-links a,
     .mobile-menu a {
       text-decoration: none;
-      color: var(--muted);
+      color: #3a3531;
+      font-size: 15.4px;
     }
 
     .nav-links a:hover,
@@ -310,51 +322,26 @@
     }
 
     .hero {
-      position: relative;
-      min-height: 94vh;
-      overflow: hidden;
-      color: #fff;
-    }
-
-    .hero-media {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.52) saturate(0.95);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(120deg, rgba(10, 10, 10, 0.82) 0%, rgba(16, 16, 16, 0.38) 48%, rgba(255, 107, 26, 0.16) 100%),
-        linear-gradient(180deg, rgba(16, 16, 16, 0.15) 0%, rgba(16, 16, 16, 0.72) 100%);
+      text-align: center;
+      color: var(--text);
     }
 
     .hero-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(360px, 0.8fr);
-      gap: 76px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      padding: 98px 0 52px;
+      padding: 64px 0 48px;
     }
 
     .hero-copy {
-      max-width: 500px;
-      min-width: 0;
+      max-width: 840px;
     }
 
     .hero-copy h1 {
-      display: grid;
-      gap: 0.02em;
-      max-width: 8.2ch;
-      font-size: clamp(2.45rem, 4.4vw, 3.8rem);
+      font-size: clamp(3rem, 6vw, 5rem);
       line-height: 0.94;
       margin-bottom: 22px;
+      color: var(--accent);
     }
 
     .hero-copy h1 span {
@@ -362,10 +349,46 @@
     }
 
     .hero-copy p {
-      margin: 0 0 24px;
+      margin: 0 auto 24px;
       max-width: 560px;
       font-size: 18px;
-      color: rgba(255, 255, 255, 0.84);
+      color: var(--muted);
+    }
+
+    .hero-gallery {
+      padding: 0 0 72px;
+    }
+
+    .hero-gallery-inner {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      height: 320px;
+      gap: 12px;
+    }
+
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mockup-showcase-inner {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .mockup-showcase .mock-card {
+      position: static;
+      width: 100%;
+      max-width: 420px;
     }
 
     .hero-points {
@@ -388,7 +411,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 16px;
+      justify-content: center;
     }
 
     .hero-note {
@@ -428,18 +451,6 @@
       font-size: 14px;
     }
 
-    .hero-aside .trust-item span:last-child {
-      color: rgba(255, 255, 255, 0.72);
-    }
-
-    .hero-side {
-      display: grid;
-      gap: 16px;
-      align-self: center;
-      padding-top: 52px;
-      justify-items: end;
-      min-width: 0;
-    }
 
     .mock-card {
       width: min(100%, 640px);
@@ -529,30 +540,6 @@
       width: 100%;
     }
 
-    .hero-aside {
-      display: grid;
-      gap: 12px;
-      padding: 2px 4px 0;
-      min-width: 0;
-    }
-
-    .hero-aside h3 {
-      margin: 0;
-      font-size: 23px;
-      color: #fff;
-    }
-
-    .hero-aside p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 15px;
-      max-width: 420px;
-    }
-
-    .trust-list-inline {
-      display: grid;
-      gap: 10px;
-    }
 
     .grid-3,
     .grid-4,
@@ -611,34 +598,66 @@
       gap: 24px;
     }
 
-    .problem-layout,
-    .solution-layout,
-    .faq-layout,
-    .form-layout,
-    .comparison-layout {
+    .solution-layout {
       grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
       align-items: start;
+    }
+
+    .problem-layout {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      align-items: center;
+    }
+
+    .comparison-layout {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      align-items: center;
+    }
+
+    .form-layout {
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+
+    .faq-layout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .faq-layout .section-head {
+      text-align: center;
+      max-width: 600px;
+      margin-bottom: 0;
+    }
+
+    .faq-wrap {
+      width: 100%;
+      max-width: 800px;
     }
 
     .problem-statement,
     .closing-panel {
       border-radius: 28px;
       padding: 30px;
-      background: linear-gradient(180deg, var(--forest) 0%, #151312 100%);
-      color: #fff;
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      color: var(--text);
       box-shadow: var(--shadow);
     }
 
     .problem-statement h3,
     .closing-panel h2 {
       font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.08;
       margin-bottom: 12px;
+      color: var(--text);
     }
 
     .problem-statement p,
     .closing-panel p {
       margin: 0;
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--muted);
       font-size: 16px;
     }
 
@@ -653,13 +672,13 @@
       gap: 12px;
       align-items: flex-start;
       padding-top: 14px;
-      border-top: 1px solid rgba(255, 255, 255, 0.14);
-      color: rgba(255, 255, 255, 0.84);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
       font-size: 14px;
     }
 
     .mini-point .trust-dot {
-      background: #fff;
+      background: var(--accent);
     }
 
     .image-stack {
@@ -970,7 +989,6 @@
       .hero-inner,
       .problem-layout,
       .solution-layout,
-      .faq-layout,
       .form-layout,
       .comparison-layout,
       .footer-grid {
@@ -986,6 +1004,16 @@
     @media (max-width: 760px) {
       .section {
         padding: 68px 0;
+      }
+
+      .hero-gallery-inner {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+        grid-template-rows: 160px 160px;
+      }
+
+      .mockup-showcase-inner {
+        grid-template-columns: 1fr;
       }
 
       .nav-links,
@@ -1022,23 +1050,9 @@
         overflow: hidden;
       }
 
-      .hero-side {
-        padding-top: 0;
-        justify-items: stretch;
-      }
-
-      .hero-copy,
-      .hero-side,
-      .hero-aside,
-      .hero-copy p,
-      .hero-aside p {
+      .hero-copy {
         width: 100%;
         max-width: none;
-      }
-
-      .hero-copy,
-      .hero-side {
-        max-width: calc(100vw - 28px);
       }
 
       .hero-copy p,
@@ -1049,8 +1063,7 @@
       }
 
       .hero-copy p,
-      .hero-note,
-      .hero-aside p {
+      .hero-note {
         overflow-wrap: break-word;
         padding-right: 14px;
       }
@@ -1236,8 +1249,6 @@
   </nav>
 
   <section class="hero" id="hero" aria-label="Hero">
-    <img class="hero-media" src="hero-new.jpeg" alt="Hochwertiges Hotelzimmer">
-    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container hero-inner">
       <div class="hero-copy">
         <h1>
@@ -1250,39 +1261,51 @@
         </p>
         <div class="hero-actions">
           <a href="#apply" class="btn-primary">Kostenlos als Partner starten</a>
-
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="hero-side">
-        <div class="mock-card" id="mockup" aria-label="Beispielangebot">
-          <div class="mock-image">
-            <img src="mockup-new.jpeg" alt="Zimmeransicht eines Hotels">
-            <div class="mock-badge">heute verfügbar</div>
-          </div>
-          <div class="mock-body">
-            <div class="mock-meta">Beispiel-Angebot</div>
-            <div class="mock-title">Spa &amp; Stay heute verfügbar</div>
-            <p class="mock-subtitle">Hotel Beispielhof &middot; Brixen</p>
-            <div class="mock-row mock-row-primary">
-              <span class="mock-row-label">heute, 10:00 – 18:00 Uhr</span>
-              <strong class="mock-row-value">129 EUR</strong>
-            </div>
-            <div class="mock-row mock-row-secondary">
-              <span class="mock-row-label">Zimmer oder Spa-Package</span>
-              <strong class="mock-row-value">2 Personen</strong>
-            </div>
-          </div>
+  <div class="hero-gallery">
+    <div class="hero-gallery-inner container">
+      <div class="gallery-item">
+        <img src="stack-tall.jpeg" alt="Poolbereich eines Wellnesshotels">
+      </div>
+      <div class="gallery-item">
+        <img src="stack-top.jpeg" alt="Hochwertiger Hotelbereich">
+      </div>
+      <div class="gallery-item">
+        <img src="stack-bottom.jpeg" alt="Ruhiger Spa-Raum">
+      </div>
+      <div class="gallery-item">
+        <img src="mockup-new.jpeg" alt="Zimmeransicht eines Hotels">
+      </div>
+    </div>
+  </div>
+
+  <section class="section mockup-showcase">
+    <div class="container mockup-showcase-inner">
+      <div class="section-head" style="margin-bottom: 0;">
+        <span class="eyebrow" id="mockup-showcase-eyebrow">Beispielangebot</span>
+        <h2 id="mockup-showcase-h2">So sieht ein nowa-Angebot aus.</h2>
+        <p id="mockup-showcase-p">Betriebe stellen kurzfristige Angebote in wenigen Minuten ein — mit Preis, Zeitraum und Bildern. Gäste sehen genau, was verfügbar ist und können direkt buchen.</p>
+      </div>
+      <div class="mock-card" id="mockup" aria-label="Beispielangebot">
+        <div class="mock-image">
+          <img src="mockup-new.jpeg" alt="Zimmeransicht eines Hotels">
+          <div class="mock-badge">heute verfügbar</div>
         </div>
-
-        <div class="hero-aside">
-          <span class="eyebrow" style="color: rgba(255,255,255,0.74);">Warum <span class="brand-inline brand-inverse"><span class="accent">now</span>a</span></span>
-          <h3>Kurzfristig verfügbar. Klar sichtbar. Einfach steuerbar.</h3>
-          <p>Ein Zimmer bleibt frei. Ein Spa-Termin wird nicht genutzt. Ein Package wäre noch verfügbar. Für den Betrieb ist das verlorenes Potenzial. Für den richtigen Gast wäre es genau das passende Angebot. nowa bringt beides zusammen. Betriebe machen kurzfristig verfügbare Angebote sichtbar, genau dann, wenn sie gebucht werden können. Schnell, gezielt und ohne komplizierte Kampagnen.</p>
-          <div class="trust-list-inline">
-            <div class="trust-item"><span class="trust-dot"></span><span>Aus freien Kapazitäten werden echte Buchungschancen.</span></div>
-            <div class="trust-item"><span class="trust-dot"></span><span>Preis, Zeitraum und Verfügbarkeit bleiben beim Betrieb.</span></div>
-            <div class="trust-item"><span class="trust-dot"></span><span>Angebote können jederzeit erstellt, angepasst oder deaktiviert werden.</span></div>
+        <div class="mock-body">
+          <div class="mock-meta">Beispiel-Angebot</div>
+          <div class="mock-title">Spa &amp; Stay heute verfügbar</div>
+          <p class="mock-subtitle">Hotel Beispielhof &middot; Brixen</p>
+          <div class="mock-row mock-row-primary">
+            <span class="mock-row-label">heute, 10:00 – 18:00 Uhr</span>
+            <strong class="mock-row-value">129 EUR</strong>
+          </div>
+          <div class="mock-row mock-row-secondary">
+            <span class="mock-row-label">Zimmer oder Spa-Package</span>
+            <strong class="mock-row-value">2 Personen</strong>
           </div>
         </div>
       </div>
@@ -1315,7 +1338,7 @@
     </div>
   </section>
 
-  <section class="section" id="solution" style="background: var(--bg-soft);">
+  <section class="section" id="solution">
     <div class="container solution-layout">
       <div>
         <div class="section-head" style="margin-bottom: 0;">
@@ -1374,7 +1397,7 @@
     </div>
   </section>
 
-  <section class="section" id="benefits" style="background: var(--bg-soft);">
+  <section class="section" id="benefits">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Vorteile für Partner</span>
@@ -1419,14 +1442,14 @@
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Einordnung</span>
-        <h2>Klassische Buchungsplattformen zeigen alles. <span class="brand-inline"><span class="accent">now</span>a</span> zeigt, was kurzfristig verfügbar ist.</h2>
+        <h2>Klassische Buchungsplattformen zeigen alles. <img src="nova.svg" alt="nowa" class="brand-img"> zeigt, was kurzfristig verfügbar ist.</h2>
         <p>nowa ersetzt keine bestehenden Kanäle. Es ergänzt Website, Booking und Channel Manager um einen klaren Ort für kurzfristig verfügbare Angebote.</p>
       </div>
 
       <div class="comparison-layout">
         <div class="problem-statement">
           <h3>Kein Entweder-oder.</h3>
-          <p><span class="brand-inline brand-inverse"><span class="accent">now</span>a</span> ergänzt bestehende Kanäle um einen klaren Fokus auf kurzfristige Buchungschancen.</p>
+          <p><img src="nova.svg" alt="nowa" class="brand-img"> ergänzt bestehende Kanäle um einen klaren Fokus auf kurzfristige Buchungschancen.</p>
         </div>
         <div class="comparison-panel">
           <div class="comparison-row">
@@ -1435,7 +1458,7 @@
               <p>zeigen, was ein Betrieb grundsätzlich anbietet.</p>
             </div>
             <div class="comparison-side">
-              <strong><span class="brand-inline"><span class="accent">now</span>a</span></strong>
+              <strong><img src="nova.svg" alt="nowa" class="brand-img"></strong>
               <p>zeigt, was gerade oder in Kürze verfügbar ist.</p>
             </div>
           </div>
@@ -1445,7 +1468,7 @@
               <p>sind für allgemeine Suche und langfristige Planung gemacht.</p>
             </div>
             <div class="comparison-side">
-              <strong><span class="brand-inline"><span class="accent">now</span>a</span></strong>
+              <strong><img src="nova.svg" alt="nowa" class="brand-img"></strong>
               <p>ist für spontane Entscheidungen, freie Kapazitäten und kurzfristige Angebote gedacht.</p>
             </div>
           </div>
@@ -1455,7 +1478,7 @@
               <p>Website, Booking und Channel Manager bleiben bestehen.</p>
             </div>
             <div class="comparison-side">
-              <strong>Rolle von <span class="brand-inline"><span class="accent">now</span>a</span></strong>
+              <strong>Rolle von <img src="nova.svg" alt="nowa" class="brand-img"></strong>
               <p>Ein zusätzlicher Kanal für Angebote, die im richtigen Moment sichtbar werden sollen.</p>
             </div>
           </div>
@@ -1464,7 +1487,7 @@
     </div>
   </section>
 
-  <section class="section" id="trust" style="background: var(--bg-soft);">
+  <section class="section" id="trust">
     <div class="container closing-layout">
       <div class="section-head" style="margin-bottom: 0;">
         <span class="eyebrow">Vertrauen und Seriosität</span>
@@ -1507,11 +1530,11 @@
 
       <div class="faq-wrap">
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false"><span class="faq-label">Was ist <span class="brand-inline"><span class="accent">now</span>a</span></span><span class="faq-icon">+</span></button>
-          <div class="faq-body"><span class="brand-inline"><span class="accent">now</span>a</span> ist eine Plattform für kurzfristig verfügbare Angebote. Betriebe können freie Kapazitäten, verfügbare Zeitfenster, Packages, Aktivitäten oder kurzfristige Aktionen sichtbar machen und Gästen einen einfachen Weg zur Anfrage oder Buchung bieten.</div>
+          <button class="faq-btn" aria-expanded="false"><span class="faq-label">Was ist <img src="nova.svg" alt="nowa" class="brand-img"></span><span class="faq-icon">+</span></button>
+          <div class="faq-body"><img src="nova.svg" alt="nowa" class="brand-img"> ist eine Plattform für kurzfristig verfügbare Angebote. Betriebe können freie Kapazitäten, verfügbare Zeitfenster, Packages, Aktivitäten oder kurzfristige Aktionen sichtbar machen und Gästen einen einfachen Weg zur Anfrage oder Buchung bieten.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false"><span class="faq-label">Für welche Betriebe ist <span class="brand-inline"><span class="accent">now</span>a</span> geeignet</span><span class="faq-icon">+</span></button>
+          <button class="faq-btn" aria-expanded="false"><span class="faq-label">Für welche Betriebe ist <img src="nova.svg" alt="nowa" class="brand-img"> geeignet</span><span class="faq-icon">+</span></button>
           <div class="faq-body">nowa eignet sich für Betriebe, die Angebote oder Termine haben, die vorab gebucht werden können. Zum Start liegt der Fokus auf touristischen Betrieben wie Hotels, Pensionen, Apartments, Spa- und Freizeitangeboten. Langfristig ist nowa auch für weitere Branchen mit buchbaren Zeitfenstern oder Leistungen interessant.</div>
         </div>
         <div class="faq-item">
@@ -1524,29 +1547,29 @@
         </div>
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false"><span class="faq-label">Ist Direktbuchung Pflicht</span><span class="faq-icon">+</span></button>
-          <div class="faq-body">Nein. Je nach Entwicklungsstand kann <span class="brand-inline"><span class="accent">now</span>a</span> mit Anfrage, Reservierung oder später Direktbuchung funktionieren.</div>
+          <div class="faq-body">Nein. Je nach Entwicklungsstand kann <img src="nova.svg" alt="nowa" class="brand-img"> mit Anfrage, Reservierung oder später Direktbuchung funktionieren.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false"><span class="faq-label">Was kostet <span class="brand-inline"><span class="accent">now</span>a</span></span><span class="faq-icon">+</span></button>
-          <div class="faq-body">In der Startphase können ausgewählte Partnerbetriebe <span class="brand-inline"><span class="accent">now</span>a</span> testen. Die finalen Konditionen werden transparent kommuniziert.</div>
+          <button class="faq-btn" aria-expanded="false"><span class="faq-label">Was kostet <img src="nova.svg" alt="nowa" class="brand-img"></span><span class="faq-icon">+</span></button>
+          <div class="faq-body">In der Startphase können ausgewählte Partnerbetriebe <img src="nova.svg" alt="nowa" class="brand-img"> testen. Die finalen Konditionen werden transparent kommuniziert.</div>
         </div>
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false"><span class="faq-label">Wie schnell kann ein Angebot online sein</span><span class="faq-icon">+</span></button>
           <div class="faq-body">Die Angebotserstellung soll einfach und schnell funktionieren. Ziel ist, kurzfristige Verfügbarkeiten in wenigen Minuten sichtbar zu machen.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false"><span class="faq-label">Ersetzt <span class="brand-inline"><span class="accent">now</span>a</span> meine Website oder Booking.com</span><span class="faq-icon">+</span></button>
-          <div class="faq-body">Nein. <span class="brand-inline"><span class="accent">now</span>a</span> ist als zusätzlicher Kanal für kurzfristige Verfügbarkeiten gedacht.</div>
+          <button class="faq-btn" aria-expanded="false"><span class="faq-label">Ersetzt <img src="nova.svg" alt="nowa" class="brand-img"> meine Website oder Booking.com</span><span class="faq-icon">+</span></button>
+          <div class="faq-body">Nein. <img src="nova.svg" alt="nowa" class="brand-img"> ist als zusätzlicher Kanal für kurzfristige Verfügbarkeiten gedacht.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="apply" style="background: var(--bg-soft);">
+  <section class="section" id="apply">
     <div class="container form-layout">
       <div class="closing-panel">
         <h2>Machen Sie kurzfristige Verfügbarkeiten sichtbar, bevor sie ungenutzt bleiben.</h2>
-        <p>Starten Sie mit <span class="brand-inline brand-inverse"><span class="accent">now</span>a</span> und testen Sie einen einfachen Kanal für Angebote, die kurzfristig verfügbar sind und spontan gebucht werden können.</p>
+        <p>Starten Sie mit <img src="nova.svg" alt="nowa" class="brand-img"> und testen Sie einen einfachen Kanal für Angebote, die kurzfristig verfügbar sind und spontan gebucht werden können.</p>
         <div class="mini-points">
           <div class="mini-point"><span class="trust-dot"></span><span>Für Aufenthalte, Spa-Zeiten, Packages, Erlebnisse und Aktivitäten</span></div>
           <div class="mini-point"><span class="trust-dot"></span><span>Hochwertiger Auftritt statt klassische Rabattplattform</span></div>
@@ -1639,8 +1662,8 @@
   </footer>
 
   <script>
-    const brand = '<span class="brand-inline"><span class="accent">now</span>a</span>';
-    const brandInverse = '<span class="brand-inline brand-inverse"><span class="accent">now</span>a</span>';
+    const brand = '<img src="nova.svg" alt="nowa" class="brand-img">';
+    const brandInverse = '<img src="nova.svg" alt="nowa" class="brand-img">';
 
     const translations = {
       de: {
@@ -1661,10 +1684,12 @@
           [".nav-links a[href='#faq'], .mobile-menu > a[href='#faq']", "text", "FAQ"],
           [".nav-actions .btn-primary, .mobile-menu > .btn-primary", "text", "Betrieb vormerken"],
           ["#hero", "aria-label", "Hero"],
-          [".hero-media", "alt", "Hochwertiges Hotelzimmer"],
           [".hero-copy h1", "html", "<span>Mehr Buchungen</span><span>aus freien Kapazitäten.</span>"],
           [".hero-copy p", "html", "Mit nowa werden kurzfristig verfügbare Angebote genau dann sichtbar, wenn sie gebucht werden können. Von Aufenthalten und Spa-Zeiten bis zu Packages, Erlebnissen und Aktivitäten. Einfach, schnell und flexibel steuerbar."],
           [".hero-actions .btn-primary", "text", "Kostenlos als Partner starten"],
+          ["#mockup-showcase-eyebrow", "text", "Beispielangebot"],
+          ["#mockup-showcase-h2", "text", "So sieht ein nowa-Angebot aus."],
+          ["#mockup-showcase-p", "text", "Betriebe stellen kurzfristige Angebote in wenigen Minuten ein — mit Preis, Zeitraum und Bildern. Gäste sehen genau, was verfügbar ist und können direkt buchen."],
           ["#mockup", "aria-label", "Beispielangebot"],
           [".mock-image img", "alt", "Zimmeransicht eines Hotels"],
           [".mock-badge", "text", "heute verfügbar"],
@@ -1816,10 +1841,12 @@
           [".nav-links a[href='#faq'], .mobile-menu > a[href='#faq']", "text", "FAQ"],
           [".nav-actions .btn-primary, .mobile-menu > .btn-primary", "text", "Registra la struttura"],
           ["#hero", "aria-label", "Hero"],
-          [".hero-media", "alt", "Camera d'hotel di alta qualita"],
           [".hero-copy h1", "html", "<span>Più prenotazioni</span><span>dalle capacità libere.</span>"],
           [".hero-copy p", "html", `Con ${brandInverse}, strutture turistiche rendono visibili offerte disponibili a breve termine - da soggiorni e trattamenti spa fino a pacchetti, esperienze e attività. Semplice, veloce e flessibile.`],
           [".hero-actions .btn-primary", "text", "Inizia gratis come partner"],
+          ["#mockup-showcase-eyebrow", "text", "Offerta di esempio"],
+          ["#mockup-showcase-h2", "text", "Così appare un'offerta nowa."],
+          ["#mockup-showcase-p", "text", "Le strutture inseriscono offerte a breve termine in pochi minuti — con prezzo, periodo e immagini. Gli ospiti vedono esattamente cosa è disponibile e possono prenotare direttamente."],
           ["#mockup", "aria-label", "Offerta di esempio"],
           [".mock-image img", "alt", "Vista di una camera d'hotel"],
           [".mock-badge", "text", "disponibile oggi"],
@@ -1830,12 +1857,6 @@
           [".mock-row-primary .mock-row-value", "text", "129 EUR"],
           [".mock-row-secondary .mock-row-label", "text", "Camera o pacchetto spa"],
           [".mock-row-secondary .mock-row-value", "text", "2 persone"],
-          [".hero-aside .eyebrow", "html", `Perche ${brandInverse}`],
-          [".hero-aside h3", "text", "Non un portale sconti. Un canale chiaro per disponibilita immediate."],
-          [".hero-aside p", "html", `${brandInverse} e focalizzata sulle disponibilita a breve termine e nasce dai bisogni reali delle strutture turistiche.`],
-          [".hero-aside .trust-item:nth-child(1) span:last-child", "text", "Prezzo, periodo e quantita restano sotto il controllo della struttura."],
-          [".hero-aside .trust-item:nth-child(2) span:last-child", "text", "Nessuna campagna complicata per azioni spontanee."],
-          [".hero-aside .trust-item:nth-child(3) span:last-child", "text", "Sviluppata guardando ai bisogni reali delle strutture turistiche altoatesine."],
           ["#problem .section-head .eyebrow", "text", "Il problema"],
           ["#problem .section-head h2", "text", "Ci sono offerte libere. Ci sono ospiti spontanei. Manca solo il punto d'incontro."],
           ["#problem .section-head p", "text", "Molte persone decidono all'ultimo momento cosa fare. Uscire a cena stasera. Andare alla spa domani. Prenotare un'attività per il weekend. Se è disponibile l'offerta giusta, da un'idea spontanea può nascere rapidamente una prenotazione. Per le strutture, questo potenziale spesso resta inutilizzato. Attività libere, finestre temporali aperte, pacchetti disponibili o offerte a breve termine non raggiungono sempre le persone che in quel momento cercano un'opportunità spontanea."],
@@ -1971,10 +1992,12 @@
           [".nav-links a[href='#faq'], .mobile-menu > a[href='#faq']", "text", "FAQ"],
           [".nav-actions .btn-primary, .mobile-menu > .btn-primary", "text", "Register your business"],
           ["#hero", "aria-label", "Hero"],
-          [".hero-media", "alt", "Premium hotel room"],
           [".hero-copy h1", "html", "<span>More bookings</span><span>from free capacity.</span>"],
           [".hero-copy p", "html", `With ${brandInverse}, tourism businesses make short-notice offers visible - from stays and spa slots to packages, experiences and activities. Simple, fast and flexible.`],
           [".hero-actions .btn-primary", "text", "Start as a partner for free"],
+          ["#mockup-showcase-eyebrow", "text", "Example offer"],
+          ["#mockup-showcase-h2", "text", "This is what a nowa offer looks like."],
+          ["#mockup-showcase-p", "text", "Businesses create short-notice offers in just a few minutes — with price, time slot and images. Guests see exactly what's available and can book directly."],
           ["#mockup", "aria-label", "Example offer"],
           [".mock-image img", "alt", "View of a hotel room"],
           [".mock-badge", "text", "available today"],
@@ -1985,12 +2008,6 @@
           [".mock-row-primary .mock-row-value", "text", "129 EUR"],
           [".mock-row-secondary .mock-row-label", "text", "Room or spa package"],
           [".mock-row-secondary .mock-row-value", "text", "2 persons"],
-          [".hero-aside .eyebrow", "html", `Why ${brandInverse}`],
-          [".hero-aside h3", "text", "Not a discount portal. A clear channel for short-notice availability."],
-          [".hero-aside p", "html", `${brandInverse} is focused on short-notice availability and built around real needs of tourism businesses.`],
-          [".hero-aside .trust-item:nth-child(1) span:last-child", "text", "Price, period and quantity stay with the business."],
-          [".hero-aside .trust-item:nth-child(2) span:last-child", "text", "No complicated campaigns for spontaneous offers."],
-          [".hero-aside .trust-item:nth-child(3) span:last-child", "text", "Built around real day-to-day needs of tourism businesses in South Tyrol."],
           ["#problem .section-head .eyebrow", "text", "The problem"],
           ["#problem .section-head h2", "text", "Offers exist. Spontaneous guests too. What's missing is the meeting point."],
           ["#problem .section-head p", "text", "Many people decide spontaneously what to do. Go out for dinner tonight. Visit a spa tomorrow. Book an activity for the weekend. If the right offer is available, a spontaneous idea can quickly turn into a booking. For businesses, this potential often goes untapped. Free activities, open time slots, available packages or short-notice offers don't always reach people currently looking for a spontaneous option."],

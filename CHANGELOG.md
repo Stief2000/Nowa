@@ -2,6 +2,51 @@
 
 This changelog tracks the shared progress of the nowa workspace.
 
+## 2026-08-05
+
+### Landing Page — Vollständiges Redesign (helles Inspiration-Design)
+
+**Navigation**
+* Floating Pill-Nav: `site-nav` transparent, `nav-inner` als weißer Pill mit `border-radius: 100px` und leichtem Schatten
+* Nav-Quicklinks 10 % größer (15.4 px) und farblich kräftiger (`#3a3531`)
+
+**Hero**
+* Hintergrundbild (`hero-media`), Gradient-Overlay (`hero-overlay`) und Trust-Aside (`hero-aside`) entfernt
+* Hero jetzt hell, zentriert, orange `h1`-Headline; kein 2-Spalten-Layout mehr
+
+**Bild-Grid**
+* Neuer `hero-gallery`-Block direkt unterhalb des Hero mit 4 Fotos (`stack-tall.jpeg`, `stack-top.jpeg`, `stack-bottom.jpeg`, `mockup-new.jpeg`) als 4-spaltiges Grid (mobil 2×2)
+
+**Mock Card — eigener Abschnitt**
+* Mock Card aus dem Hero-Side entfernt und als eigenständige `mockup-showcase`-Section zwischen Gallery und Problem platziert (Text links, Card rechts; mobil gestapelt)
+
+**Hintergrund**
+* Einheitlicher Body-Gradient (`radial-gradient` + `linear-gradient 160deg`) zieht durch die gesamte Seite
+* Alle `style="background: var(--bg-soft);"` auf Sections entfernt — kein Farbwechsel zwischen Sections mehr
+
+**Karten & Boxen**
+* `problem-statement` und `closing-panel`: dunkel-Gradient → weißer Card-Stil (`surface-strong`, `border: var(--line)`)
+* Zeilenabstand (`line-height: 1.08`) in Box-Überschriften gesetzt (war zu viel durch `body line-height: 1.55`)
+
+**Layouts**
+* `#apply` (Closing + Formular): `1fr 1fr` mit `align-items: stretch` — beide Boxen gleich groß
+* FAQ: Heading jetzt zentriert über der Box (Flexbox statt 2-Spalten-Grid)
+* `problem-layout` und `comparison-layout`: `align-items: center` für vertikale Zentrierung
+
+**Logo & Brand**
+* Logo Nav: 193 px → 105 px; Footer: 211 px → 115 px (mehrere Iterationen: −22 %, dann nochmal −30 %)
+* Alle `brand-inline`-Spans durch `<img src="nova.svg" class="brand-img">` ersetzt (skaliert auf `height: 0.62em`)
+* JS-Konstanten `brand` und `brandInverse` ebenfalls auf SVG-Img umgestellt
+
+**Typografie & Farbe**
+* Body-Fontgröße: 16 px → 17.6 px (+10 %)
+* `--muted` von `#5a5550` auf `#3a3531` (kräftiger, besser lesbar)
+
+**Übersetzungen**
+* `hero-media` alt-Einträge (DE/IT/EN) entfernt
+* `hero-aside`-Einträge (DE/IT/EN) entfernt
+* Neue `mockup-showcase`-Section-Head-Einträge (Eyebrow, h2, p) für DE/IT/EN hinzugefügt
+
 ## 2026-08-04
 
 ### Landing Page — Slogan & Beispielangebot
