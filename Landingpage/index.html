@@ -101,6 +101,7 @@
       position: sticky;
       top: 0;
       z-index: 30;
+      isolation: isolate;
       padding: 14px 20px;
       background: transparent;
     }
@@ -308,7 +309,16 @@
 
     .mobile-menu {
       display: none;
-      padding: 0 0 18px;
+      position: absolute;
+      top: calc(100% - 6px);
+      left: 20px;
+      right: 20px;
+      background: var(--surface-strong);
+      border: 1px solid rgba(27, 24, 22, 0.08);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(27, 24, 22, 0.12);
+      padding: 12px 20px 20px;
+      z-index: 50;
     }
 
     .mobile-menu.open {
@@ -1229,7 +1239,13 @@
             <button type="button" data-lang="en" aria-pressed="false">EN</button>
           </div>
           <a href="#apply" class="btn-primary">Betrieb vormerken</a>
-          <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">Menü</button>
+          <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+            <svg width="18" height="13" viewBox="0 0 18 13" fill="none" aria-hidden="true">
+              <rect width="18" height="2" rx="1" fill="currentColor"/>
+              <rect y="5.5" width="18" height="2" rx="1" fill="currentColor"/>
+              <rect y="11" width="18" height="2" rx="1" fill="currentColor"/>
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -1355,14 +1371,14 @@
 
       <div class="image-stack">
         <div class="image-card tall">
-          <img src="stack-tall.jpeg" alt="Poolbereich eines Wellnesshotels">
+          <img src="sol-mountains.jpeg" alt="Berglandschaft in Südtirol bei Sonnenaufgang">
         </div>
         <div class="stack-col">
           <div class="image-card">
-            <img src="stack-top.jpeg" alt="Hochwertiger Hotelbereich">
+            <img src="sol-massage.jpeg" alt="Spa-Massage Behandlung">
           </div>
           <div class="image-card">
-            <img src="stack-bottom.jpeg" alt="Ruhiger Spa-Raum">
+            <img src="sol-wine.jpeg" alt="Weinverkostung beim Abendessen">
           </div>
         </div>
       </div>
@@ -1676,7 +1692,6 @@
           [".site-nav", "aria-label", "Hauptnavigation"],
           [".brand", "aria-label", "nowa Startseite"],
           [".nav-actions .language-switcher, .mobile-menu .language-switcher", "aria-label", "Sprache wählen"],
-          [".hamburger", "text", "Menü"],
           [".hamburger", "aria-label", "Menü öffnen"],
           [".nav-links a[href='#problem'], .mobile-menu > a[href='#problem']", "text", "Problem"],
           [".nav-links a[href='#solution'], .mobile-menu > a[href='#solution']", "text", "Lösung"],
@@ -1717,9 +1732,9 @@
           ["#solution .section-head .eyebrow", "text", "SO FUNKTIONIERT NOWA"],
           ["#solution .section-head h2", "text", "Aus Verfügbarkeit wird ein konkreter Buchungsanlass."],
           ["#solution .section-head p", "text", "Ein freier Termin, ein verfügbares Package oder eine kurzfristige Aktion wird auf nowa nicht einfach nur gelistet. Es wird als buchbare Möglichkeit präsentiert, klar begrenzt, attraktiv aufbereitet und im richtigen Moment sichtbar. Betriebe behalten dabei die Kontrolle über Preis, Zeitraum und Verfügbarkeit. Gäste bekommen eine konkrete Idee, was sie spontan unternehmen können."],
-          [".image-card.tall img", "alt", "Poolbereich eines Wellnesshotels"],
-          [".stack-col .image-card:nth-child(1) img", "alt", "Hochwertiger Hotelbereich"],
-          [".stack-col .image-card:nth-child(2) img", "alt", "Ruhiger Spa-Raum"],
+          [".image-card.tall img", "alt", "Berglandschaft in Südtirol bei Sonnenaufgang"],
+          [".stack-col .image-card:nth-child(1) img", "alt", "Spa-Massage Behandlung"],
+          [".stack-col .image-card:nth-child(2) img", "alt", "Weinverkostung beim Abendessen"],
           ["#process .section-head .eyebrow", "text", "Ablauf"],
           ["#process .section-head h2", "text", "In wenigen Minuten von freier Kapazität zu sichtbarem Angebot."],
           ["#process .section-head p", "text", "Mit nowa bringen Betriebe kurzfristige Angebote ohne Umwege online. Sie entscheiden selbst, was sichtbar wird, wie lange es verfügbar ist und wie Gäste darauf reagieren können."],
@@ -1833,7 +1848,6 @@
           [".site-nav", "aria-label", "Navigazione principale"],
           [".brand", "aria-label", "Homepage nowa"],
           [".nav-actions .language-switcher, .mobile-menu .language-switcher", "aria-label", "Scegli lingua"],
-          [".hamburger", "text", "Menu"],
           [".hamburger", "aria-label", "Apri menu"],
           [".nav-links a[href='#problem'], .mobile-menu > a[href='#problem']", "text", "Problema"],
           [".nav-links a[href='#solution'], .mobile-menu > a[href='#solution']", "text", "Soluzione"],
@@ -1868,9 +1882,9 @@
           ["#solution .section-head .eyebrow", "text", "COME FUNZIONA NOWA"],
           ["#solution .section-head h2", "text", "Dalla disponibilità nasce un'occasione concreta di prenotazione."],
           ["#solution .section-head p", "text", "Un appuntamento libero, un pacchetto disponibile o un'azione a breve termine su nowa non viene semplicemente elencato. Viene presentato come un'opportunità prenotabile, chiaramente limitata, curata e visibile nel momento giusto. Le strutture mantengono il controllo su prezzo, periodo e disponibilità. Gli ospiti ricevono un'idea concreta su cosa fare spontaneamente."],
-          [".image-card.tall img", "alt", "Area piscina di un wellness hotel"],
-          [".stack-col .image-card:nth-child(1) img", "alt", "Area hotel di alta qualita"],
-          [".stack-col .image-card:nth-child(2) img", "alt", "Spa tranquilla"],
+          [".image-card.tall img", "alt", "Paesaggio montano in Alto Adige all'alba"],
+          [".stack-col .image-card:nth-child(1) img", "alt", "Trattamento massaggio spa"],
+          [".stack-col .image-card:nth-child(2) img", "alt", "Degustazione di vini a cena"],
           ["#process .section-head .eyebrow", "text", "Come funziona"],
           ["#process .section-head h2", "text", "In pochi minuti dalla capacita libera all'offerta visibile."],
           ["#process .section-head p", "text", "L'idea deve restare semplice: impostare velocemente, diventare visibili, reagire direttamente."],
@@ -1984,7 +1998,6 @@
           [".site-nav", "aria-label", "Main navigation"],
           [".brand", "aria-label", "nowa homepage"],
           [".nav-actions .language-switcher, .mobile-menu .language-switcher", "aria-label", "Choose language"],
-          [".hamburger", "text", "Menu"],
           [".hamburger", "aria-label", "Open menu"],
           [".nav-links a[href='#problem'], .mobile-menu > a[href='#problem']", "text", "Problem"],
           [".nav-links a[href='#solution'], .mobile-menu > a[href='#solution']", "text", "Solution"],
@@ -2019,9 +2032,9 @@
           ["#solution .section-head .eyebrow", "text", "HOW NOWA WORKS"],
           ["#solution .section-head h2", "text", "Availability becomes a concrete booking opportunity."],
           ["#solution .section-head p", "text", "A free slot, an available package or a short-notice promotion is not simply listed on nowa. It is presented as a bookable option — clearly limited, attractively prepared and visible at the right moment. Businesses keep control over price, period and availability. Guests get a concrete idea of what they can do spontaneously."],
-          [".image-card.tall img", "alt", "Pool area of a wellness hotel"],
-          [".stack-col .image-card:nth-child(1) img", "alt", "Premium hotel area"],
-          [".stack-col .image-card:nth-child(2) img", "alt", "Quiet spa room"],
+          [".image-card.tall img", "alt", "Mountain landscape in South Tyrol at sunrise"],
+          [".stack-col .image-card:nth-child(1) img", "alt", "Spa massage treatment"],
+          [".stack-col .image-card:nth-child(2) img", "alt", "Wine tasting at dinner"],
           ["#process .section-head .eyebrow", "text", "How it works"],
           ["#process .section-head h2", "text", "From free capacity to visible offer in a few minutes."],
           ["#process .section-head p", "text", "The idea should stay simple: set up quickly, become visible, respond directly."],
